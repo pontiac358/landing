@@ -1,0 +1,108 @@
+Gerne, hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche, wobei alle MDX-Komponenten-Tags, Codeblöcke und technischen Begriffe beibehalten werden:
+
+Ein **Popover** ist eine aufklappbare Benachrichtigung, die beim Überfahren mit der Maus, beim Klicken auf ein Element oder beim Fokussieren eines Elements mit der Tastatur erscheint.
+
+Es wird verwendet, um Kontext oder zusätzliche Details bereitzustellen, ohne den aktuellen Bildschirm zu verlassen. Ein Popover verbessert die Benutzererfahrung, indem es schnellen Zugriff auf benötigte Informationen ermöglicht, ohne die Hauptoberfläche zu überladen.
+
+## Arten von Popovers
+
+### Informations-Popovers (Info)
+
+Für den Einsatz in alltäglichen Benutzeroberflächen.
+
+![1.png](/static/images/design/Popover/popover-0001.png)
+
+### Spezielle Popovers (Special)
+
+Für den Einsatz in Werbeaktionen.
+
+![2.png](/static/images/design/Popover/popover-0002.png)
+
+### **Ankündigungs-Popovers (Announcement)**
+
+Für Ankündigungen und Benachrichtigungen, die hervorgehoben werden sollen, aber nicht zu aufdringlich sind.
+
+![3.png](/static/images/design/Popover/popover-0003.png)
+
+## Parameter
+
+Die unten beschriebenen Parameter können für alle Arten von Popovers (Informations-, Spezial- und Ankündigungs-Popovers) angepasst werden:
+
+*   Größen
+*   Inhaltstyp
+*   Positionierung
+*   Schaltfläche "Schließen"
+*   Öffnungs- und Schließmethode
+*   Timing
+
+### **Größen**
+
+Die Größen der Komponente unterscheiden sich in Schriftgrad und Abständen zu den Rändern. Die Breite und Höhe der Komponente passen sich dabei an den Inhalt an.
+
+<div className="row">
+   <div className="col-12 col-md-6">
+      **S** – Schriftgröße 13 px, seitliche Abstände 16 px:
+
+      ![4.png](/static/images/design/Popover/popover-0004.png)
+   </div>
+   <div className="col-12 col-md-6">
+      **L** – Schriftgröße 15 px, seitliche Abstände 24 px:
+
+      ![5.png](/static/images/design/Popover/popover-0005.png)
+   </div>
+</div>
+
+### Inhaltstyp
+
+Die Komponente unterstützt die folgenden Elemente:
+
+1.  Überschrift.
+2.  Beschreibung.
+3.  Aktionsschaltflächen (es können eine oder zwei Schaltflächen verwendet und ihre Reihenfolge geändert werden).
+4.  Schließen-Symbol.
+5.  Pin (Schwanz) – ein zusätzlicher Indikator für die Anbindung an ein UI-Element. Hilft in Fällen, in denen viele Elemente nebeneinander liegen und die Aufmerksamkeit des Benutzers auf ein bestimmtes Element gelenkt werden muss.
+
+![6.png](/static/images/design/Popover/popover-0006.png)
+
+### Positionierung
+
+Ein Popover kann je nach Position in der Benutzeroberfläche auf verschiedenen Seiten eines Elements erscheinen. Wenn ein Pin verwendet wird, zeigt dieser zur Mitte des UI-Elements.
+
+### Schaltfläche "Schließen"
+
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche, wobei darauf geachtet wurde, dass sie natürlich klingt und alle technischen Begriffe und MDX-Komponenten beibehalten werden:
+
+Eine Schließen-Schaltfläche ist erforderlich, wenn der Popover durch einen Klick und nicht durch Hover oder Fokus auf ein UI-Element aufgerufen wird, als Mittel zum Schließen des Tooltips.
+
+![7.png](/static/images/design/Popover/popover-0007.png)
+
+### Öffnungs- und Schließmethoden
+
+- **Beim Hovern über ein Element**
+  Die Komponente verschwindet, wenn der Mauszeiger wegbewegt wird.
+- **Beim Klicken auf ein Element**
+  Um die Komponente zu schließen, muss auf das Kreuz-Symbol geklickt werden.
+- **Beim Fokussieren eines Elements mit der Tastatur**
+  Der Popover verschwindet, wenn das Element den Fokus verliert.
+- **Automatisch ohne Benutzeraktion**
+  Wenn der Benutzer die Seite aufruft, ist der Popover bereits geöffnet. Geeignet für Werbe- und Lernhinweise. Zum Schließen muss auf das Kreuz-Symbol geklickt werden.
+- **Als Reaktion auf bestimmte Aktionen in der Benutzeroberfläche**
+  Zum Beispiel während eines Onboardings, wenn eine Reihe von Hinweisen vorgesehen ist.
+
+### Timing
+
+- **Ohne Verzögerung beim Erscheinen und Verschwinden**
+  Der Popover öffnet und schließt sich sofort. Geeignet für einfache, alltägliche Hinweise.
+- **Mit Verzögerung beim Erscheinen und Verschwinden**
+  Eine Verzögerung beim Erscheinen ist nützlich, wenn die Seite viele Elemente enthält, die Hinweise auslösen. Sie hilft, versehentliches Hovern über Elemente und das Erscheinen unerwünschter Hinweise zu vermeiden. Eine Verzögerung beim Schließen ist erforderlich, wenn der Hinweis Schaltflächen enthält, damit der Benutzer Zeit hat, den Mauszeiger auf die Schaltfläche zu bewegen, bevor der Hinweis geschlossen wird.
+- **Mit Verzögerung beim Verschwinden**
+  Wenn der Popover Schaltflächen enthält, aber keine Verzögerung beim Erscheinen erforderlich ist, verwenden Sie diese Option.
+
+## Sonderfälle
+
+In den meisten Fällen ist ein Popover geeignet, um zusätzliche Informationen bereitzustellen. Es gibt jedoch Fälle, in denen andere Komponenten bevorzugt werden sollten.
+
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche, wobei darauf geachtet wurde, dass sie natürlich klingt und technische Begriffe sowie MDX-Komponenten unverändert bleiben:
+
+- Wenn Sie eine komplexe Hilfestellung und Elemente benötigen, die innerhalb der Komponente `Popover` unterstützt werden, und Ihnen dies nicht ausreicht, können Sie die Hilfestellung auf Basis der Komponente `[Popup](/design/guides/popup)` gestalten.
+- Wenn Sie dem Benutzer eine Erklärung oder zusätzliche Informationen zu einer Aktion geben müssen, die nach dem Klicken auf eine Schaltfläche ausgeführt wird, verwenden Sie dafür nicht `Popover`, sondern `[Action Tooltip](/design/guides/action-tooltip)` oder `[Tooltip](/design/guides/tooltip)`.

@@ -1,0 +1,104 @@
+O Popover é uma dica que aparece ao passar o mouse ou clicar em um elemento, ou ao focar em um elemento usando o teclado.
+
+É usado para fornecer contexto ou detalhes adicionais sem sair da tela atual. O Popover melhora a experiência do usuário, fornecendo acesso rápido às informações necessárias sem sobrecarregar a interface principal.
+
+## Tipos de Popover
+
+### Informativos (Info)
+
+Para uso em interfaces cotidianas.
+
+![1.png](/static/images/design/Popover/popover-0001.png)
+
+### Especiais (Special)
+
+Para uso em promoções.
+
+![2.png](/static/images/design/Popover/popover-0002.png)
+
+### **Anúncios (Announcement)**
+
+Para anúncios e notificações que são importantes destacar, mas não de forma muito ativa.
+
+![3.png](/static/images/design/Popover/popover-0003.png)
+
+## Parâmetros
+
+Os parâmetros descritos abaixo podem ser configurados para todos os tipos de Popover (informativos, especiais e anúncios):
+
+- tamanhos;
+- tipo de conteúdo;
+- posicionamento;
+- botão "Fechar";
+- método de abertura e fechamento;
+- tempo.
+
+### **Tamanhos**
+
+Os tamanhos do componente diferem em corpo de fonte e espaçamento das bordas. A largura e a altura do componente se ajustam ao conteúdo.
+
+<div className="row">
+   <div className="col-12 col-md-6">
+      **S** – tamanho da fonte 13 px, espaçamento lateral 16 px:
+
+      ![4.png](/static/images/design/Popover/popover-0004.png)
+   </div>
+   <div className="col-12 col-md-6">
+      **L** – tamanho da fonte 15 px, espaçamento lateral 24 px:
+
+      ![5.png](/static/images/design/Popover/popover-0005.png)
+   </div>
+</div>
+
+### Tipo de Conteúdo
+
+O componente suporta os seguintes elementos:
+
+1. Título.
+2. Descrição.
+3. Botões de ação (você pode usar um ou dois botões, além de trocar suas posições).
+4. Ícone de fechar.
+5. Pino (cauda) – um indicador adicional de ligação a um elemento da interface. Ajuda em casos onde há muitos elementos próximos e é necessário focar a atenção do usuário em um específico.
+
+![6.png](/static/images/design/Popover/popover-0006.png)
+
+### Posicionamento
+
+O Popover pode aparecer em diferentes lados do elemento, dependendo de sua localização na interface. Se um pino for usado, ele será direcionado ao centro do elemento da interface.
+
+### Botão "Fechar"
+
+A close button is needed if the Popover is triggered by a click, not by hovering or focusing on a UI element, as a way to dismiss the tooltip.
+
+![7.png](/static/images/design/Popover/popover-0007.png)
+
+### Triggering and Dismissing
+
+- **On hover**
+  The component disappears when the cursor moves away.
+- **On click**
+  To dismiss the component, click the close icon (cross).
+- **On keyboard focus**
+  The Popover disappears when the element loses focus.
+- **Automatically without user interaction**
+  The Popover opens when the user lands on the page. Suitable for promotional and instructional tooltips. Click the close icon (cross) to dismiss.
+- **In response to UI actions**
+  For example, during onboarding, when a series of tooltips is planned.
+
+### Timing
+
+- **No delay on appearance and disappearance**
+  The Popover opens and closes instantly. Suitable for simple, everyday tooltips.
+- **With delay on appearance and disappearance**
+  A delay on appearance is useful if the page has many elements that trigger tooltips. It helps prevent accidental hovers and unwanted tooltip appearances. A delay on disappearance is necessary if the tooltip contains buttons, allowing the user time to move their cursor to the button before the tooltip closes.
+- **With delay on disappearance**
+  If the Popover contains buttons but doesn't require a delay on appearance, use this option.
+
+## Special Cases
+
+In most cases, a Popover is suitable for providing additional information. However, there are scenarios where other components should be preferred.
+
+Aqui está a tradução do arquivo fonte do guia de design para português, mantendo a naturalidade e os elementos técnicos:
+
+- Se você tiver uma dica complexa e os elementos suportados dentro do componente `Popover` não forem suficientes, você pode projetar a dica com base no componente [Popup](/design/guides/popup).
+- Se você precisar fornecer ao usuário uma explicação ou informação adicional sobre uma ação que ocorrerá após clicar em um botão, use para isso não o `Popover`, mas sim o [Action Tooltip](/design/guides/action-tooltip) ou o [Tooltip](/design/guides/tooltip).

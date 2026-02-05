@@ -1,103 +1,106 @@
-A popover is a tooltip that appears when hovering over or clicking on an element, or when focusing on an element using the keyboard.
+Here's the translated design guide source file:
 
-It is used to provide context or additional details without leaving the current screen. Popover enhances the user experience by providing quick access to the required information without cluttering the main interface.
+Popover is a tooltip that appears on hover, click, or keyboard focus on an element.
 
-## Types of popover
+It's used to provide context or additional details without navigating away from the current screen. Popover enhances the user experience by offering quick access to needed information without cluttering the main interface.
 
-### Info
+## Types of Popover
 
-For use in regular interfaces
+### Informational (Info)
+
+For use in everyday interfaces.
 
 ![1.png](/static/images/design/Popover/popover-0001.png)
 
-### Special
+### Special (Special)
 
-For use in promos
+For use in promotional activities.
 
 ![2.png](/static/images/design/Popover/popover-0002.png)
 
-### **Announcement**
+### **Announcement (Announcement)**
 
-Use for moderate highlight in announcements and notifications
+For announcements and notifications that are important to highlight, but not overly prominent.
 
 ![3.png](/static/images/design/Popover/popover-0003.png)
 
 ## Parameters
 
-The below parameters can be configured for all types of Popover: Info, Special, and Announcement:
+The parameters described below can be configured for all types of Popovers (informational, special, and announcement):
 
-- Sizes
-- Content type
-- Positioning
-- "Close" button
-- Opening and closing method
-- Timing
+-   sizes;
+-   content type;
+-   positioning;
+-   "Close" button;
+-   opening and closing methods;
+-   timing.
 
 ### **Sizes**
 
-The component sizes vary in font size and margins from the edges. The width and height of the component adapt to fit the content.
-
+The component's sizes differ in font size and padding from the edges. The width and height of the component adapt to the content.
 
 <div className="row">
    <div className="col-12 col-md-6">
-      **S** has the font size of 13 px and side margins of 16 px
+      **S** – font size 13 px, side padding 16 px:
 
       ![4.png](/static/images/design/Popover/popover-0004.png)
    </div>
    <div className="col-12 col-md-6">
-      **L** has the font size of 15 px and side margins of 24 px
+      **L** – font size 15 px, side padding 24 px:
 
       ![5.png](/static/images/design/Popover/popover-0005.png)
    </div>
 </div>
 
-### Content type
+### Content Type
 
 The component supports the following elements:
 
-1. header
-2. description
-3. Action buttons (you can use one or two buttons, and swap buttons)
-4. Close icon
-5. Pin (tail) is an additional indicator of a link to the interface element. It helps when there are many elements around, and you need to focus user attention on a specific one
+1.  Title.
+2.  Description.
+3.  Action buttons (you can use one or two buttons, and also swap their positions).
+4.  Close icon.
+5.  Pin (tail) – an additional indicator for attachment to an interface element. It helps in cases where there are many elements nearby and you need to focus the user's attention on a specific one.
 
 ![6.png](/static/images/design/Popover/popover-0006.png)
 
 ### Positioning
 
-The popover can appear on different sides of the element depending on its position in the interface. If you use the pin, it will be directed towards the center of the interface element.
+Popover can appear on different sides of an element depending on its placement in the interface. If a pin is used, it will point towards the center of the interface element.
 
-### "Close" button
+### "Close" Button
 
-Use the "Close" button to close the popover if you trigger it by a click rather than hover over or focus on the interface element
+A close button is needed if the Popover is triggered by a click, not by hovering or focusing on an interface element, as a way to dismiss the tooltip.
 
 ![7.png](/static/images/design/Popover/popover-0007.png)
 
-### Method of opening and closing
+### Trigger and Dismissal Methods
 
-- **On element hover**
-   In this case, the component disappears when the user hovers out of the element.
-- **On element click**
-   Use a cross icon to close the component in this case.
-- **On element focus using the keyboard**
-   The popover disappears when the element loses focus.
-- **Can open spontaneously**
-   When the user lands on the page, the Popover will already be open. Suitable for popovers in ads and tutorials. Use the cross icon to close the component.
-- **In response to any actions in the interface**
-   For example, in onboarding, when you provide a series of popovers.
+- **On hover**
+  The component disappears when the cursor moves away.
+- **On click**
+  To close the component, click the close icon (X).
+- **On keyboard focus**
+  The Popover disappears when the element loses focus.
+- **Automatically without user interaction**
+  The Popover will be open when the user lands on the page. Suitable for promotional and tutorial tooltips. Click the close icon (X) to dismiss.
+- **In response to interface actions**
+  For example, during onboarding, when a series of tooltips is planned.
 
 ### Timing
 
-- **Without delays in appearance and disappearance**
-   The popover will open and close instantly. Suitable for simple regular popovers.
-- **With a delay in appearance and disappearance**
-   Use a delay in appearance if your page includes many elements that trigger popovers. It helps to avoid accidental hovering over elements and unwanted popovers. Use the closing delay if the tooltip contains buttons. In this case, the user can move the cursor to the button before the tooltip closes.
-- **With a delay in disappearance**
-   Use this option when you do not need to delay appearance, but your popover contains buttons.
+- **No delay in appearance and disappearance**
+  The Popover will open and close instantly. Suitable for simple, everyday tooltips.
+- **With delay in appearance and disappearance**
+  A delay in appearance is useful if the page has many elements that trigger tooltips. It helps prevent accidental hovers and unwanted tooltip appearances. A delay in disappearance is necessary if the tooltip contains buttons, allowing the user time to move their cursor to the button before the tooltip closes.
+- **With delay in disappearance**
+  If the Popover contains buttons but there's no need to delay its appearance, use this option.
 
-## Special cases
+## Special Cases
 
-In most cases, popover is a good choice for providing additional information. However, in certain cases, other components should be preferred.
+In most cases, a Popover is suitable for providing additional information. However, there are scenarios where other components should be preferred.
 
-- If you have a complex tooltip and the number of elements supported within the Popover component is not enough, you can design the tooltip based on the [Popup](/design/guides/popup) component.
-- If you need to provide the user with an explanation or additional information about the action on button click, avoid Popover. Use [Action Tooltip](/design/guides/action-tooltip) or [Tooltip](/design/guides/tooltip) instead.
+Here's the translation of your design guide source file into English, aiming for natural phrasing for developers and keeping all technical terms and MDX components intact:
+
+- If you have a complex tooltip and the elements supported within the `Popover` component are insufficient for your needs, you can design your tooltip based on the `Popup` component: [Popup](/design/guides/popup).
+- If you need to provide the user with an explanation or additional information about an action that will occur after clicking a button, use the [Action Tooltip](/design/guides/action-tooltip) or [Tooltip](/design/guides/tooltip) for this purpose, rather than `Popover`.
