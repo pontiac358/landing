@@ -1,0 +1,85 @@
+Avec `Alert`, vous pouvez attirer l'attention de l'utilisateur et lui communiquer des informations importantes sans interrompre son travail.
+
+![Example](/static/images/design/Alert/Example.png)
+
+## Quand l'utiliser
+
+Principalement, `Alert` est conçu pour informer sur l'état du système, signaler des erreurs et des avertissements, et guider l'utilisateur vers leur résolution rapide à l'aide d'instructions, de liens ou de commandes.
+
+## Types
+
+Selon la situation, différents types d'`Alert` sont présentés à l'utilisateur :
+
+- `Danger` est utilisé pour informer l'utilisateur qu'il est actuellement impossible de poursuivre le travail selon le scénario principal (par exemple, absence d'accès à un objet) ou que les actions ultérieures de l'utilisateur pourraient entraîner une perte irréversible de données ou de ressources.
+- `Warning` est utilisé pour informer l'utilisateur que le travail ultérieur pourrait être rendu difficile ou qu'un scénario de travail secondaire pourrait être indisponible.
+- `Success` est utilisé pour informer l'utilisateur de l'état ou d'un changement dans le système ayant une connotation positive (par exemple, achèvement réussi d'une opération longue).
+- `Info` est utilisé pour fournir des recommandations sur l'organisation du travail avec le système, qui méritent d'être affichées explicitement, ou pour annoncer des fonctionnalités supplémentaires pour l'utilisateur dans le système.
+- `Normal` est principalement utilisé pour mettre en évidence un fragment de texte, tel qu'une brève aide, un exemple de code, des résultats de calcul, etc.
+
+![Types](/static/images/design/Alert/Types.png)
+
+Il ne faut pas substituer les types simplement par désir d'attirer davantage l'attention de l'utilisateur – par exemple, afficher des informations d'aide importantes dans un `Alert` de type `Warning` ou `Error`.
+
+En plus des instructions, vous pouvez proposer immédiatement une série de commandes dans l'`Alert` afin de réduire les efforts de l'utilisateur pour trouver une solution et agir.
+
+![Warning](/static/images/design/Alert/Warning.png)
+
+## Quand ne pas l'utiliser
+
+Il faut utiliser `Alert` avec parcimonie, car ils attirent l'attention et peuvent distraire de l'exécution du scénario principal, surtout si le type d'`Alert` est mal choisi.
+
+Voici la traduction du fichier source du guide de conception en français :
+
+- Il n'est pas recommandé d'utiliser `Alert` pour afficher une erreur, un avertissement ou une aide liée à un champ spécifique dans un formulaire ou une boîte de dialogue. Dans ce cas, il est préférable d'utiliser l'état `Error` du composant de champ ou d'afficher le message sous forme de texte simple ou de texte avec une icône à côté du champ.
+- Il n'est pas recommandé de placer plusieurs `Alert` de type `Danger` et `Warning` sur la même page (formulaire, boîte de dialogue), car cela rend difficile la détermination de la priorité des messages.
+- Il ne faut pas utiliser `Alert` à mauvais escient, par exemple pour mettre en évidence visuellement certains blocs sur la page : titres, champs dans un formulaire, etc.
+- Il ne faut pas utiliser `Alert` pour confirmer l'exécution d'opérations. Pour cela, utilisez `Dialog`.
+- Il ne faut pas utiliser `Alert` pour afficher le statut d'une opération lancée par l'utilisateur. Pour cela, utilisez `Toaster`.
+
+## Sommaire
+
+La description et l'icône sont obligatoires dans `Alert`. En plus de cela, `Alert` peut éventuellement contenir un titre (`Title`), un bouton de fermeture (`Close`) et jusqu'à trois boutons supplémentaires avec des actions (`Actions`).
+
+### Icône
+
+Par défaut, `Alert` affiche une icône correspondant à son type. Cependant, vous pouvez définir votre propre icône dans le composant tout en laissant la couleur d'arrière-plan inchangée. Pour les `Alert` de type `Normal`, l'icône est facultative et n'est pas affichée par défaut.
+
+![Icon](/static/images/design/Alert/Icon.png)
+
+### Texte
+
+Le texte du titre et de la description doit commencer par une majuscule et être aussi concis que possible. Pour plus d'informations, il est préférable de rediriger l'utilisateur vers une page d'aide distincte ou un site web à l'aide de liens ou d'un bouton tel que « Aide », « Plus d'informations », etc.
+
+Le titre doit formuler une idée concise du message. Le texte du titre ne doit pas faire double emploi avec la description. S'il n'est pas possible de dégager une idée principale et de la transformer en titre, il est préférable de ne laisser qu'une description, sans titre.
+
+Le titre ne doit pas se terminer par un point.
+
+### Boutons
+
+Selon les exigences et les contraintes de conception, des boutons supplémentaires peuvent être affichés à droite du texte (Disposition Horizontale) ou en dessous (Disposition Verticale).
+
+![Button](/static/images/design/Alert/Button1.png)
+
+Voici la traduction du fichier source du guide de conception en français :
+
+L'option avec les boutons placés à droite peut être choisie si le nombre de boutons et leurs noms permettent de dégager suffisamment d'espace pour la description et le titre sans sauts de ligne inutiles. En règle générale, si la largeur d'un `Alert` est inférieure à 500-600 px, il est préférable de choisir la vue verticale.
+
+Les boutons supplémentaires utilisent par défaut le style `Normal`, mais en fonction de la sémantique du message, ils peuvent être de type `Action`, `Contrast-normal` et `Outline` de différents types (`Outline-info`, `Outline-danger`, etc.). Il ne faut pas utiliser trois boutons avec des styles différents. Il ne peut y avoir qu'un seul bouton `Action`, et il faut tenir compte du contexte de la page : y a-t-il déjà d'autres boutons `Action` sur celle-ci.
+
+![Button](/static/images/design/Alert/Button2.png)
+
+L'`Alert` dispose d'un bouton "croix" qui doit être affiché dans les cas où l'utilisateur pourrait vouloir masquer le message, car il le jugera obsolète.
+
+![Button](/static/images/design/Alert/Button3.png)
+
+## Variantes
+
+La largeur d'un `Alert` n'est pas limitée, il peut occuper tout l'espace disponible de la page (formulaire, dialogue) ou avoir une largeur fixe correspondant à la largeur du contenu principal.
+
+Si, selon le design, l'`Alert` doit être affiché au ras des bords de la page (formulaire, dialogue) et occuper toute la largeur (par exemple, un message de mise à jour du navigateur ou sur les conditions de stockage des Cookies sur le site), le conteneur de l'`Alert` peut ne pas avoir d'arrondis.
+
+![Options](/static/images/design/Alert/Options1.png)
+
+Si le design ne nécessite pas d'attirer activement l'attention de l'utilisateur sur l'`Alert`, il est recommandé d'utiliser la variante avec un contour (`Outlined View`), qui a la même sémantique par type que la variante avec remplissage (`Filled View`).
+
+![Options](/static/images/design/Alert/Options2.png)

@@ -1,0 +1,85 @@
+Mit **Alert** können Sie die Aufmerksamkeit des Benutzers erregen und ihm wichtige Informationen mitteilen, ohne seine Arbeit zu unterbrechen.
+
+![Example](/static/images/design/Alert/Example.png)
+
+## Wann verwenden
+
+In erster Linie dient **Alert** dazu, über den Systemstatus zu informieren, Fehler und Warnungen zu melden und den Benutzer durch Anleitungen, Links oder Befehle zur schnellstmöglichen Behebung zu führen.
+
+## Typen
+
+Je nach Situation werden dem Benutzer verschiedene **Alert**-Typen angezeigt:
+
+- **Danger** wird verwendet, um den Benutzer darüber zu informieren, dass die Arbeit im Hauptszenario derzeit nicht fortgesetzt werden kann (z. B. kein Zugriff auf ein Objekt) oder dass weitere Benutzeraktionen zu einem unwiederbringlichen Verlust von Daten oder Ressourcen führen können.
+- **Warning** wird verwendet, um den Benutzer darüber zu informieren, dass die weitere Arbeit erschwert sein könnte oder ein sekundäres Arbeitsszenario nicht verfügbar sein könnte.
+- **Success** wird verwendet, um den Benutzer über einen Status oder eine Änderung im System mit positiver Konnotation zu informieren (z. B. über den erfolgreichen Abschluss einer langwierigen Operation).
+- **Info** wird für Empfehlungen zur Organisation der Arbeit mit dem System verwendet, die explizit angezeigt werden sollten, oder zur Ankündigung zusätzlicher Möglichkeiten für den Benutzer im System.
+- **Normal** wird hauptsächlich verwendet, um einen Textausschnitt hervorzuheben, wie z. B. kurze Hilfe, Codebeispiele, Berechnungsergebnisse usw.
+
+![Types](/static/images/design/Alert/Types.png)
+
+Sie sollten die Typen nicht nur aus dem Wunsch heraus austauschen, die Aufmerksamkeit des Benutzers stärker zu erregen – zum Beispiel, indem Sie wichtige Hilfsinformationen in einem **Alert** vom Typ **Warning** oder **Error** anzeigen.
+
+Neben einer Anleitung können Sie im **Alert** auch eine Reihe von Befehlen anbieten, um den Aufwand für den Benutzer bei der Suche nach Lösungen und Aktionen zu reduzieren.
+
+![Warning](/static/images/design/Alert/Warning.png)
+
+## Wann nicht anwenden
+
+**Alert** sollte sparsam eingesetzt werden, da sie die Aufmerksamkeit auf sich ziehen und vom Hauptszenario ablenken können, insbesondere wenn der falsche **Alert**-Typ gewählt wird.
+
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche, wobei darauf geachtet wurde, dass sie natürlich klingt und alle technischen Elemente beibehalten werden:
+
+- Es wird nicht empfohlen, `Alert` für die Anzeige von Fehlern, Warnungen oder Hilfetexten zu verwenden, die sich auf ein einzelnes Feld in einem Formular oder Dialog beziehen. In solchen Fällen ist es besser, den `Error`-Status der Feldkomponente zu nutzen oder die Nachricht als einfachen Text oder Text mit einem Symbol neben dem Feld anzuzeigen.
+- Es wird nicht empfohlen, mehrere `Alert`-Komponenten vom Typ `Danger` und `Warning` auf derselben Seite (Formular, Dialog) zu platzieren, da dies die Priorisierung von Nachrichten erschwert.
+- `Alert` sollte nicht zweckentfremdet werden, z. B. zur visuellen Hervorhebung von Blöcken auf einer Seite: Überschriften, Felder in einem Formular usw.
+- `Alert` sollte nicht zur Bestätigung von Operationen verwendet werden. Dafür wird `Dialog` verwendet.
+- `Alert` sollte nicht zur Anzeige des Status einer vom Benutzer ausgelösten Operation verwendet werden. Dafür wird `Toaster` verwendet.
+
+## Inhalt
+
+Beschreibung und Symbol sind für `Alert` obligatorisch. Zusätzlich kann `Alert` optional einen Titel (`Title`), eine Schließen-Schaltfläche (`Close`) und bis zu drei zusätzliche Aktionsschaltflächen (`Actions`) enthalten.
+
+### Symbol
+
+Standardmäßig zeigt `Alert` ein Symbol an, das seinem Typ entspricht. Sie können jedoch ein eigenes Symbol definieren, während die Hintergrundfarbe unverändert bleibt. Für `Alert` vom Typ `Normal` ist das Symbol optional und wird standardmäßig nicht angezeigt.
+
+![Icon](/static/images/design/Alert/Icon.png)
+
+### Text
+
+Der Text der Überschrift und der Beschreibung sollte mit einem Großbuchstaben beginnen und so kurz wie möglich sein. Für weitere Informationen ist es am besten, den Benutzer über Links oder Schaltflächen wie "Hilfe", "Informationen", "Mehr erfahren" usw. auf eine separate Hilfeseite oder Website zu verweisen.
+
+Die Überschrift sollte eine kurze These der Nachricht formulieren. Der Text der Überschrift sollte die Beschreibung nicht wiederholen. Wenn es nicht möglich ist, die Hauptthese zu extrahieren und in eine Überschrift zu verwandeln, ist es besser, nur die Beschreibung ohne Überschrift zu belassen.
+
+Die Überschrift sollte am Ende keinen Punkt enthalten.
+
+### Schaltflächen
+
+Je nach Designanforderungen und Einschränkungen können zusätzliche Schaltflächen rechts vom Text (Horizontal Layout) oder darunter (Vertical Layout) angezeigt werden.
+
+![Button](/static/images/design/Alert/Button1.png)
+
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche:
+
+Die Variante mit rechtsbündigen Buttons kann gewählt werden, wenn die Anzahl und Benennung der Buttons ausreichend Platz für die Beschreibung und den Titel ohne überflüssige Zeilenumbrüche bieten. In der Regel ist es besser, die vertikale Ansicht zu wählen, wenn die Breite eines Alerts weniger als 500–600 px beträgt.
+
+Zusätzliche Buttons verwenden standardmäßig den Stil "Normal", können aber je nach Semantik der Nachricht auch die Stile "Action", "Contrast-normal" und "Outline" verschiedener Typen (Outline-info, Outline-danger usw.) annehmen. Es sollten nicht alle drei Buttons mit unterschiedlichen Stilen versehen werden. Es kann nur einen "Action"-Button geben, wobei der Kontext der Seite berücksichtigt werden muss: Gibt es bereits andere "Action"-Buttons auf der Seite?
+
+![Button](/static/images/design/Alert/Button2.png)
+
+Ein Alert verfügt über eine "Schließen"-Schaltfläche (X), die angezeigt werden sollte, wenn der Benutzer die Nachricht ausblenden möchte, da er sie für nicht mehr relevant hält.
+
+![Button](/static/images/design/Alert/Button3.png)
+
+## Varianten
+
+Die Breite eines Alerts ist nicht begrenzt; er kann den gesamten verfügbaren Platz einer Seite (Formular, Dialog) einnehmen oder eine feste Breite entsprechend der Breite des Hauptinhalts haben.
+
+Wenn ein Alert gemäß dem Design direkt an den Rändern der Seite (Formular, Dialog) angezeigt werden und die gesamte Breite einnehmen soll (z. B. eine Meldung über ein Browser-Update oder die Cookie-Richtlinien einer Website), kann der Alert-Container keine abgerundeten Ecken haben.
+
+![Options](/static/images/design/Alert/Options1.png)
+
+Wenn das Design keine aktive Aufmerksamkeit des Benutzers auf den Alert erfordert, wird die Variante mit Umrandung (Outlined View) empfohlen, die die gleiche Semantik wie die Variante mit Füllung (Filled View) hat.
+
+![Options](/static/images/design/Alert/Options2.png)

@@ -1,81 +1,85 @@
-La alerta se utiliza para llamar la atención del usuario y proporcionarle información útil sin interrumpir su flujo de trabajo.
+Con `Alert` puedes captar la atención del usuario e informarle sobre información importante sin interrumpir su trabajo.
 
 ![Example](/static/images/design/Alert/Example.png)
 
 ## Cuándo usar
 
-Está diseñado para actualizar al usuario sobre el estado actual del sistema, informar de errores y advertencias y proporcionar al usuario instrucciones, enlaces o comandos para corregir esos errores lo antes posible.
+Principalmente, `Alert` está diseñado para informar sobre el estado del sistema, notificar errores y advertencias, y guiar al usuario hacia su pronta corrección mediante instrucciones, enlaces o comandos.
 
 ## Tipos
 
-Según la situación, el usuario puede ver uno de los siguientes tipos de alerta (tipo):
+Dependiendo de la situación, al usuario se le muestran diferentes tipos (`Type`) de `Alert`:
 
-- El peligro se usa para notificar al usuario que el escenario subyacente no puede continuar en este momento (por ejemplo, no hay acceso a un objeto) o que otras acciones del usuario pueden provocar la pérdida permanente de datos o recursos.
-- La advertencia se utiliza para informar al usuario de que otras operaciones pueden resultar difíciles o de que un escenario alternativo puede no estar disponible.
-- El éxito se usa para notificar al usuario un estado positivo o cualquier otro cambio positivo en el sistema. Por ejemplo, sobre la finalización exitosa de una operación prolongada.
-- La información se usa para mostrar recomendaciones sobre cómo organizar el trabajo con el sistema (que deben mostrarse de forma explícita) o para anunciar funciones adicionales del sistema.
-- Normal se usa principalmente para resaltar texto, como ayuda breve, código de ejemplo, resultados de cálculos, etc.
+- `Danger` se utiliza para informar al usuario que actualmente no es posible continuar trabajando según el escenario principal (por ejemplo, no hay acceso a un objeto) o que las acciones posteriores del usuario pueden provocar una pérdida irreversible de datos o recursos.
+- `Warning` se utiliza para informar al usuario que el trabajo posterior puede verse dificultado o que un escenario de trabajo secundario puede no estar disponible.
+- `Success` se utiliza para informar al usuario sobre el estado o algún cambio en el sistema que tenga una connotación positiva (por ejemplo, la finalización exitosa de una operación larga).
+- `Info` se utiliza para mostrar recomendaciones sobre cómo organizar el trabajo con el sistema, que deben mostrarse explícitamente, o para anunciar alguna funcionalidad adicional para el usuario en el sistema.
+- `Normal` se utiliza principalmente para resaltar algún fragmento de texto, como una breve ayuda, un ejemplo de código, resultados de cálculos, etc.
 
 ![Types](/static/images/design/Alert/Types.png)
 
-No sustituya los tipos simplemente para llamar la atención del usuario, por ejemplo, mostrando la información de referencia en una alerta por un tipo de advertencia o error.
+No debes sustituir los tipos solo por el deseo de captar más la atención del usuario; por ejemplo, no muestres información de ayuda importante en un `Alert` de tipo `Warning` o `Error`.
 
-Además de las instrucciones, Alert ofrece una serie de comandos para ayudar al usuario a encontrar una solución y tomar medidas.
+Además de las instrucciones, puedes ofrecer inmediatamente una serie de comandos en `Alert` para reducir el esfuerzo del usuario en la búsqueda de soluciones y acciones.
 
 ![Warning](/static/images/design/Alert/Warning.png)
 
-## Cuándo no usar
+## Cuándo no aplicarlo
 
-Debido a su naturaleza disruptiva (especialmente si se selecciona un tipo de alerta incorrecto), las alertas deben usarse con moderación.
+Debes usar `Alert` con moderación, ya que atraen la atención y pueden distraer de la ejecución del escenario principal, especialmente si se elige incorrectamente el tipo de `Alert`.
 
-- No recomendamos usar Alert para mostrar un mensaje de error, advertencia o ayuda asociado a un formulario o campo de diálogo independiente. En esta situación, es mejor usar el estado Error en el componente de campo o mostrar un mensaje de texto sin formato o texto con un icono junto al campo.
-- No recomendamos colocar varias alertas, como las de peligro y advertencia, en la misma página (formulario, cuadro de diálogo), ya que esto dificulta la determinación de la prioridad de los mensajes.
-- No utilices Alert para ningún otro propósito que no sea el previsto, como resaltar visualmente los bloques de la página: encabezados, campos de formulario, etc.
-- No utilice Alert para confirmar que las operaciones se han completado. Para este tipo de tareas, utilice Dialog.
-- No utilice una alerta para mostrar el estado de una operación iniciada por el usuario. Para ello, utilice Toaster.
+Aquí tienes la traducción del archivo fuente de la guía de diseño al español, buscando que suene lo más natural posible:
+
+- No se recomienda usar `Alert` para mostrar un error, advertencia o información relacionada con un campo específico en un formulario o diálogo. En tales casos, es mejor usar el estado `Error` del componente del campo o mostrar el mensaje como texto plano o texto con un icono junto al campo.
+- No se recomienda colocar varios `Alert` de tipo `Danger` y `Warning` en la misma página (formulario, diálogo), ya que esto dificulta la determinación de la prioridad de los mensajes.
+- No se debe usar `Alert` para fines no previstos, como, por ejemplo, para resaltar visualmente ciertos bloques en la página: encabezados, campos en un formulario, etc.
+- No se debe usar `Alert` para confirmar la ejecución de operaciones. Para esto se utiliza `Dialog`.
+- No se debe usar `Alert` para mostrar el estado de una operación iniciada por el usuario. Para esto se utiliza `Toaster`.
 
 ## Contenido
 
-Los elementos de alerta obligatorios incluyen una descripción y un icono. Además de estos, Alert puede incluir un título (Título), un botón de cierre (Cerrar) y hasta tres botones adicionales con acciones (Acciones).
+La descripción y el icono son obligatorios en `Alert`. Además de estos, `Alert` puede contener opcionalmente un título (`Title`), un botón de cierre (`Close`) y hasta tres botones adicionales con acciones (`Actions`).
 
 ### Icono
 
-De forma predeterminada, una alerta muestra un icono que corresponde a su tipo. Sin embargo, puede elegir su propio icono para el componente sin modificar el color de fondo. Para el tipo de alerta Normal, el icono es opcional y no se muestra de forma predeterminada.
+Por defecto, `Alert` muestra un icono que corresponde a su tipo. Sin embargo, puedes definir tu propio icono en el componente, manteniendo el color de fondo sin cambios. Para `Alert` de tipo `Normal`, el icono es opcional y no se muestra por defecto.
 
-![Icon](/static/images/design/Alert/Icon.png)
+![Icono](/static/images/design/Alert/Icon.png)
 
 ### Texto
 
-El texto del título y la descripción deben ser lo más breves posible y comenzar con una letra mayúscula. Si desea proporcionar más información al usuario, es mejor utilizar enlaces o los botones «Ayuda», «Documentación» y «Más información» para dirigir al usuario a una página de ayuda o sitio web independiente.
+El texto del título y la descripción deben comenzar con mayúscula y ser lo más concisos posible. Para obtener información adicional, es mejor dirigir al usuario a una página de ayuda o sitio web separada utilizando enlaces o botones como "Ayuda", "Información", "Más detalles", etc.
 
-El título debe transmitir claramente la tesis del mensaje. Sin embargo, no debe repetir la descripción. Si es difícil elegir la tesis y convertirla en un titular, usa la descripción sin encabezado.
+El título debe formular una tesis concisa del mensaje. Al mismo tiempo, el texto del título no debe duplicar la descripción. Si no es posible destacar la tesis principal y convertirla en un título, es mejor dejar solo la descripción, sin título.
 
-El título no debe terminar con un punto.
+El título no debe contener un punto al final.
 
 ### Botones
 
-Según los requisitos y restricciones del diseño, es posible que aparezcan botones adicionales a la derecha del texto (diseño horizontal) o debajo de él (diseño vertical).
+Dependiendo de los requisitos y limitaciones del diseño, los botones adicionales pueden mostrarse a la derecha del texto (Diseño Horizontal) o debajo de él (Diseño Vertical).
 
-![Button](/static/images/design/Alert/Button1.png)
+![Botón](/static/images/design/Alert/Button1.png)
 
-Si los botones y sus etiquetas dejan suficiente espacio para la descripción y el encabezado sin crear saltos de línea innecesarios, coloque los botones a la derecha. Si el ancho de la alerta es inferior a 500-600 píxeles, opta por la vista vertical.
+Aquí tienes la traducción del archivo fuente de la guía de diseño al español, manteniendo un tono natural y conservando los elementos técnicos y de código:
 
-Los botones adicionales utilizan el estilo Normal de forma predeterminada. Sin embargo, según la semántica del mensaje, pueden ser Action, Contrast-normal y varios tipos de Outline (Outline-info, Outline-danger, etc.). Recomendamos que los estilos de los tres botones sean coherentes. Utilice solo un botón de acción y asegúrese de tener en cuenta el contexto de la página, por ejemplo, si ya hay otros botones de acción presentes.
+La opción con los botones a la derecha se puede elegir si la cantidad de botones y sus nombres permiten asignar suficiente espacio para la descripción y el título sin saltos de línea innecesarios. Por lo general, si el ancho de un `Alert` es inferior a 500-600 px, es mejor optar por la vista vertical.
+
+Los botones adicionales utilizan por defecto el estilo `Normal`, sin embargo, dependiendo de la semántica del mensaje, pueden ser de tipo `Action`, `Contrast-normal` y `Outline` de varios tipos (`Outline-info`, `Outline-danger`, etc.). No se deben usar los tres botones con estilos diferentes. Solo puede haber un botón `Action`, y al mismo tiempo, se debe tener en cuenta el contexto de la página: si ya existen otros botones `Action` en ella.
 
 ![Button](/static/images/design/Alert/Button2.png)
 
-La alerta tiene un botón en forma de cruz que debe mostrarse en caso de que el usuario quiera ocultar el mensaje debido a su irrelevancia.
+El `Alert` incluye un botón de "cruz" que debe mostrarse en los casos en que el usuario pueda querer ocultar el mensaje, ya que lo considere irrelevante.
 
 ![Button](/static/images/design/Alert/Button3.png)
 
-## Opciones
+## Variantes
 
-El ancho de la alerta no está limitado: puede ocupar todo el espacio disponible en la página (formulario o cuadro de diálogo) o tener un ancho fijo determinado por el ancho del contenido principal.
+El ancho del `Alert` no está limitado; puede ocupar todo el espacio disponible de la página (formulario, diálogo) o tener un ancho fijo de acuerdo con el ancho del contenido principal.
 
-Si la alerta está diseñada para mostrarse cerca de los bordes de la página (formulario, cuadro de diálogo) y ocupar todo el ancho (por ejemplo, un mensaje sobre la actualización del navegador o las condiciones para almacenar las cookies en el sitio), no es necesario redondear las esquinas del contenedor de alertas.
+Si, según el diseño, el `Alert` debe mostrarse pegado a los bordes de la página (formulario, diálogo) y ocupar todo el ancho (por ejemplo, un mensaje sobre la actualización del navegador o sobre las condiciones de almacenamiento de Cookies en el sitio), el contenedor del `Alert` puede no tener bordes redondeados.
 
 ![Options](/static/images/design/Alert/Options1.png)
 
-Si el diseño no requiere que la alerta atraiga activamente la atención del usuario, puedes usar la vista esquemática, que tiene el mismo tipo de semántica que la vista rellena.
+Si el diseño no requiere atraer activamente la atención del usuario al `Alert`, se recomienda utilizar la variante con borde (`Outlined View`), que tiene la misma semántica por tipo que la variante con relleno (`Filled View`).
 
 ![Options](/static/images/design/Alert/Options2.png)

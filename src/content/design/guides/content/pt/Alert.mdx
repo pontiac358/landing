@@ -1,0 +1,85 @@
+Com o `Alert`, você pode chamar a atenção do usuário e informá-lo sobre alguma informação importante sem interromper o trabalho dele.
+
+![Example](/static/images/design/Alert/Example.png)
+
+## Quando usar
+
+Principalmente, o `Alert` tem como objetivo informar sobre o status do sistema, relatar erros e avisos, e guiar o usuário em direção à sua rápida correção por meio de instruções, links ou comandos.
+
+## Tipos
+
+Dependendo da situação, diferentes tipos (`Type`) de `Alert` são exibidos ao usuário:
+
+- `Danger` é usado para informar ao usuário que, no momento, não é possível continuar o trabalho de acordo com o cenário principal (por exemplo, falta de acesso a um objeto) ou que ações futuras do usuário podem levar à perda irreversível de dados ou recursos.
+- `Warning` é usado para informar ao usuário que o trabalho futuro pode ser dificultado ou que um cenário de trabalho secundário pode não estar disponível.
+- `Success` é usado para informar o usuário sobre um status ou alguma alteração no sistema que tenha uma conotação positiva (por exemplo, a conclusão bem-sucedida de uma operação longa).
+- `Info` é usado para exibir recomendações sobre como organizar o trabalho com o sistema, que devem ser mostradas explicitamente, ou para anunciar quaisquer funcionalidades adicionais para o usuário no sistema.
+- `Normal` é usado principalmente para destacar algum trecho de texto, como uma breve ajuda, um exemplo de código, resultados de cálculos, etc.
+
+![Types](/static/images/design/Alert/Types.png)
+
+Não se deve substituir os tipos apenas pelo desejo de atrair mais a atenção do usuário – por exemplo, mostrar informações de ajuda importantes em um `Alert` do tipo `Warning` ou `Error`.
+
+Além das instruções, você pode oferecer uma série de comandos diretamente no `Alert` para reduzir o esforço do usuário na busca por soluções e ações.
+
+![Warning](/static/images/design/Alert/Warning.png)
+
+## Quando não usar
+
+O `Alert` deve ser usado com moderação, pois atrai a atenção e pode distrair da execução do cenário principal, especialmente se o tipo de `Alert` for escolhido incorretamente.
+
+Aqui está a tradução do arquivo fonte do guia de design para português, mantendo a naturalidade e os elementos técnicos:
+
+- Não é recomendado usar `Alert` para demonstrar um erro, aviso ou ajuda relacionado a um campo específico em um formulário ou diálogo. Nesses casos, é melhor usar o estado `Error` do componente de campo ou exibir a mensagem como texto simples ou texto com um ícone ao lado do campo.
+- Não é recomendado colocar vários `Alert` do tipo `Danger` e `Warning` na mesma página (formulário, diálogo), pois isso dificulta a determinação da prioridade das mensagens.
+- Não se deve usar `Alert` para fins inadequados, como, por exemplo, para destacar visualmente blocos na página: títulos, campos em um formulário, etc.
+- Não se deve usar `Alert` para confirmar a execução de operações. Para isso, usa-se `Dialog`.
+- Não se deve usar `Alert` para exibir o status de uma operação iniciada pelo usuário. Para isso, usa-se `Toaster`.
+
+## Conteúdo
+
+A descrição e o ícone são obrigatórios no `Alert`. Além deles, o `Alert` pode opcionalmente conter um título (`Title`), um botão de fechar (`Close`) e até três botões adicionais com ações (`Actions`).
+
+### Ícone
+
+Por padrão, o `Alert` exibe um ícone correspondente ao seu tipo. No entanto, você pode definir seu próprio ícone no componente, mantendo a cor de fundo inalterada. Para o `Alert` do tipo `Normal`, o ícone é opcional e não é exibido por padrão.
+
+![Icon](/static/images/design/Alert/Icon.png)
+
+### Texto
+
+O texto do título e da descrição deve começar com letra maiúscula e ser o mais conciso possível. Para informações adicionais, é melhor direcionar o usuário para uma página de ajuda separada ou para o site usando links ou botões como "Ajuda", "Saiba mais", etc.
+
+O título deve formular uma tese concisa da mensagem. Ao mesmo tempo, o texto do título não deve duplicar a descrição. Se não for possível destacar a tese principal e transformá-la em um título, é melhor deixar apenas a descrição, sem título.
+
+O título não deve conter um ponto no final.
+
+### Botões
+
+Dependendo dos requisitos e restrições de design, botões adicionais podem ser exibidos à direita do texto (Layout Horizontal) ou abaixo dele (Layout Vertical).
+
+![Button](/static/images/design/Alert/Button1.png)
+
+Aqui está a tradução do arquivo fonte do guia de design para português, mantendo a naturalidade e os elementos técnicos:
+
+A opção com os botões posicionados à direita pode ser escolhida se a quantidade de botões e seus nomes permitirem espaço suficiente para a descrição e o título sem quebras de linha desnecessárias. Geralmente, se a largura do Alert for inferior a 500–600 px, é melhor escolher a visualização vertical.
+
+Os botões adicionais usam o estilo Normal por padrão, mas dependendo da semântica da mensagem, eles podem ser Action, Contrast-normal e Outline de vários tipos (Outline-info, Outline-danger, etc.). Não se deve usar três botões com estilos diferentes. Pode haver apenas um botão Action, e é preciso considerar o contexto da página: já existem outros botões Action nela.
+
+![Button](/static/images/design/Alert/Button2.png)
+
+O Alert possui um botão "X" (fechar), que deve ser exibido em casos em que o usuário possa querer ocultar a mensagem, pois a considera desatualizada.
+
+![Button](/static/images/design/Alert/Button3.png)
+
+## Opções
+
+A largura do Alert não é limitada; ele pode ocupar todo o espaço disponível da página (formulário, diálogo) ou ter uma largura fixa de acordo com a largura do conteúdo principal.
+
+Se, de acordo com o design, o Alert deve ser exibido rente às bordas da página (formulário, diálogo) e ocupar toda a largura (por exemplo, uma mensagem sobre a atualização do navegador ou sobre os termos de armazenamento de Cookies no site), o contêiner do Alert pode não ter cantos arredondados.
+
+![Options](/static/images/design/Alert/Options1.png)
+
+Se o design não exigir a atração ativa da atenção do usuário para o Alert, recomenda-se usar a opção com contorno (Outlined View), que tem a mesma semântica de tipo que a opção com preenchimento (Filled View).
+
+![Options](/static/images/design/Alert/Options2.png)
