@@ -1,0 +1,79 @@
+## Changelog
+
+The Changelog feature allows the service team to inform users about recent changes.
+
+The Changelog is displayed once when the service is opened. It is not possible to reopen the Changelog; if necessary, this functionality can be implemented independently.
+
+Since the Changelog is displayed in a modal window, the rules for closing and resizing applicable to modal windows apply to it.
+
+## Elements
+
+The Changelog is a modal window of size `M` with posts arranged in chronological order. Each post has:
+
+1.  publication date;
+2.  [Label](https://gravity-ui.com/design/guides/label) `New` (optional);
+3.  title;
+4.  image (optional);
+5.  text;
+6.  [Button](https://gravity-ui.com/design/guides/button) for action (optional).
+
+![Elements](/static/images/design/ChangelogDialog/ChangelogDialog1.png)
+
+### Publication Date
+
+The publication date allows the user to understand when a particular change was made in the service. By default, the date is displayed in the `DD Mon YYYY` format, but other date formats can be used, taking into account the service's locale.
+
+### Label
+
+The `New` label is used to mark new posts. Which posts are considered new and should be marked with this label is determined by the service. It is possible to use other wording in the text, different from `New`.
+
+### Title
+
+The post title is used for a brief description of the change in the service. The title can be of any length. It is not recommended to:
+
+*   use titles that occupy more than one line (containing more than 70 characters), as this impairs readability;
+*   duplicate the news text in the title.
+
+The `text-subheader-3` style is used for the title. The use of other text styles is not provided for.
+
+### Image
+
+画像は任意で、サイズは516x240pxに固定されています。画像ファイルはJPGおよびPNG形式が使用でき、GIF画像や動画ファイルはサポートされていません。画像は投稿のトピックを説明する必要がある場合に使用されます。ライトテーマとダークテーマのインターフェースで同じ画像が使用されます。
+
+516x240pxを超える画像をアップロードした場合、画像は拡大縮小され、長い辺の中央に配置されます。
+
+Retinaディスプレイを考慮して、各辺を2倍に拡大した画像、つまり1032x480pxの画像をアップロードすることが推奨されます。
+
+### テキスト
+
+画像の後には投稿のテキストが配置され、任意の長さを持つことができます。推奨されないこと：
+
+- 非常に長いテキスト（500文字以上）を使用すること。テキストを推奨される長さに短縮できない場合は、テキストにドキュメントへのリンクを追加するか、テキストの後のボタンをクリックして投稿の全文に遷移するようにすることができます。
+- 見出しを作成すること。推奨されるテキストの長さは、テキストが長くなりすぎることを想定していないため、見出しによるブロックの追加の分割は必要ありません。
+
+テキストには`text-body-1`スタイルが使用されます。他のテキストスタイルの使用は想定されていませんが、フォーマットは可能です。箇条書きおよび番号付きリストの作成、テキストの取り消し線および下線、太字および斜体の強調が可能です。
+
+### アクションボタン
+
+アクションボタンは任意で、投稿テキストの下に配置されます。投稿の全文に遷移するために使用されます。
+
+サイズ`M`のボタンのみ使用可能です。ボタンはアイコン付きでもアイコンなしでも、任意のタイプを使用できます。同じタイプのボタンを使用することが推奨されます。
+
+複数のボタンを配置することは想定されていません。
+
+### その他の要素
+
+モーダルウィンドウのタイトルの下には、チェンジログページにリンクする`View full changelog`リンクを配置することもできます。これは、サービスの個別のページ、Storybook、ドキュメントを持つサードパーティサービスなどになります。
+
+## 使用上の推奨事項
+
+変更ログの適用例：
+
+- サービスにおける重要な変更をユーザーに通知する必要がある場合。
+- 軽微な変更についてユーザーに常に最新情報を提供する必要がある場合。この場合、定期的に変更ログを表示し、前回の記録以降のすべての小さな変更を報告するのが良いでしょう。
+- サービスへの変更をユーザーに思い出させ、以前のリリースに関する認識を高めたい場合。
+
+非推奨：
+
+- オンボーディングにチェンジログを使用すること。
+- サービスにおけるあらゆる小さな変更をユーザーに通知するためにチェンジログを使用すること。

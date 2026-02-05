@@ -1,0 +1,79 @@
+Mit dem Changelog kann das Serviceteam die Benutzer über vorgenommene Änderungen informieren.
+
+Der Changelog wird einmalig beim Öffnen des Dienstes angezeigt. Eine erneute Öffnung des Changelogs ist nicht vorgesehen; bei Bedarf kann diese Funktion selbst implementiert werden.
+
+Da der Changelog in einem modalen Fenster angezeigt wird, gelten für ihn die Regeln für das Schließen und Skalieren, die für ein modales Fenster gelten.
+
+## Elemente
+
+Der Changelog ist ein modales Fenster der Größe `M` mit chronologisch angeordneten Beiträgen. Jeder Beitrag hat:
+
+1. Veröffentlichungsdatum;
+2. [Label](https://gravity-ui.com/design/guides/label) `New` (optional);
+3. Titel;
+4. Bild (optional);
+5. Text;
+6. [Button](https://gravity-ui.com/design/guides/button) für eine Aktion (optional).
+
+![Elements](/static/images/design/ChangelogDialog/ChangelogDialog1.png)
+
+### Veröffentlichungsdatum
+
+Anhand des Veröffentlichungsdatums kann der Benutzer verstehen, wann eine bestimmte Änderung im Dienst vorgenommen wurde. Standardmäßig wird das Datum im Format `DD Mon YYYY` angegeben, aber es können auch andere Datumsformate unter Berücksichtigung der Lokalisierung des Dienstes verwendet werden.
+
+### Label
+
+Das Label `New` wird zur Kennzeichnung neuer Beiträge verwendet. Welche Beiträge als neu gelten und mit diesem Label gekennzeichnet werden, wird vom Dienst bestimmt. Es ist möglich, andere Formulierungen im Text zu verwenden, die sich von `New` unterscheiden.
+
+### Titel
+
+Der Titel des Beitrags dient zur kurzen Beschreibung einer Änderung im Dienst. Der Titel kann beliebig lang sein. Es wird nicht empfohlen:
+
+- Titel zu verwenden, die mehr als eine Zeile einnehmen (mehr als 70 Zeichen enthalten), da dies die Lesbarkeit des Textes beeinträchtigt;
+- den Text der Nachricht im Titel zu wiederholen.
+
+Für den Titel wird der Stil `text-subheader-3` verwendet. Die Verwendung anderer Textstile ist nicht vorgesehen.
+
+### Bild
+
+Hier ist die Übersetzung des Design-Guide-Quellcodes ins Deutsche, wobei die Lesbarkeit und Natürlichkeit im Vordergrund stehen:
+
+Das Bild ist optional und hat eine feste Größe von 516x240 Pixeln. Als Bild können Dateien mit den Erweiterungen JPG und PNG verwendet werden; GIF-Bilder und Videodateien werden nicht unterstützt. Das Bild wird verwendet, wenn das Thema eines Beitrags veranschaulicht werden soll. Für helle und dunkle Benutzeroberflächen wird dasselbe Bild verwendet.
+
+Wenn ein Bild hochgeladen wird, das größer als 516x240 Pixel ist, wird es skaliert und an der längeren Seite zentriert.
+
+Unter Berücksichtigung von Retina-Displays wird empfohlen, Bilder hochzuladen, die auf jeder Seite um das Zweifache vergrößert sind, also 1032x480 Pixel.
+
+### Text
+
+Nach dem Bild folgt der Text des Beitrags, dessen Länge beliebig sein kann. Es wird nicht empfohlen:
+
+- Sehr lange Texte zu verwenden (mehr als 500 Zeichen). Wenn der Text nicht auf die empfohlene Länge gekürzt werden kann, können Links zur Dokumentation hinzugefügt oder ein Übergang zum vollständigen Beitragstext durch Klicken auf eine Schaltfläche nach dem Text ermöglicht werden.
+- Unterüberschriften zu erstellen. Da die empfohlene Textlänge keine übermäßige Länge impliziert, ist eine zusätzliche Aufteilung in Blöcke mit Unterüberschriften nicht erforderlich.
+
+Für den Text wird der Stil `text-body-1` verwendet. Die Verwendung anderer Textstile ist nicht vorgesehen, aber Formatierungen sind möglich: Erstellung von Aufzählungs- und nummerierten Listen, Durchstreichen und Unterstreichen von Text sowie Hervorhebung durch Fettdruck und Kursivschrift.
+
+### Aktionsschaltfläche
+
+Die Aktionsschaltfläche ist optional und befindet sich unter dem Text des Beitrags. Sie wird verwendet, um zum vollständigen Beitragstext zu gelangen.
+
+Es können nur Schaltflächen der Größe `M` verwendet werden. Die Schaltfläche kann jeden Typs sein, mit oder ohne Symbol. Es wird empfohlen, einen einzigen Schaltflächentyp zu verwenden.
+
+Die Verwendung mehrerer Schaltflächen ist nicht vorgesehen.
+
+### Sonstige Elemente
+
+Unter der Überschrift des modalen Fensters kann sich auch ein Link `View full changelog` befinden, der zu einer Changelog-Seite führt; dies kann eine separate Service-Seite, ein Storybook, ein Drittanbieter-Service mit Dokumentation usw. sein.
+
+## Empfehlungen zur Verwendung
+
+Der Changelog wird angewendet:
+
+- Wenn der Benutzer über signifikante Änderungen im Dienst informiert werden muss.
+- Wenn der Benutzer über kleinere Änderungen auf dem Laufenden gehalten werden muss. In diesem Fall sollte der Changelog periodisch angezeigt und über alle kleinen Änderungen seit dem letzten Eintrag berichtet werden.
+- Wenn Sie den Benutzer an Änderungen im Dienst erinnern und sein Bewusstsein für frühere Veröffentlichungen schärfen möchten.
+
+Nicht empfohlen:
+
+- Verwenden Sie den Changelog nicht für das Onboarding.
+- Verwenden Sie den Changelog nicht, um den Benutzer über jede kleine Änderung im Dienst zu informieren.

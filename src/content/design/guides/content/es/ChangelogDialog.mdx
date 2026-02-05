@@ -1,77 +1,79 @@
-Su equipo de servicio puede usar el registro de cambios para informar a los usuarios sobre los cambios.
+Con el changelog, el equipo del servicio puede informar a los usuarios sobre los cambios realizados.
 
-El registro de cambios se muestra una vez cuando el usuario abre la página de servicio. No ofrecemos la opción de volver a abrir la página de registro de cambios. Impleméntelo de forma independiente si es necesario.
+El changelog se muestra una sola vez al abrir el servicio. No hay una opción para volver a abrir el changelog; si es necesario, puedes implementarla tú mismo.
 
-Como el registro de cambios se muestra en una ventana modal, sigue las reglas para cerrar y escalar las ventanas modales.
+Dado que el changelog se muestra en una ventana modal, se aplican las reglas de cierre y escalado para ventanas modales.
 
 ## Elementos
 
-El registro de cambios es una ventana modal de tamaño M con publicaciones ordenadas cronológicamente. Cada publicación tiene:
+El changelog es una ventana modal de tamaño `M` con publicaciones ordenadas cronológicamente. Cada publicación tiene:
 
-1. Fecha de publicación
-2. [Etiqueta](https://gravity-ui.com/design/guides/label) «Nueva» (opcional)
-3. Encabezado de publicación
-4. Publicar imagen (opcional)
-5. Publicar texto
-6. [Botón](https://gravity-ui.com/design/guides/button) de acción (opcional).
+1. fecha de publicación;
+2. [etiqueta](https://gravity-ui.com/design/guides/label) `New` (opcional);
+3. título;
+4. imagen (opcional);
+5. texto;
+6. [botón](https://gravity-ui.com/design/guides/button) de acción (opcional).
 
 ![Elements](/static/images/design/ChangelogDialog/ChangelogDialog1.png)
 
 ### Fecha de publicación
 
-A partir de la fecha de publicación, el usuario puede comprender cuándo se produjo un cambio en particular en el servicio. De forma predeterminada, la fecha tiene el formato DD Mon YYYY. También puede usar otros formatos de fecha para que coincidan con la configuración regional del servicio.
+La fecha de publicación permite al usuario entender cuándo se realizó un cambio específico en el servicio. Por defecto, la fecha se muestra en formato `DD Mon YYYY`, pero se pueden usar otros formatos de fecha teniendo en cuenta la localización del servicio.
 
 ### Etiqueta
 
-Usa la etiqueta «Nuevo» para las publicaciones nuevas. El servicio determina qué publicaciones considerar nuevas y marcarlas con esta etiqueta. En el texto, puede usar otras palabras, diferentes de «Nuevo».
+La etiqueta `New` se utiliza para marcar las publicaciones nuevas. Qué publicaciones se consideran nuevas y se marcan con esta etiqueta lo determina el servicio. Es posible usar otras formulaciones de texto distintas de `New`.
 
-### Encabezado de publicación
+### Título
 
-El encabezado de la publicación se usa para una breve descripción del cambio de servicio. El encabezado puede tener cualquier longitud. No recomendamos:
+El título de la publicación se utiliza para describir brevemente un cambio en el servicio. El título puede tener cualquier longitud. No se recomienda:
 
-- Utilizar encabezados que ocupen más de una línea (que contengan más de 70 caracteres), ya que esto empeora la legibilidad del texto.
-- Para copiar el texto de las noticias al encabezado.
+- usar títulos que ocupen más de una línea (que contengan más de 70 caracteres), ya que esto empeora la legibilidad del texto;
+- duplicar el texto de la noticia en el título.
 
-El encabezado usa el estilo text-subheader-3. No proporcionamos otros estilos de texto para los encabezados.
+Para el título se utiliza el estilo `text-subheader-3`. No se prevé el uso de otros estilos de texto.
 
 ### Imagen
 
-La imagen es opcional y tiene unas dimensiones fijas de 516x240 px. Puede utilizar archivos JPG y PNG como imágenes (no se admiten imágenes GIF ni archivos de vídeo). Usa imágenes cuando necesites ilustrar el tema de la publicación. Se usa una imagen para los temas de interfaz claros y oscuros.
+Aquí tienes la traducción del archivo fuente de la guía de diseño al español, buscando que suene lo más natural posible:
 
-Si subes una imagen de más de 516 x 240 píxeles, se escalará y se centrará en el lado más grande.
+La imagen es opcional y tiene unas dimensiones fijas de 516x240 píxeles. Se pueden utilizar archivos con extensión JPG y PNG como imagen; no se admiten imágenes GIF ni archivos de vídeo. La imagen se utiliza cuando es necesario ilustrar el tema de una publicación. Se utiliza una única imagen tanto para el tema claro como para el tema oscuro de la interfaz.
 
-Teniendo en cuenta las pantallas Retina, recomendamos subir imágenes con una escala doble en cada lado, es decir, de 1032 x 480 píxeles.
+Si se carga una imagen que supere las dimensiones de 516x240 píxeles, se escalará y se alineará al centro del lado más largo.
 
-### Publicar texto
+Teniendo en cuenta las pantallas Retina, se recomienda cargar imágenes con un tamaño duplicado en cada lado, es decir, 1032x480 píxeles.
 
-El texto de la publicación sigue a la imagen y puede tener cualquier longitud. No recomendamos:
+### Texto
 
-- Utilizar textos muy largos (más de 500 caracteres). Si no puede acortar el texto a la longitud recomendada, puede agregar enlaces a la documentación dentro del texto o incluir un botón después del texto para navegar hasta el texto completo.
-- Para crear subencabezados. Dado que la longitud de texto recomendada es concisa, no es necesario dividir el texto en secciones mediante subtítulos.
+Después de la imagen, se encuentra el texto de la publicación, que puede tener una longitud arbitraria. No se recomienda:
 
-El texto usa el estilo 'text-body-1'. No proporcionamos otros estilos de texto, pero puede añadir formato, es decir, crear listas numeradas y con viñetas, tachar, subrayar, negrita y cursiva.
+- Utilizar textos muy largos (más de 500 caracteres). Si no es posible acortar el texto a la longitud recomendada, se pueden añadir enlaces a la documentación o hacer que el texto completo de la publicación sea accesible haciendo clic en un botón después del texto.
+- Crear subtítulos. Dado que la longitud recomendada del texto no implica que vaya a ser excesivamente largo, no se requiere una división adicional en bloques mediante subtítulos.
+
+Para el texto se utiliza el estilo `text-body-1`. No se contempla el uso de otros estilos de texto, pero sí es posible el formato: creación de listas con viñetas y numeradas, tachado y subrayado de texto, así como el uso de negrita y cursiva.
 
 ### Botón de acción
 
-El botón de acción es opcional y se encuentra debajo del texto de la publicación. Se usa para navegar hasta el texto completo de la publicación.
+El botón de acción es opcional y se sitúa debajo del texto de la publicación. Se utiliza para acceder al texto completo de la publicación.
 
-Solo se admiten botones de tamaño M. El botón puede ser de cualquier tipo, con o sin icono. Cíñete a un solo tipo de botón.
+Solo se permite el uso de botones de tamaño `M`. El botón puede ser de cualquier tipo, con o sin icono. Se recomienda utilizar un único tipo de botón.
 
-No admitimos varios botones.
+No se contempla la presencia de varios botones.
 
 ### Otros elementos
 
-Además, en el encabezado de la ventana modal, puede agregar un enlace «Ver registro de cambios completo» a una página de registro de cambios (puede ser una página de servicio independiente, un libro de cuentos o un servicio de documentación externo).
+Debajo del título de la ventana modal, también puede haber un enlace `View full changelog` que dirija a la página del changelog; esta puede ser una página separada del servicio, un Storybook, un servicio de terceros con documentación, etc.
 
 ## Recomendaciones de uso
 
-Usa el registro de cambios:
+El registro de cambios se aplica:
 
-- Cuando necesite informar al usuario sobre cambios significativos en el servicio.
-- Cuando necesite mantener al usuario al tanto de cambios menores. En este caso, considere la posibilidad de mostrar el registro de cambios periódicamente e informar sobre cualquier cambio menor desde la última entrada del registro de cambios.
-- Cuando necesite recordar al usuario los cambios en el servicio y aumentar su conocimiento de las versiones anteriores.
+- Cuando es necesario informar al usuario sobre cambios significativos que han ocurrido en el servicio.
+- Cuando es necesario mantener al usuario informado sobre cambios menores. En este caso, se debe mostrar el registro de cambios periódicamente e informar sobre todos los pequeños cambios desde la última entrada.
+- Cuando se desea recordar al usuario sobre los cambios en el servicio y aumentar su conocimiento sobre lanzamientos anteriores.
 
-No recomendamos:
+No se recomienda:
 
-- Para usar el registro de cambios para incorporar usuarios.
-- Utilizar el registro de cambios para informar al usuario sobre cada cambio menor en el servicio.
+- Usar el registro de cambios para la incorporación de usuarios (onboarding).
+- Usar el registro de cambios para informar al usuario sobre cada pequeño cambio en el servicio.

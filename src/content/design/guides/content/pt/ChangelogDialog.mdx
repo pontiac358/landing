@@ -1,0 +1,79 @@
+Com o changelog, a equipe do serviço pode informar aos usuários sobre as alterações que ocorreram.
+
+O changelog é exibido uma vez ao abrir o serviço. Não há a possibilidade de reabrir o changelog; se necessário, você pode implementá-lo por conta própria.
+
+Como o changelog é exibido em uma janela modal, as regras de fechamento e redimensionamento aplicáveis a janelas modais se aplicam a ele.
+
+## Elementos
+
+O changelog é uma janela modal de tamanho `M` com posts dispostos em ordem cronológica. Cada post tem:
+
+1. data de publicação;
+2. [label](https://gravity-ui.com/design/guides/label) `New` (opcional);
+3. título;
+4. imagem (opcional);
+5. texto;
+6. [button](https://gravity-ui.com/design/guides/button) de ação (opcional).
+
+![Elements](/static/images/design/ChangelogDialog/ChangelogDialog1.png)
+
+### Data de Publicação
+
+Pela data de publicação, o usuário poderá entender quando ocorreu uma determinada alteração no serviço. Por padrão, a data é especificada no formato `DD Mon YYYY`, mas outros formatos de data podem ser usados, levando em consideração a localização do serviço.
+
+### Label
+
+O label `New` é usado para marcar novos posts. Quais posts são considerados novos e devem ser marcados com este label é determinado pelo serviço. É possível usar outras formulações de texto, diferentes de `New`.
+
+### Título
+
+O título do post é usado para descrever brevemente a alteração no serviço. O título pode ter qualquer comprimento. Não é recomendado:
+
+- usar títulos que ocupem mais de uma linha (contendo mais de 70 caracteres), pois isso prejudica a legibilidade do texto;
+- duplicar o texto da notícia no título.
+
+Para o título, é usado o estilo `text-subheader-3`. O uso de outros estilos de texto não é previsto.
+
+### Imagem
+
+Aqui está a tradução do arquivo fonte do guia de design para português:
+
+A imagem é opcional e tem dimensões fixas de 516x240 px. Arquivos com as extensões JPG e PNG podem ser usados como imagem; imagens GIF e arquivos de vídeo não são suportados. A imagem é usada quando é necessário ilustrar o tema de uma postagem. Uma única imagem é usada para os temas claro e escuro da interface.
+
+Se uma imagem maior que 516x240 px for carregada, ela será redimensionada e alinhada ao centro do lado maior.
+
+Considerando telas Retina, recomenda-se carregar imagens com o dobro do tamanho em cada lado, ou seja, 1032x480 px.
+
+### Texto
+
+Após a imagem, segue o texto da postagem, que pode ter um comprimento arbitrário. Não é recomendado:
+
+- Usar textos muito longos (mais de 500 caracteres). Se não for possível reduzir o texto ao comprimento recomendado, você pode adicionar links para a documentação no texto ou criar uma transição para o texto completo da postagem clicando em um botão após o texto.
+- Criar subtítulos. Como o comprimento recomendado do texto não implica que ele será muito longo, a divisão adicional em blocos com subtítulos não é necessária.
+
+O estilo `text-body-1` é usado para o texto. O uso de outros estilos de texto não é previsto, mas a formatação é possível: criação de listas com marcadores e numeradas, riscar e sublinhar texto, bem como destacar em negrito e itálico.
+
+### Botão de Ação
+
+O botão de ação é opcional e está localizado abaixo do texto da postagem. Ele é usado para ir para o texto completo da postagem.
+
+É possível usar apenas botões de tamanho `M`. O botão pode ser de qualquer tipo, com ou sem ícone. Recomenda-se usar um único tipo de botão.
+
+Não é previsto o uso de vários botões.
+
+### Outros Elementos
+
+Abaixo do título da janela modal, também pode haver um link `View full changelog`, que leva à página de changelog; esta pode ser uma página separada do serviço, um Storybook, um serviço de terceiros com documentação, etc.
+
+## Recomendações de Uso
+
+O changelog é aplicado:
+
+- Quando é necessário informar o usuário sobre mudanças significativas que ocorreram no serviço.
+- Quando é necessário manter o usuário atualizado sobre mudanças menores. Neste caso, vale a pena exibir o changelog periodicamente e relatar todas as pequenas mudanças desde a última entrada.
+- Quando você deseja lembrar o usuário sobre as mudanças no serviço e aumentar sua conscientização sobre lançamentos anteriores.
+
+Não é recomendado:
+
+- Usar o changelog para onboarding.
+- Usar o changelog para informar o usuário sobre cada pequena mudança no serviço.

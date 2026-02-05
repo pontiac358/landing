@@ -1,0 +1,81 @@
+Voici la traduction du fichier source du guide de conception en français :
+
+Avec un journal des modifications, l'équipe de service peut informer les utilisateurs des changements survenus.
+
+Le journal des modifications s'affiche une seule fois à l'ouverture du service. Il n'est pas possible de rouvrir le journal des modifications ; si nécessaire, vous pouvez l'implémenter vous-même.
+
+Étant donné que le journal des modifications est affiché dans une fenêtre modale, les règles de fermeture et de redimensionnement applicables aux fenêtres modales s'appliquent également.
+
+## Éléments
+
+Le journal des modifications est une fenêtre modale de taille `M` avec des publications disposées dans un ordre chronologique. Chaque publication comprend :
+
+1. La date de publication ;
+2. Un [label](https://gravity-ui.com/design/guides/label) `New` (facultatif) ;
+3. Un titre ;
+4. Une image (facultatif) ;
+5. Un texte ;
+6. Un [bouton](https://gravity-ui.com/design/guides/button) d'action (facultatif).
+
+![Elements](/static/images/design/ChangelogDialog/ChangelogDialog1.png)
+
+### Date de publication
+
+La date de publication permet à l'utilisateur de comprendre quand un changement particulier a été apporté au service. Par défaut, la date est indiquée au format `DD Mon YYYY`, mais d'autres formats de date peuvent être utilisés en tenant compte de la localisation du service.
+
+### Label
+
+Le label `New` est utilisé pour marquer les nouvelles publications. La détermination des publications à considérer comme nouvelles et à marquer avec ce label est définie par le service. Il est possible d'utiliser d'autres formulations dans le texte, différentes de `New`.
+
+### Titre
+
+Le titre de la publication est utilisé pour décrire brièvement un changement dans le service. Le titre peut avoir n'importe quelle longueur. Il est déconseillé de :
+
+- Utiliser des titres occupant plus d'une ligne (contenant plus de 70 caractères), car cela nuit à la lisibilité du texte ;
+- Dupliquer le texte de la nouvelle dans le titre.
+
+Le style `text-subheader-3` est utilisé pour le titre. L'utilisation d'autres styles de texte n'est pas prévue.
+
+### Image
+
+Voici la traduction du fichier source du guide de conception en français :
+
+L'image est facultative et a des dimensions fixes de 516x240 px. Les fichiers avec les extensions JPG et PNG peuvent être utilisés comme image ; les images GIF et les fichiers vidéo ne sont pas pris en charge. L'image est utilisée lorsqu'il est nécessaire d'illustrer le sujet d'un article. Une seule image est utilisée pour les thèmes clairs et sombres de l'interface.
+
+Si une image dépassant 516x240 px est téléchargée, elle sera mise à l'échelle et alignée au centre du côté le plus long.
+
+En tenant compte des écrans Retina, il est recommandé de télécharger des images agrandies de 2 fois de chaque côté, soit 1032x480 px.
+
+### Texte
+
+Après l'image se trouve le texte de l'article, qui peut être de longueur arbitraire. Il n'est pas recommandé de :
+
+- Utiliser des textes très longs (plus de 500 caractères). S'il n'est pas possible de raccourcir le texte à la longueur recommandée, vous pouvez ajouter des liens vers la documentation dans le texte ou créer une transition vers le texte complet de l'article en cliquant sur le bouton après le texte.
+- Créer des sous-titres. Étant donné que la longueur recommandée du texte n'implique pas qu'il sera trop long, une division supplémentaire en blocs à l'aide de sous-titres n'est pas nécessaire.
+
+Le style `text-body-1` est utilisé pour le texte. L'utilisation d'autres styles de texte n'est pas prévue, mais le formatage est possible : création de listes à puces et numérotées, barré et souligné du texte, ainsi que mise en gras et en italique.
+
+### Bouton d'action
+
+Le bouton d'action est facultatif et est situé sous le texte de l'article. Il est utilisé pour passer au texte complet de l'article.
+
+Il est possible d'utiliser uniquement des boutons de taille `M`. Le bouton peut être de n'importe quel type, avec ou sans icône. Il est recommandé d'utiliser un seul type de bouton.
+
+La présence de plusieurs boutons n'est pas prévue.
+
+### Autres éléments
+
+Sous le titre de la fenêtre modale, il peut également y avoir un lien `View full changelog` menant à la page du journal des modifications ; il peut s'agir d'une page de service distincte, d'un Storybook, d'un service tiers avec de la documentation, etc.
+
+## Recommandations d'utilisation
+
+Le journal des modifications s'applique :
+
+- Lorsque vous devez informer l'utilisateur des changements importants survenus dans le service.
+- Lorsque vous devez tenir l'utilisateur informé des changements mineurs. Dans ce cas, il est conseillé d'afficher le journal des modifications périodiquement et de signaler tous les petits changements depuis la dernière entrée.
+- Lorsque vous souhaitez rappeler à l'utilisateur les changements apportés au service et accroître sa connaissance des versions précédentes.
+
+Il n'est pas recommandé :
+
+- D'utiliser le journal des modifications pour l'intégration.
+- D'utiliser le journal des modifications pour informer l'utilisateur de chaque petit changement dans le service.

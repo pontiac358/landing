@@ -1,77 +1,77 @@
-Your service team can use the changelog to inform users about changes.
+With a changelog, the service team can inform users about changes that have occurred.
 
-The changelog is displayed once when the user opens the service page. We do not provide an option to reopen the changelog page. Implement it independently if needed.
+The changelog is displayed once when the service is opened. The ability to reopen the changelog is not provided; if necessary, it can be implemented independently.
 
-Because the changelog is displayed in a modal window, it follows the rules for closing and scaling modal windows.
+Since the changelog is displayed in a modal window, the rules for closing and scaling applicable to modal windows apply to it.
 
 ## Elements
 
-The changelog is a modal window of size M with chronologically arranged posts. Each post has:
+The changelog is an `M` size modal window with posts arranged in chronological order. Each post has:
 
-1. Publication date
-2. "New" [label](https://gravity-ui.com/design/guides/label) (optional)
-3. Post header
-4. Post image (optional)
-5. Post text
-6. Action [button](https://gravity-ui.com/design/guides/button) (optional).
+1. publication date;
+2. a `New` [label](https://gravity-ui.com/design/guides/label) (optional);
+3. a title;
+4. an image (optional);
+5. text;
+6. an action [button](https://gravity-ui.com/design/guides/button) (optional).
 
 ![Elements](/static/images/design/ChangelogDialog/ChangelogDialog1.png)
 
-### Publication date
+### Publication Date
 
-From the publication date, the user can understand when a particular change to the service occurred. By default, the date is in the DD Mon YYYY format. You can also use other date formats to match the service locale.
+By the publication date, the user will be able to understand when a particular change in the service occurred. By default, the date is displayed in the `DD Mon YYYY` format, but other date formats can be used, taking into account the service's locale.
 
 ### Label
 
-Use the "New" label for new posts. The service determines which posts to consider new and mark with this label. In the text, you can use other wordings, different from "New".
+The `New` label is used to mark new posts. Which posts are considered new and should be marked with this label is determined by the service. It is possible to use other wording in the text, different from `New`.
 
-### Post header
+### Title
 
-The post header is used for a brief description of the service change. The header can have any length. We do not recommend:
+The post title is used for a brief description of the change in the service. The title can be of any length. It is not recommended to:
 
-- To use headers that take up more than one line (contain more than 70 characters), as this worsens the readability of the text.
-- To copy news text to the header.
+- use titles that take up more than one line (containing more than 70 characters), as this degrades text readability;
+- duplicate the news text in the title.
 
-The header uses the text-subheader-3 style. We do not provide other text styles for headers.
+The `text-subheader-3` style is used for the title. The use of other text styles is not provided.
 
 ### Image
 
-The image is optional and has fixed dimensions of 516x240px. You can use JPG and PNG files as images (GIF images and video files are not supported). Use images when you need to illustrate the post subject. One image is used for both light and dark interface themes.
+The image is optional and has fixed dimensions of 516x240 px. You can use JPG and PNG files as images; GIF images and video files are not supported. The image is used when it's necessary to illustrate the topic of the post. A single image is used for both light and dark interface themes.
 
-If you upload an image larger than 516x240px, it will be scaled and centered on the larger side.
+If you upload an image exceeding 516x240 px, it will be scaled and centered along the longer side.
 
-Considering retina displays, we recommend uploading images scaled up twice on each side, i.e., 1032x480px.
+Considering retina displays, it's recommended to upload images scaled up by 2 times on each side, i.e., 1032x480 px.
 
-### Post text
+### Text
 
-The post text follows the image and can be of any length. We do not recommend:
+After the image, the post text follows, which can be of arbitrary length. It is not recommended to:
 
-- To use very long texts (more than 500 characters). If you cannot shorten the text to the recommended length, you can add links to the documentation within the text or provide a button after the text to navigate to the full text.
-- To create subheaders. Given that the recommended text length is concise, you do not need to split text into sections using subheaders.
+- Use very long texts (over 500 characters). If it's not possible to shorten the text to the recommended length, you can add links to documentation within the text or create a transition to the full post text by clicking a button after the text.
+- Create subheadings. Since the recommended text length doesn't imply it will be too long, additional block separation with subheadings is not required.
 
-The text uses the 'text-body-1' style. We do not provide other text styles, but you can add formatting, i.e., create bulleted and numbered lists, add strike-through, underline, bold, and italic.
+The `text-body-1` style is used for the text. The use of other text styles is not provided, but formatting is possible: creating bulleted and numbered lists, strikethrough and underline text, as well as bold and italic emphasis.
 
-### Action button
+### Action Button
 
-The action button is optional and is located below the post text. Use it to navigate to the full text of the post.
+The action button is optional and is located below the post text. It is used to navigate to the full post text.
 
-Only buttons of size M are supported. The button can be of any type, with or without an icon. Stick to a single button type.
+Only `M` size buttons can be used. The button can be of any type, with or without an icon. It is recommended to use a single button type.
 
-We do not support multiple buttons.
+Multiple buttons are not provided.
 
-### Other elements
+### Other Elements
 
-Moreover, under the modal window header, you can add a "View full changelog" link to a changelog page (this can be a separate service page, a storybook, or an external documentation service).
+Below the modal window title, there can also be a `View full changelog` link leading to the changelog page; this can be a separate service page, a storybook, a third-party service with documentation, etc.
 
-## Usage recommendations
+## Usage Recommendations
 
-Use changelog:
+Changelog is applied:
 
-- When you need to inform the user about significant changes in the service.
-- When you need to keep the user abreast of minor changes. In this case, consider showing the changelog periodically and telling about any minor changes since the latest changelog entry.
-- When you need to remind the user about changes in the service and increase their awareness of previous releases.
+- When it's necessary to inform the user about significant changes that have occurred in the service.
+- When it's necessary to keep the user updated on minor changes. In this case, it's worth showing the changelog periodically and reporting all small changes since the last entry.
+- When you want to remind the user about changes in the service and increase their awareness of previous releases.
 
-We do not recommend:
+It is not recommended:
 
-- To use the changelog for onboarding users.
-- To use the changelog to inform the user about every minor change in the service.
+- To use changelog for onboarding.
+- To use changelog to inform the user about every minor change in the service.
