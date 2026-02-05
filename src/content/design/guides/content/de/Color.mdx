@@ -1,0 +1,121 @@
+Gerne, hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche:
+
+## Zweischichtiges Farbsystem
+
+Die Bibliothek basiert auf 2 Paletten – einer privaten und einer semantischen. Sie unterscheiden sich in Struktur und Zweck. Die private Palette definiert RGBA-Werte für alle Töne und Schattierungen aller Farben in allen Themes, während die semantische Palette private Farben als Werte verwendet und auf spezifische UI-Elemente angewendet wird.
+
+![Zweischichtiges Farbsystem](/static/images/design/Color/ColorSystem.png)
+
+### **Private Farben**
+
+Dies ist die Basisschicht der Farben im Designsystem. Sie sind nicht für die direkte Verwendung innerhalb von Komponenten gedacht und dienen als Werte für semantische Variablen, die bereits in den Komponenten verwendet werden. Die Werte der privaten Variablen sind RGBA/RGB-Farben.
+
+In dieser Palette sind für jedes Theme alle Töne aller Farben aufgelistet, mit und ohne Alpha-Kanal, mit dem Zusatz **Solid**.
+
+![Private Farben](/static/images/design/Color/PrivateColors.png)
+
+### **Farben mit Alpha-Kanal**
+
+Farben mit Alpha-Kanal existieren nur für Indizes ab 500 und darunter. Sie werden mit der Hintergrundfarbe gemischt, was hilft, die Lesbarkeit zu erhalten und den Kontrast zu wahren. Es wird empfohlen, sie zu verwenden:
+
+1) für helle Schattierungen (von 50 bis 300);
+2) für Projekte, die mit Typografie zu tun haben, bei denen Texte über Hintergründen beliebiger Farben ausgegeben werden können (die Verwendung des Alpha-Kanals hilft, unangenehme Situationen mit Kontrastverlust zu vermeiden).
+
+### **Solid-Farben**
+
+Solid-Farben werden dort benötigt, wo sich ein Objekt über ein anderes legen kann und eine Farbmischung an der Überlappungsstelle nicht zulässig ist. Sie werden unter Berücksichtigung des Haupt-Hintergrunds für das Theme erstellt. Da Solid-Farben auch über Hintergründen beliebiger Farbe ausgegeben werden können, sollten sie mit Bedacht eingesetzt werden.
+
+Wenn sich die Farbe des Haupt- oder Kontrasthintergrunds ändert, wird empfohlen, die Schattierungen neu zu generieren, um die Solid-Farben und die Farben mit Alpha-Kanal visuell zu synchronisieren.
+
+### Wie man Töne erstellt
+
+Die Töne werden von der Mitte der Skala aus aufgebaut, in unserem Fall ist das die Farbe mit dem Index 550. Dies ist die Basisfarbe, aus der weniger gesättigte und gesättigtere Töne generiert werden. Ausnahmen bilden Schwarz und Weiß, die sich am Rand der Skala befinden und die Erstellung einer größeren Anzahl von Tönen und Werten mit Alpha-Kanal ermöglichen.
+
+Farben mit einem Index von 50 bis 500 werden durch Reduzierung der Opazität der Basisfarbe (550) aufgebaut. Farben mit Alpha-Kanal existieren nur in diesem Bereich, im Gegensatz zu Solid-Farben, die Werte über die gesamte Skala hinweg haben können.
+
+Farben mit einem Index von 600 bis 1000 werden durch Beimischung des Hintergrunds aufgebaut, der für das gewählte Thema kontrastreich zur Basisfarbe ist. Zum Beispiel ist in einem hellen Thema der Haupt-Hintergrund weiß, und der kontrastreiche dazu ist der Hintergrund des dunklen Themas. Dieser wird zur Farbe hinzugefügt, um dunklere Töne zu erzeugen.
+
+In einem dunklen Thema ist alles umgekehrt: Der Haupt-Hintergrund ist dunkel, und der kontrastreiche dazu ist der Hintergrund des hellen Themas, d.h. in unserem Fall weiß. Dieser wird zur Farbe hinzugefügt, um Töne mit hohem Index zu bilden.
+
+Es gibt ein Skript, das es ermöglicht, die Farbskala direkt in einem für die Übergabe an die Entwicklung geeigneten Format zu erstellen.
+
+### **Semantische Farben**
+
+Variablen aus dieser Farbengruppe sind in **Gruppen** nach Kategorien unterteilt, die in den Komponenten nach **Sinn** verwendet werden. Ihre Werte werden für jedes Thema mithilfe privater Variablen festgelegt. Manchmal können einige semantische Variablen als Werte für andere dienen, aber dies erfordert Vorsicht, um Rekursionen zu vermeiden.
+
+![Semantic colors](/static/images/design/Color/SemanticColors.png)
+
+### **Kategorien nach Typen**
+
+In Figma sind die Variablen zur einfacheren Navigation in die unten aufgeführten Gruppen unterteilt. Im Code ist die Struktur geradliniger. Branding wird dort nicht in eine separate Kategorie ausgegliedert, und die Gruppe der Base-Variablen ist ebenfalls eine einzige. Nach Namen, Zusammensetzung und Wert sind Figma und Code äquivalent, außer in Fällen, in denen der Name zur besseren Lesbarkeit oder Verständlichkeit optimiert wurde.
+
+1. **Branding**
+
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche, wobei darauf geachtet wurde, dass sie natürlich klingt und alle technischen Elemente beibehalten werden:
+
+---
+
+Hier ist eine Sammlung von Brand-Variablen, die aus allen Kategorien zusammengestellt wurden. Dies sind Basisfarben, die eine schnelle Anwendung von Stilen und eine sofortige Vorschau des Ergebnisses ermöglichen. Diese Gruppe existiert nur in Figma. Im Code gibt es diese Gruppe nicht; die Farben sind stattdessen ihren jeweiligen Gruppen zugeordnet.
+
+2.  **Text**
+
+    Eine Gruppe von Variablen für Text- und Icon-Farben. Da Texte und Icons oft zusammen angezeigt werden, ist es wichtig, ihre visuelle Konsistenz zu gewährleisten.
+
+3.  **Base**
+
+    Eine Gruppe von Farben für verschiedene Hintergründe, Füllungen und Oberflächen.
+
+4.  **Base Semantic**
+
+    Hintergrundfarben mit den Färbungen Info, Positive, Warning, Danger, Misc. Es sind Werte sowohl für den Normal- als auch für den Hover-Zustand vorgesehen. Diese können für bestimmte Arten von Infografiken geeignet sein, aber nicht für alle. Diese Gruppe existiert nur in Figma. Im Code ist dies Teil der Gruppe **Base**.
+
+5.  **Base Float**
+
+    Hintergrundfarben für Elemente, die über dem Hauptseitenhintergrund schweben. Diese Gruppe existiert nur in Figma. Im Code ist dies Teil der Gruppe **Base**.
+
+6.  **Line**
+
+    Farben für Umrandungen, Linien, Trennelemente, Rahmen und alle anderen feinen Elemente.
+
+7.  **Effects**
+
+    Farben für Textschattierungen, das Erzeugen von Schatten usw.
+
+8.  **Misc**
+
+    Eine Gruppe mit verschiedenen technischen Farben – Scrollbalken, Achsen für Diagramme, Hintergrund von Tooltips in Diagrammen.
+
+Weitere Details zur Funktion jeder Variablen finden Sie in der Beschreibung der Farb-Styles in Figma oder im Storybook.
+
+### Kategorien nach Bedeutung
+
+Die Variablen jeder Gruppe können ihre eigenen Bedeutungen haben, die sich aus den Anwendungsprinzipien jeder Gruppe ergeben. Beispielsweise ist es für Texte sinnvoll, Kategorien wie **primär** und **sekundär** zu verwenden, die für andere Inhaltstypen nicht anwendbar sind.
+
+Unter den Werten, die für verschiedene Kategorien gemeinsam sind, sind folgende hervorzuheben:
+
+*   Erfolg (success);
+*   Gefahr (dangerous);
+*   Warnung (warning);
+*   Neutraler Wert (neutral);
+*   usw.
+
+## Variablen und Farb-Styles
+
+Die Arbeit mit Farb-Werten erfolgt in der Benutzeroberfläche von Local Variables in Figma. Um dorthin zu gelangen, öffnen Sie die Bibliothek-Datei, stellen Sie sicher, dass nichts auf der Seite ausgewählt ist (Sie können dazu in den leeren Bereich der Leinwand klicken) und klicken Sie dann auf Local Variables in der rechten Seitenleiste.
+
+![Variables](/static/images/design/Color/Variables.png)
+
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche, wobei darauf geachtet wurde, dass sie natürlich klingt und technische Begriffe sowie MDX-Komponenten unverändert bleiben:
+
+Solange Variablen nicht im Beta-Status verbleiben, werden in der Design-System weiterhin Color Styles zur direkten Farbdefinition eines Objekts verwendet. Dabei ist der Wert innerhalb eines Color Styles die entsprechende Variable. Das bedeutet Folgendes:
+
+1. Um die Farbe eines Color Styles zu ändern, muss die Farbe der entsprechenden Variable geändert werden.
+2. Color Styles erben die Eigenschaften von Variablen, insbesondere die Unterstützung von Farbthemen. Somit kann ein Objekt mit angewendetem Color Style das Thema ändern, indem nur die Funktionalität von Figma genutzt wird.
+
+   ![Styles](/static/images/design/Color/Styles.png)
+
+## Themen
+
+Die Gravity-UI-Bibliothek unterstützt 4 Themen: Hell, Dunkel und deren kontrastreiche Versionen. Derzeit ist der Industriestandard, mindestens zwei zu unterstützen: Hell und Dunkel. Es ist schwierig, eine einzige ideale Wahl zu treffen, wenn man bedenkt, wie unterschiedlich die Präferenzen der Benutzer sein können.
+
+Themen mit erhöhter Kontraststärke wurden als Lösung für diejenigen entwickelt, denen die Kontraststärke in den normalen Themen nicht ausreicht. Dies kann auf Besonderheiten der Hardware zurückzuführen sein, wie z. B. die Kalibrierung des Monitors, die eingestellte Helligkeit, den Matrixtyp und dessen Farbwiedergabe (insbesondere bei TVs) sowie die Umgebungsbeleuchtung. Diese Themen können derzeit nicht als Lösung für die Gewährleistung der Barrierefreiheit (Accessibility) betrachtet werden.

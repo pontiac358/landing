@@ -1,0 +1,123 @@
+Voici la traduction du fichier source du guide de conception en français :
+
+## Système de couleurs à deux couches
+
+La bibliothèque repose sur 2 palettes : une palette privée et une palette sémantique. Elles diffèrent par leur structure et leur objectif. La palette privée définit les valeurs RGBA pour toutes les nuances et teintes de toutes les couleurs dans tous les thèmes, tandis que la palette sémantique utilise les couleurs privées comme valeurs et s'applique à des éléments d'interface spécifiques.
+
+![Système de couleurs à deux couches](/static/images/design/Color/ColorSystem.png)
+
+### **Couleurs privées**
+
+C'est la couche de base des couleurs dans le système de conception. Elles ne sont pas destinées à être utilisées directement dans les composants et servent de valeurs pour les variables sémantiques qui sont déjà utilisées dans les composants. Les valeurs des variables privées sont des couleurs RGBA/RGB.
+
+Dans cette palette, pour chaque thème, toutes les nuances de toutes les couleurs sont listées, avec et sans canal alpha, avec la mention **Solid**.
+
+![Couleurs privées](/static/images/design/Color/PrivateColors.png)
+
+### **Couleurs avec canal alpha**
+
+Les couleurs avec canal alpha existent uniquement pour les index à partir de 500 et inférieurs. Elles sont mélangées avec la couleur de fond, ce qui permet de ne pas perdre en lisibilité et de conserver le contraste. Il est recommandé de les utiliser :
+
+1) pour les nuances claires (de 50 à 300) ;
+2) pour les projets liés à la typographie, où les textes peuvent être affichés sur des arrière-plans de toutes les couleurs (l'utilisation du canal alpha aidera à éviter les situations désagréables de perte de contraste).
+
+### **Couleurs Solid**
+
+Les couleurs Solid sont nécessaires là où un objet peut se superposer à un autre et où le mélange des couleurs à l'endroit du chevauchement n'est pas autorisé. Elles sont construites en tenant compte de l'arrière-plan principal du thème. Étant donné que les couleurs solid peuvent également être affichées sur des arrière-plans de couleur arbitraire, il convient de les utiliser avec prudence.
+
+Lors de la modification de la couleur de l'arrière-plan principal ou contrasté, il est recommandé de régénérer les nuances afin de synchroniser visuellement les couleurs solid et les couleurs avec canal alpha.
+
+### Comment construire les nuances
+
+Les tons sont construits à partir du milieu de l'échelle, dans notre cas, la couleur avec l'indice 550. C'est la couleur principale à partir de laquelle sont générés des tons moins saturés et plus saturés. Les exceptions sont le noir et le blanc, qui se trouvent aux extrémités de l'échelle et permettent de créer plus de tons et de valeurs avec un canal alpha.
+
+Les couleurs avec un indice de 50 à 500 sont construites en diminuant l'Opacité de la couleur principale (550). Les couleurs avec un canal alpha n'existent que dans cette plage, contrairement aux couleurs solides qui peuvent avoir des valeurs sur toute l'échelle.
+
+Les couleurs avec un indice de 600 à 1000 sont construites en mélangeant l'arrière-plan, contrastant avec la couleur principale pour le thème choisi. Par exemple, dans un thème clair, l'arrière-plan principal est blanc, et son contraste est l'arrière-plan du thème sombre. C'est ce qui est ajouté à la couleur pour créer des tons plus sombres.
+
+Dans un thème sombre, c'est l'inverse : l'arrière-plan principal est sombre, et son contraste est l'arrière-plan du thème clair, c'est-à-dire, dans notre cas, blanc. C'est ce qui est ajouté à la couleur pour former des tons à indice élevé.
+
+Il existe un script qui permet de construire l'échelle de couleurs directement dans un format prêt à être transmis au développement.
+
+### **Couleurs sémantiques**
+
+Les variables de ce groupe de couleurs sont divisées en **groupes** par catégories, qui sont utilisées dans les composants par **sens**. Leurs valeurs sont définies pour chaque thème à l'aide de variables privées. Parfois, certaines variables sémantiques peuvent servir de valeurs pour d'autres, mais cela nécessite de la prudence pour éviter la récursion.
+
+![Semantic colors](/static/images/design/Color/SemanticColors.png)
+
+### **Catégories par types**
+
+Dans Figma, pour une navigation plus simple, les variables sont divisées en groupes énumérés ci-dessous. Cependant, dans le code, la structure est plus directe. Le Branding n'est pas isolé dans une catégorie distincte, et le groupe de variables Base n'est également qu'un seul. Par leurs noms, leur composition et leurs valeurs, Figma et le code sont équivalents, sauf dans les cas où le nom est optimisé pour une meilleure lisibilité ou compréhension.
+
+1. **Branding**
+
+Voici la traduction du fichier source du guide de conception en français :
+
+---
+
+**Collection**
+
+Collection de variables de marque, rassemblées à partir de toutes les catégories. Ce sont les couleurs de base qui permettent d'appliquer rapidement un style et de voir le résultat. Ce groupe n'est mis en évidence que dans Figma. Dans le code, ce groupe n'existe pas, et les couleurs sont réparties dans leurs groupes respectifs.
+
+2.  **Text**
+
+    Groupe de variables pour la couleur du texte et des icônes. Comme les textes et les icônes sont souvent affichés ensemble, il est important de maintenir leur cohérence visuelle.
+
+3.  **Base**
+
+    Groupe de couleurs pour toutes sortes de sous-couches, de remplissages et d'arrière-plans.
+
+4.  **Base Semantic**
+
+    Couleurs des sous-couches avec les teintes Info, Positive, Warning, Danger, Misc. Des valeurs sont prévues pour les états Normal et Hover. Peuvent convenir à certains types d'infographies, mais pas à tous. Ce groupe n'est mis en évidence que dans Figma. Dans le code, cela fait partie du groupe **Base**.
+
+5.  **Base Float**
+
+    Couleurs des sous-couches des éléments flottant au-dessus de l'arrière-plan principal de la page. Ce groupe n'est mis en évidence que dans Figma. Dans le code, cela fait partie du groupe **Base**.
+
+6.  **Line**
+
+    Couleurs des contours, lignes, séparateurs, bordures et tout autre élément fin.
+
+7.  **Effects**
+
+    Couleurs pour l'assombrissement du texte, la création d'ombres, etc.
+
+8.  **Misc**
+
+    Groupe de couleurs techniques diverses — barres de défilement, axes pour les graphiques, arrière-plan des tooltips dans les graphiques.
+
+Vous pouvez en savoir plus sur la fonction de chaque variable dans la description des styles de couleur dans Figma ou dans le storybook.
+
+### Catégories par sens
+
+Les variables de chaque groupe peuvent avoir leurs propres significations, dues aux principes d'application de chaque groupe. Par exemple, pour les textes, il est logique d'utiliser des catégories telles que **principal** et **secondaire**, qui ne s'appliquent pas à d'autres types de contenu.
+
+Parmi les valeurs communes à différentes catégories, il convient de souligner les suivantes :
+
+*   succès (success) ;
+*   danger (dangerous) ;
+*   avertissement (warning) ;
+*   valeur neutre (neutral) ;
+*   etc.
+
+## Variables et styles de couleur
+
+Le travail avec les valeurs de couleur s'effectue dans l'interface Local Variables de Figma. Pour y accéder, vous devez ouvrir le fichier de la bibliothèque, vous assurer que rien n'est sélectionné sur la page (pour cela, vous pouvez cliquer sur l'arrière-plan vide du canevas) et cliquer sur Local Variables dans le panneau de droite.
+
+![Variables](/static/images/design/Color/Variables.png)
+
+Voici la traduction du fichier source du guide de conception en français :
+
+Tant que les variables ne restent pas en version bêta, la conception du système continue d'utiliser des `colorstyles` pour définir directement la couleur d'un objet. Dans ce cas, la valeur à l'intérieur du `colorstyle` est la variable correspondante. Cela signifie :
+
+1. Pour changer la couleur d'un `colorstyle`, il faut changer la couleur de la variable correspondante.
+2. Les `colorstyles` héritent des propriétés des variables, notamment le support des thèmes de couleurs. Ainsi, un objet avec un `colorstyle` appliqué pourra changer de thème en utilisant uniquement les fonctionnalités de Figma.
+
+   ![Styles](/static/images/design/Color/Styles.png)
+
+## Thèmes
+
+La bibliothèque Gravity-UI prend en charge 4 thèmes : clair, sombre et leurs versions contrastées. Actuellement, la norme dans l'industrie est de prendre en charge au moins deux thèmes : clair et sombre. Il est difficile de choisir un thème idéal, compte tenu de la diversité des préférences des utilisateurs.
+
+Les thèmes à contraste élevé ont été créés pour ceux qui manquent de contraste dans les thèmes ordinaires, ce qui peut être dû à des caractéristiques matérielles, telles que le calibrage du moniteur, le réglage de la luminosité, le type de dalle et son rendu des couleurs (en particulier pour les téléviseurs), ainsi qu'à l'éclairage de la pièce. Ces thèmes ne peuvent pas être considérés comme une solution pour garantir l'accessibilité à l'heure actuelle.
