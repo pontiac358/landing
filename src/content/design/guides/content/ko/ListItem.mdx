@@ -1,4 +1,4 @@
-**List** — это универсальный компонент списка, представляющий собой контейнер и строки данных, упорядоченные в один вертикальный столбец. Компонент сортирует дочерние элементы `list-item` с поддержкой различных размеров, позволяет фильтровать их, а также управлять выделением с помощью клавиатуры.
+**List** — универсальный компонент списка, представляющий собой контейнер с элементами данных, расположенными в один вертикальный столбец. Компонент позволяет сортировать дочерние элементы `list-item` с поддержкой различных размеров, а также управлять их фильтрацией и выделением с помощью клавиатуры.
 
 # **Структура `List`**
 
@@ -8,7 +8,7 @@
 
 ➋ Элемент списка
 
-➌ Полоса прокрутки
+➌ Полоса прокрутки (скроллбар)
 
 ➍ Элемент списка под курсором
 
@@ -66,7 +66,7 @@
 
 **Элемент списка с дополнительной иконкой при наведении** */}
 
-Для всех вариантов элементов списка с иконками или сортируемых элементов есть возможность задать дополнительную иконку, которая отображается при наведении на компонент.
+For all variants of list items with icons or sortable items, an additional icon can be set, which is displayed when hovering over the component.
 
 ---
 
@@ -88,9 +88,9 @@ Sorting can be enabled for list items. By default, the sorting icon is always di
 
 ![66.png](/static/images/design/List/66.png)
 
-**Customizable List Container Height**
+**Customizable Height for the Overall List Container**
 
-The height of list items or a function returning the height value can be set dynamically or specified with an exact value in px. If the list items exceed the height, a scrollbar appears. The height can be set manually or changed dynamically.
+The height of list items or a function that returns the height value can be set dynamically or specified with an exact value in px. If the list items do not fit within the height, a scrollbar appears. The height can be set manually or changed dynamically.
 
 ![70.png](/static/images/design/List/70.png)
 
@@ -102,11 +102,11 @@ The component supports both single and multiple item selection.
 
 **Filtering and Search**
 
-An input field can optionally be enabled in the component for quick filtering of items within the list. The default filter placeholder can be changed depending on the component's task.
+An input field can optionally be enabled in the component for quick filtering of items within the list. The default filter placeholder can be changed depending on the component's purpose.
 
 ![69.png](/static/images/design/List/69.png)
 
-**Triggering Mechanisms**
+**Triggering Calls**
 
 By default, the `List` component is triggered by interaction with other elements on the page, such as `Select`, `Label`, `Button`, and is also used as a suggestion for the `Input` component.
 
@@ -114,4 +114,4 @@ By default, the `List` component is triggered by interaction with other elements
 
 **Virtualization**
 
-With the virtualization flag enabled, the browser renders only a small subset of rows at a given time and significantly reduces the time required for re-rendering components. When using this method, commonly referred to as "infinite scrolling," new items are added to the list as the user scrolls to a specific threshold element (trigger).
+With the virtualization flag enabled, the browser renders only a small subset of rows at a given time, significantly reducing the time required for re-rendering components. When using this method, commonly referred to as "infinite scrolling," new items are added to the list as the user scrolls to a specific threshold element (trigger).

@@ -1,0 +1,119 @@
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche, wobei alle MDX-Komponenten-Tags, Codeblöcke und technischen Begriffe beibehalten wurden:
+
+**List** — eine universelle Listenkomponente, die einen Container und Datenzeilen darstellt, die in einer einzigen vertikalen Spalte angeordnet sind. Die Komponente sortiert ihre `list-item`-Kindelemente intern mit Unterstützung für verschiedene Größen, ermöglicht deren Filterung und steuert die Hervorhebung mit der Tastatur.
+
+# **Struktur von `List`**
+
+![60.png](/static/images/design/List/60.png)
+
+➊ Filterbereich
+
+➋ Listenelement
+
+➌ Scrollleiste
+
+➍ Listenelement unter dem Cursor
+
+# **Struktur von `list-item`**
+
+![61.png](/static/images/design/List/61.png)
+
+➊ Sortierikone
+
+➋ Elementikone
+
+➌ Textblock
+
+➍ Zusätzliche Aktionsschaltfläche (wird beim Hover angezeigt)
+
+# Größe
+
+![65.png](/static/images/design/List/65.png)
+
+**Listenelement (`List-item`)**
+
+Alle Listenelemente unterstützen die Darstellung in 4 Größen: `S`, `M`, `L` und `XL`. Die Größen und Abstände entsprechen den Elementen der Bibliothek, mit denen die Komponente interagiert – zum Beispiel `select`, `input`, `button`, die ähnliche variable Größen unterstützen.
+
+![63.png](/static/images/design/List/63.png)
+
+**Liste (`List`)**
+
+Standardmäßig ist die Breite der `List`-Komponente dynamisch und wird anhand der Breite des längsten Elements in der Liste berechnet. Optional kann die Breite mit einem festen Wert angegeben oder die Breite des Objekts übernommen werden, das die Anzeige der Liste ausgelöst hat (`select`, `input`).
+
+# Zustände
+
+![62.png](/static/images/design/List/62.png)
+
+# Arten von **Inhalten**
+
+![Group 2087326004.png](/static/images/design/List/Group_2087326004.png)
+
+{/* **Einfaches Listenelement (Standard)**
+
+Ein grundlegendes Listenelement ohne Anzeige zusätzlicher Elemente
+
+![Group 2087326006.png](/static/images/design/List/Group_2087326006.png)
+
+**Listenelement mit Ikone**
+
+Jedes Listenelement kann eine oder mehrere Ikonen am linken oder rechten Rand der Komponente enthalten.
+
+![Group 2087326007.png](/static/images/design/List/Group_2087326007.png)
+
+**Sortierbares Listenelement**
+
+Für sortierbare Elemente besteht die Möglichkeit zu wählen, auf welcher Seite die „Drag & Drop“-Ikone angezeigt werden soll.
+
+![Group 2087326008.png](/static/images/design/List/Group_2087326008.png)
+
+**Listenelement mit zusätzlicher Ikone beim Hover** */}
+
+Für alle Varianten von Listenelementen mit Icons oder sortierbaren Elementen kann ein zusätzliches Icon definiert werden, das beim Hover über die Komponente angezeigt wird.
+
+---
+
+# Funktionen von `List-item`
+
+![59.png](/static/images/design/List/59.png)
+
+**Unterstützung mehrerer Icons**
+
+Alle **list-item** Elemente unterstützen die Anzeige eines oder mehrerer Icons am linken und rechten Rand der Komponente.
+
+![64.png](/static/images/design/List/64.png)
+
+**Änderung der Sortierreihenfolge**
+
+Für Listenelemente kann die Sortierung aktiviert werden. Standardmäßig wird das Sortier-Icon immer am Anfang der Liste angezeigt.
+
+# Funktionen von `List`
+
+![66.png](/static/images/design/List/66.png)
+
+**Anpassbare Höhe des allgemeinen Listencontainers**
+
+Die Höhe der Listenelemente oder eine Funktion, die den Höhenwert zurückgibt, kann dynamisch oder mit einem genauen Wert in px angegeben werden. Wenn die Listenelemente nicht in die Höhe passen, erscheint eine Scrollleiste. Die Höhe kann manuell eingestellt oder dynamisch geändert werden.
+
+![70.png](/static/images/design/List/70.png)
+
+**Einzel- und Mehrfachauswahl**
+
+Die Komponente unterstützt sowohl die Einzel- als auch die Mehrfachauswahl von Elementen.
+
+![68.png](/static/images/design/List/68.png)
+
+**Filterung und Suche**
+
+In der Komponente kann optional ein Eingabefeld aktiviert werden, um Elemente innerhalb der Liste schnell zu filtern. Der Standard-Platzhalter für den Filter kann je nach Aufgabe der Komponente geändert werden.
+
+![69.png](/static/images/design/List/69.png)
+
+**Auslöser (Trigger)**
+
+Standardmäßig wird die `List`-Komponente durch Interaktion mit anderen Elementen auf der Seite ausgelöst, wie z. B. `Select`, `Label`, `Button`, und wird auch als Vorschlag (Suggesst) für die `Input`-Komponente verwendet.
+
+![67.png](/static/images/design/List/67.png)
+
+**Virtualisierung**
+
+Bei aktiviertem Virtualisierungsflag rendert der Browser zu einem bestimmten Zeitpunkt nur eine kleine Teilmenge von Zeilen und reduziert die Zeit, die für das erneute Rendern von Komponenten benötigt wird, erheblich. Bei dieser Methode, die üblicherweise als „Infinite Scrolling“ bezeichnet wird, werden neue Elemente zur Liste hinzugefügt, während der Benutzer zu einem bestimmten Schwellenelement (Trigger) scrollt.

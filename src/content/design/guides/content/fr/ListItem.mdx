@@ -1,0 +1,119 @@
+Voici la traduction du fichier source du guide de conception en français :
+
+**List** — un composant de liste universel qui représente un conteneur et des lignes de données, organisés en une seule colonne verticale. Le composant trie ses éléments enfants `list-item` en interne avec la prise en charge de différentes tailles, et permet de les filtrer, ainsi que de gérer la sélection au clavier.
+
+# **Structure de `List`**
+
+![60.png](/static/images/design/List/60.png)
+
+➊ Zone de filtre
+
+➋ Élément de liste
+
+➌ Barre de défilement (scrollbar)
+
+➍ Élément de liste sous le curseur
+
+# **Structure de `list-item`**
+
+![61.png](/static/images/design/List/61.png)
+
+➊ Icône de tri
+
+➋ Icône de l'élément
+
+➌ Bloc de texte
+
+➍ Bouton d'action supplémentaire (affiché au survol)
+
+# Taille
+
+![65.png](/static/images/design/List/65.png)
+
+**Élément de liste (`List-item`)**
+
+Tous les éléments de liste prennent en charge l'affichage en 4 tailles : `S`, `M`, `L` et `XL`. Les tailles et les margens correspondent aux éléments de la bibliothèque avec lesquels le composant interagit — par exemple, `select`, `input`, `button`, qui prennent en charge des variables de dimensionnalité similaires.
+
+![63.png](/static/images/design/List/63.png)
+
+**Liste (`List`)**
+
+Par défaut, la largeur du composant `List` est dynamique et est calculée en fonction de la largeur de l'élément le plus long de la liste. Optionnellement, la largeur peut être définie avec une valeur fixe ou hériter de la largeur de l'objet qui a déclenché l'affichage de la liste (`select`, `input`).
+
+# États
+
+![62.png](/static/images/design/List/62.png)
+
+# Types de **contenu**
+
+![Group 2087326004.png](/static/images/design/List/Group_2087326004.png)
+
+{/* **Élément de liste simple (par défaut)**
+
+Élément de liste de base sans affichage d'éléments supplémentaires
+
+![Group 2087326006.png](/static/images/design/List/Group_2087326006.png)
+
+**Élément de liste avec icône**
+
+Tout élément de liste peut contenir une ou plusieurs icônes sur le bord gauche ou droit du composant.
+
+![Group 2087326007.png](/static/images/design/List/Group_2087326007.png)
+
+**Élément de liste triable**
+
+Pour les éléments triables, il est possible de choisir de quel côté afficher l'icône de « glisser-déposer ».
+
+![Group 2087326008.png](/static/images/design/List/Group_2087326008.png)
+
+**Élément de liste avec icône supplémentaire au survol** */}
+
+Pour toutes les variantes d'éléments de liste avec icônes ou d'éléments triables, il est possible de définir une icône supplémentaire qui s'affiche au survol du composant.
+
+--- */}
+
+# Fonctionnalités de `List-item`
+
+![59.png](/static/images/design/List/59.png)
+
+**Prise en charge de plusieurs icônes**
+
+Tous les éléments **list-item** prennent en charge l'affichage d'une ou plusieurs icônes sur les bords gauche et droit du composant.
+
+![64.png](/static/images/design/List/64.png)
+
+**Modification de l'ordre de tri**
+
+Le tri peut être activé pour les éléments de liste. Par défaut, l'icône de tri s'affiche toujours au début de la liste.
+
+# Fonctionnalités de `List`
+
+![66.png](/static/images/design/List/66.png)
+
+**Hauteur personnalisable du conteneur global de la liste**
+
+La hauteur des éléments de liste ou une fonction retournant la valeur de la hauteur peut être définie dynamiquement ou spécifiée par une valeur exacte en px. Si les éléments de liste ne rentrent pas en hauteur, une barre de défilement apparaît. La hauteur peut être définie manuellement ou modifiée dynamiquement.
+
+![70.png](/static/images/design/List/70.png)
+
+**Sélection unique et multiple**
+
+Le composant prend en charge la sélection d'éléments unique et multiple.
+
+![68.png](/static/images/design/List/68.png)
+
+**Filtrage et recherche**
+
+Un champ de saisie peut être activé de manière optionnelle dans le composant pour filtrer rapidement les éléments dans la liste. Le placeholder du filtre par défaut peut être modifié en fonction de la tâche du composant.
+
+![69.png](/static/images/design/List/69.png)
+
+**Déclencheurs d'appel**
+
+Par défaut, le composant `List` est appelé par interaction avec d'autres éléments de la page, tels que `Select`, `Label`, `Button`, et est également utilisé comme suggestion pour le composant `Input`.
+
+![67.png](/static/images/design/List/67.png)
+
+**Virtualisation**
+
+Lorsque le drapeau de virtualisation est activé, le navigateur ne rend qu'un petit sous-ensemble de lignes à un moment donné et réduit considérablement le temps nécessaire au re-rendu des composants. En utilisant cette méthode, généralement appelée « chargement infini », de nouveaux éléments sont ajoutés à la liste au fur et à mesure du défilement jusqu'à un élément seuil spécifique (déclencheur).

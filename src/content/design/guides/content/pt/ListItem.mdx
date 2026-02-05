@@ -1,0 +1,119 @@
+Aqui está a tradução do arquivo fonte do guia de design para português:
+
+**List** — um componente de lista genérico que consiste em um contêiner e linhas de dados, organizados em uma única coluna vertical. O componente classifica os elementos filhos `list-item` internamente com suporte a diferentes tamanhos, permitindo filtrá-los e gerenciar a seleção com o teclado.
+
+# **Estrutura do `List`**
+
+![60.png](/static/images/design/List/60.png)
+
+➊ Área de filtro
+
+➋ Item da lista
+
+➌ Barra de rolagem
+
+➍ Item da lista sob o cursor
+
+# **Estrutura do `list-item`**
+
+![61.png](/static/images/design/List/61.png)
+
+➊ Ícone de classificação
+
+➋ Ícone do item
+
+➌ Bloco de texto
+
+➍ Botão de ação adicional (exibido ao passar o mouse)
+
+# Tamanho
+
+![65.png](/static/images/design/List/65.png)
+
+**Item da lista (`List-item`)**
+
+Todos os itens da lista suportam renderização em 4 tamanhos: `S`, `M`, `L` e `XL`. Os tamanhos e espaçamentos correspondem aos elementos da biblioteca com os quais o componente interage — por exemplo, `select`, `input`, `button`, que suportam variáveis de dimensionamento semelhantes.
+
+![63.png](/static/images/design/List/63.png)
+
+**Lista (`List`)**
+
+Por padrão, a largura do componente `List` é dinâmica e calculada com base na largura do elemento mais longo na lista. Opcionalmente, a largura pode ser definida com um valor fixo ou herdar a largura do objeto que acionou a exibição da lista (`select`, `input`).
+
+# Estados
+
+![62.png](/static/images/design/List/62.png)
+
+# Tipos de **conteúdo**
+
+![Group 2087326004.png](/static/images/design/List/Group_2087326004.png)
+
+{/* **Item de lista simples (padrão)**
+
+Item de lista básico sem exibição de elementos adicionais
+
+![Group 2087326006.png](/static/images/design/List/Group_2087326006.png)
+
+**Item de lista com ícone**
+
+Qualquer item de lista pode conter um ou mais ícones na borda esquerda ou direita do componente.
+
+![Group 2087326007.png](/static/images/design/List/Group_2087326007.png)
+
+**Item de lista classificável**
+
+Para itens classificáveis, há a opção de escolher em qual lado renderizar o ícone de "arrastar".
+
+![Group 2087326008.png](/static/images/design/List/Group_2087326008.png)
+
+**Item de lista com ícone adicional ao passar o mouse** */}
+
+Para todas as variantes de `List-item` com ícones ou elementos ordenáveis, é possível definir um ícone adicional que é exibido ao passar o mouse sobre o componente.
+
+---
+
+# Funcionalidades do `List-item`
+
+![59.png](/static/images/design/List/59.png)
+
+**Suporte a múltiplos ícones**
+
+Todos os elementos **list-item** suportam a exibição de um ou mais ícones nas bordas esquerda e direita do componente.
+
+![64.png](/static/images/design/List/64.png)
+
+**Alteração da ordem de classificação**
+
+A classificação pode ser ativada para os itens da lista. Por padrão, o ícone de classificação é sempre exibido no início da lista.
+
+# Funcionalidades do `List`
+
+![66.png](/static/images/design/List/66.png)
+
+**Altura personalizável do contêiner geral da lista**
+
+A altura dos itens da lista ou uma função que retorna o valor da altura pode ser definida dinamicamente ou especificada com um valor exato em px. Se os itens da lista não couberem em altura, uma barra de rolagem aparecerá. A altura pode ser definida manualmente ou alterada dinamicamente.
+
+![70.png](/static/images/design/List/70.png)
+
+**Seleção única e múltipla**
+
+O componente suporta tanto a seleção única quanto a múltipla de itens.
+
+![68.png](/static/images/design/List/68.png)
+
+**Filtragem e busca**
+
+Um campo de entrada pode ser opcionalmente habilitado no componente para filtragem rápida de itens dentro da lista. O placeholder do filtro padrão pode ser alterado dependendo da tarefa do componente.
+
+![69.png](/static/images/design/List/69.png)
+
+**Gatilhos de chamada**
+
+Por padrão, o componente `List` é acionado pela interação com outros elementos na página, como `Select`, `Label`, `Button`, e também é usado como sugestão para o componente `Input`.
+
+![67.png](/static/images/design/List/67.png)
+
+**Virtualização**
+
+Com o flag de virtualização ativo, o navegador renderiza apenas um pequeno subconjunto de linhas em um determinado momento e reduz significativamente o tempo necessário para renderizar novamente os componentes. Ao usar este método, comumente chamado de "carregamento infinito", novos itens são adicionados à lista à medida que o usuário rola até um determinado elemento de gatilho.

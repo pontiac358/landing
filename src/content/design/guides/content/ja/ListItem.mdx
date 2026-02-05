@@ -8,7 +8,7 @@
 
 ➋ Элемент списка
 
-➌ Полоса прокрутки
+➌ Полоса прокрутки (скроллбар)
 
 ➍ Элемент списка под курсором
 
@@ -36,7 +36,7 @@
 
 **Список (`List`)**
 
-По умолчанию ширина компонента `List` динамическая и рассчитывается по ширине самого длинного элемента в списке. Опционально ширина может быть задана фиксированным значением или наследоваться от объекта, который вызвал отображение списка (`select`, `input`).
+По умолчанию ширина компонента `List` динамическая и рассчитывается по ширине самого длинного элемента в списке. Опционально ширина может быть задана с фиксированным значением или наследовать ширину объекта, который вызвал отображение списка (`select`, `input`).
 
 # Состояния
 
@@ -66,52 +66,52 @@
 
 **Элемент списка с дополнительной иконкой при наведении** */}
 
-Для всех вариантов элементов списка с иконками или сортируемых элементов есть возможность задать дополнительную иконку, которая отображается при наведении на компонент.
+すべてのアイコン付きリストアイテムまたはソート可能なアイテムのバリエーションについて、コンポーネントにホバーした際に表示される追加のアイコンを設定できます。
 
----
+--- */}
 
-# `List-item` Features
+# `List-item` の機能
 
 ![59.png](/static/images/design/List/59.png)
 
-**Multiple Icon Support**
+**複数のアイコンのサポート**
 
-All **list-item** elements support displaying one or more icons on the left and right edges of the component.
+すべての **list-item** 要素は、コンポーネントの左端と右端に1つまたは複数のアイコンを表示することをサポートしています。
 
 ![64.png](/static/images/design/List/64.png)
 
-**Sorting Order Change**
+**ソート順序の変更**
 
-Sorting can be enabled for list items. By default, the sorting icon is always displayed at the beginning of the list.
+リストアイテムのソートを有効にできます。デフォルトでは、ソートアイコンは常にリストの先頭に表示されます。
 
-# `List` Features
+# `List` の機能
 
 ![66.png](/static/images/design/List/66.png)
 
-**Customizable List Container Height**
+**リストコンテナ全体の高さのカスタマイズ**
 
-The height of list items or a function returning the height value can be set dynamically or specified with an exact value in px. If the list items exceed the height, a scrollbar appears. The height can be set manually or changed dynamically.
+リストアイテムの高さ、または高さを返す関数は、動的に設定するか、px で正確な値を指定できます。リストアイテムが高さに収まらない場合、スクロールバーが表示されます。高さは手動で設定するか、動的に変更できます。
 
 ![70.png](/static/images/design/List/70.png)
 
-**Single and Multiple Selection**
+**単一選択と複数選択**
 
-The component supports both single and multiple item selection.
+コンポーネントは、単一選択と複数選択の両方の要素をサポートしています。
 
 ![68.png](/static/images/design/List/68.png)
 
-**Filtering and Search**
+**フィルタリングと検索**
 
-An input field can optionally be enabled in the component for quick filtering of items within the list. The default filter placeholder can be changed depending on the component's task.
+リスト内の要素をすばやくフィルタリングするための入力フィールドをコンポーネントにオプションで含めることができます。デフォルトのフィルタープレースホルダーは、コンポーネントのタスクに応じて変更できます。
 
 ![69.png](/static/images/design/List/69.png)
 
-**Triggering Mechanisms**
+**トリガーの呼び出し**
 
-By default, the `List` component is triggered by interaction with other elements on the page, such as `Select`, `Label`, `Button`, and is also used as a suggestion for the `Input` component.
+デフォルトでは、`List` コンポーネントは、`Select`、`Label`、`Button` などの他のページ要素とのインタラクションによって呼び出され、`Input` コンポーネントのサジェストとしても使用されます。
 
 ![67.png](/static/images/design/List/67.png)
 
-**Virtualization**
+**仮想化**
 
-With the virtualization flag enabled, the browser renders only a small subset of rows at a given time and significantly reduces the time required for re-rendering components. When using this method, commonly referred to as "infinite scrolling," new items are added to the list as the user scrolls to a specific threshold element (trigger).
+仮想化フラグがアクティブな場合、ブラウザは特定の時点で少数の行のみをレンダリングし、コンポーネントの再レンダリングに必要な時間を大幅に短縮します。「無限スクロール」とも呼ばれるこの方法を使用する場合、特定のしきい値要素（トリガー）までスクロールすると、新しい要素がリストに追加されます。
