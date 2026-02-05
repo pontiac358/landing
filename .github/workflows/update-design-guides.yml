@@ -77,10 +77,19 @@ jobs:
           
           # Create PR
           export COMMIT_MESSAGE="docs: update design guides translations"
-          gh pr create --title "$COMMIT_MESSAGE" --body "Automated translations for design guides" -a "dgaponov" -a "imsitnikov" -a "vvtimofeev" || true
+          echo "Creating PR..."
+          gh pr create --title "$COMMIT_MESSAGE" --body "Automated translations for design guides" -a "pontiac358" || {
+            echo "Warning: PR creation failed, checking if PR already exists..."
+          }
           
           # Get PR number
           PR_NUMBER=$(gh pr view update-design-guides --json number -q ".number" 2>/dev/null || echo "")
+          echo "PR number: $PR_NUMBER"
+          
+          if [ -z "$PR_NUMBER" ]; then
+            echo "Error: Could not get PR number"
+            exit 1
+          fi
           
           echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
 
