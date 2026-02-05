@@ -1,0 +1,71 @@
+Der Checkbox ist ein UI-Element, das es Benutzern ermöglicht, eine oder mehrere Optionen aus einer Liste auszuwählen.
+
+## Anwendungsbeispiele
+
+![Cases](/static/images/design/Checkbox/Checkbox1.png)
+
+Nach der Aktivierung eines Checkbox wird die Aktion nicht sofort ausgeführt. Damit die Änderungen wirksam werden, muss eine Bestätigungsschaltfläche (z. B. „Speichern“, „Anwenden“, „Senden“) gedrückt werden. In den meisten Fällen wird ein Checkbox zusammen mit einem Label verwendet, das seine Bedeutung erklärt. Es gibt jedoch Szenarien, in denen ein Checkbox ohne Label verwendet werden kann, z. B. in Tabellen oder wenn es überflüssig wäre, neben jedem Checkbox das Label „Aktivieren“ anzuzeigen. Der Text sollte mit einer positiven Formulierung beginnen, z. B. „Aktivieren“ anstelle von „Deaktivieren“, da der Benutzer sonst eine logische Aufgabe lösen muss.
+
+## Anatomie
+
+Ein Checkbox besteht aus:
+
+![Anatomy](/static/images/design/Checkbox/Checkbox2.png)
+
+1.  **Container** – Ein rechteckiger visueller Bereich, der den Checkbox umgibt. Der Container dient zur Abgrenzung und Aktivierung des Checkbox.
+2.  **Häkchen** – Ein Symbol, das im Container erscheint, wenn der Checkbox aktiviert ist. Dieses Symbol dient als visuelle Bestätigung, dass der Benutzer diesen Checkbox ausgewählt hat.
+3.  **Text-Label (optional)** – Text, der rechts vom Checkbox platziert ist. Das Text-Label erklärt die Bedeutung oder den Zweck des Checkbox.
+
+## Größen
+
+Die Komponente `Checkbox` hat zwei Hauptgrößen:
+
+![Sizes](/static/images/design/Checkbox/Checkbox3.png)
+
+**M** – Wird standardmäßig verwendet und hat Standardgrößen, die für die meisten Fälle geeignet sind. In dieser Größe ist der Container 14x14 px groß und für das Text-Label wird eine Schriftgröße von 13 px verwendet.
+
+**L** – Wird verwendet, wenn ein Checkbox von anderen UI-Elementen hervorgehoben werden soll oder wenn im Interface größere Elemente für eine einfachere Bedienung erforderlich sind. In dieser Größe ist der Container 17x17 px groß und für das Text-Label wird eine Schriftgröße von 15 px verwendet.
+
+## Zustände
+
+![States](/static/images/design/Checkbox/Checkbox4.png)
+
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche, wobei die Lesbarkeit und Natürlichkeit im Vordergrund stehen und technische Begriffe sowie MDX-Komponenten unverändert bleiben:
+
+**Standard** – der Grundzustand einer Checkbox, die per Klick aktiviert oder deaktiviert werden kann.
+
+**Hover** – der Zustand, wenn der Mauszeiger über den Bereich der Checkbox (Checkbox + Label) bewegt wird.
+
+**Deaktiviert** – der Zustand, wenn die Interaktion mit der Checkbox aus irgendeinem Grund nicht möglich ist.
+
+**Indeterminiert** – der Zustand eines Titels für eine Gruppe von Checkboxen, wenn eines von mehreren Elementen ausgewählt ist (häufig in Tabellen mit Mehrfachauswahl von Zeilen anzutreffen).
+
+## Empfehlungen
+
+### Sollte verwendet werden
+
+- **Auswahl von Optionen** – wenn der Benutzer eine oder mehrere Optionen aus einer vorgegebenen Liste auswählen muss.
+
+- **Aktivieren/Deaktivieren von Funktionen** – wenn der Benutzer bestimmte Funktionen in der Benutzeroberfläche ein- oder ausschalten kann. Zum Beispiel können Benachrichtigungen, automatische Wiedergabe und andere Funktionen aktiviert oder deaktiviert werden. In solchen Fällen bieten Checkboxen eine intuitive Interaktion.
+
+- **Mehrfachauswahl in Tabellen oder Listen** – wenn der Benutzer mehrere Elemente für Gruppenoperationen wie Löschen oder Exportieren auswählen muss. Dies vereinfacht die Arbeit mit Daten und macht die Ausführung von Gruppenaktionen komfortabler.
+
+- **Filtern von Inhalten oder Ergebnissen** – in Filtern, bei denen der Benutzer Parameter zur Filterung von Inhalten oder Suchergebnissen auswählt.
+
+### Sollte nicht verwendet werden
+
+- **Auswahl nur einer Option** – wenn der Benutzer nur eine Option aus einer Reihe von sich gegenseitig ausschließenden Varianten auswählen muss, ist es besser, Radiobuttons (radio) zu verwenden.
+
+- **Zweistufiges Ein-/Ausschalten (sofortige Aktion)** – wenn eine Option nur zwei Zustände hat (ein und aus) und die Änderungen sofort wirksam werden sollen, ohne dass eine Schaltfläche "Anwenden" gedrückt werden muss, dann ist es besser, Schalter (switches) für diesen Zweck zu verwenden. Sie bieten eine klarere und prägnantere Darstellung für solche Optionen und ermöglichen die sofortige Anwendung von Änderungen.
+
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche, wobei darauf geachtet wurde, dass sie natürlich klingt und technische Begriffe sowie MDX-Komponenten unverändert bleiben:
+
+- **Segmentierte Auswahl** – Wenn es mehrere sich gegenseitig ausschließende Optionen gibt, die gleichzeitig in verschiedenen Kategorien ausgewählt werden können, verwenden Sie Segment-Steuerelemente (segment controls). Diese ermöglichen es dem Benutzer, Optionen in verschiedenen Segmenten oder Kategorien auszuwählen.
+
+- **Auswahl aus vielen Optionen** – Wenn es eine lange Liste von Optionen gibt, aus denen eine ausgewählt werden muss, ist es besser, eine Dropdown-Liste (select) zu verwenden. Dies spart Platz auf dem Bildschirm und erleichtert die Auswahl aus einer großen Anzahl von Varianten.
+
+### Textgestaltung
+
+- Streben Sie nach Kürze in der Textbeschreibung. Vermeiden Sie lange Phrasen oder komplexe Sätze.
+- Verwenden Sie aktive Verben, die klar auf die mit der Auswahl verbundene Aktion hinweisen (z. B. „Newsletter abonnieren“ anstelle von „Abonnement für den Newsletter“).
+- Geben Sie dem Benutzer eine vollständige Vorstellung davon, was passieren wird, wenn er ein Kontrollkästchen (checkbox) auswählt (z. B. „Benachrichtigungen über neue Artikel erhalten“ anstelle von „Benachrichtigungen“).

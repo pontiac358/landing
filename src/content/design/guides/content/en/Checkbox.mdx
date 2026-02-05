@@ -1,67 +1,71 @@
-A checkbox is a user interface element that allows users to select one or more options from those provided.
+A checkbox is an interface element that allows users to select one or more options from a given list.
 
-## Use cases
+## Usage Examples
 
 ![Cases](/static/images/design/Checkbox/Checkbox1.png)
 
-When activated, the checkbox does not trigger an action instantly. Users must click a confirmation button (for example, Save, Apply, Submit) to apply it. In most cases, the checkbox is used together with an explanatory label. However, in some scenarios, checkboxes may be used without labels, such as in tables or where including an "enable" label next to each checkbox is redundant. Begin your text with positive wording, for example, use "Enable" instead of "Disable," to prevent the user from solving a logic puzzle.
+After activating a checkbox, the action doesn't trigger instantly. To apply changes, the user needs to click a confirmation button (e.g., "Save," "Apply," "Submit"). In most cases, a checkbox is used with a label explaining its purpose. However, there are scenarios where a checkbox can be used without a label, such as in tables or when displaying a label like "Enable" next to every checkbox might be redundant. Text should start with a positive phrasing, for example, "Enable" instead of "Disable," otherwise, the user has to solve a logical puzzle.
 
 ## Anatomy
 
-The checkbox consists of:
+A checkbox consists of:
 
 ![Anatomy](/static/images/design/Checkbox/Checkbox2.png)
 
-1. **Container**: Visual rectangular area that surrounds the checkbox. The container indicates boundaries and activates the checkbox.
-2. **Checkmark**: Symbol which appears within the container when the user enables the checkbox. This symbol visually confirms that the user selected the checkbox.
-3. **Text label (optional)**: Text placed to the right of the checkbox. The text label explains the meaning or purpose of the checkbox.
+1.  **Container** — a visual rectangular area that surrounds the checkbox. The container serves to define the boundary and activate the checkbox.
+2.  **Checkmark** — a symbol that appears inside the container when the checkbox is activated. This symbol serves as a visual confirmation of the user's selection.
+3.  **Text Label (optional)** — text positioned to the right of the checkbox. The text label explains the meaning or purpose of the checkbox.
 
 ## Sizes
 
-The checkbox component has two main sizes:
+The `Checkbox` component has two main sizes:
 
 ![Sizes](/static/images/design/Checkbox/Checkbox3.png)
 
-**M** is the default size, with standard dimensions suitable in most cases. In this size, the container is 14x14 px and the text label uses a 13 px font.
+**M** — used by default and has standard dimensions suitable for most cases. In this size, the container is 14x14 px, and the text label uses a 13 px font.
 
-**L** is used when the checkbox needs to stand out among other interface elements or if the interface requires larger elements for easier use. In this size, the container is 17x17 px, and the text label uses a 15 px font.
+**L** — used when a checkbox needs to stand out among other interface elements or when larger elements are required for better usability. In this size, the container is 17x17 px, and the text label uses a 15 px font.
 
 ## States
 
 ![States](/static/images/design/Checkbox/Checkbox4.png)
 
-**Default** is the main checkbox state that the user can enable or disable by a click.
+Here's the translated design guide source file:
 
-**Hover** is the state when the user moves the cursor over the checkbox area (checkbox + label).
+**Default** — the primary state of a checkbox, which can be toggled on or off by clicking.
 
-**Disable** is the state when the user cannot interact with the checkbox for some reason.
+**Hover** — the state when the cursor hovers over the checkbox area (checkbox + label).
 
-**Indeterminate** is the state of the header in a checkbox group when one out of several items is selected (usually occurs in tables with multiple row selection).
+**Disable** — the state when interaction with the checkbox is unavailable for any reason.
+
+**Indeterminate** — the state of a checkbox group header when one of several items is selected (often found in tables with multiple row selections).
 
 ## Recommendations
 
-### Use
+### When to Use
 
-- **Option selection** if you want the user to select one or more options from a list.
+- **Option Selection** — when the user needs to select one or more options from a presented list.
 
-- **Enabling/disabling features** if you want the user to enable or disable certain features in the interface. For example, users can enable or disable notifications or automatic playback and other features. In such cases, checkboxes provide clear and intuitive interaction.
+- **Enabling/Disabling Features** — when the user can turn specific features in the interface on or off. For example, you can enable or disable notifications, auto-play, and other features. In such cases, checkboxes provide intuitive interaction.
 
-- **Multiple selection in tables or lists** if you want the user to select several items for bulk operations, such as deletion or export. This simplifies data operations and facilitates bulk actions.
+- **Multiple Selection in Tables or Lists** — when the user needs to select multiple items for group operations, such as deletion or export. This simplifies data management and makes performing group actions more convenient.
 
-- **Content or result filtering** if you want the user to select parameters for filtering content or search results.
+- **Content or Result Filtering** — in filters, where the user selects parameters to filter content or search results.
 
-### Avoid
+### When Not to Use
 
-- **Single option selection**. If you expect the user to select one option from a mutually exclusive set, use radio buttons.
+- **Selecting Only One Option** — if the user must choose only one option from a set of mutually exclusive choices, it's better to use radio buttons.
 
-- **Two-position enabling/disabling (instant action)**. If the option has only two states, enabled and disabled, and changes take effect instantly, without an "Apply" button, use switches. Switches present such options more clearly and compactly, and changes apply immediately after switching.
+- **Two-State On/Off (Instant Action)** — if an option has only two states (on and off) and changes should take effect immediately without pressing an "Apply" button, it's better to use switches for this purpose. They provide a clearer and more concise representation for such options and allow changes to be applied instantly.
 
-- **Segmented selection**. If you offer several mutually exclusive options that users can select simultaneously in different categories, use segment controls. They allow the user to select options in different segments or categories.
+Here's the translated design guide source file:
 
-- **Selection from numerous options**. If you provide a long list of options from which to choose a single one, use a dropdown list (select). This saves screen space and facilitates choice from a large set of options.
+- **Segmented Control** — If there are multiple mutually exclusive options that can be selected simultaneously across different categories, use segment controls. They allow the user to select options within different segments or categories.
 
-### Writing texts
+- **Selecting from a Large Number of Options** — If there's a long list of options to choose from, it's better to use a select (dropdown) component. This will save screen space and make it easier to choose from a large set of options.
 
-- Strive for brevity in text descriptions. Avoid long phrases or complex sentences.
-- Use active verbs that clearly indicate the action associated with the choice. For example, "Subscribe to newsletter" instead of "Newsletter subscription".
-- Give users a full understanding of what will happen when they select the checkbox. For example, "Receive notifications about new articles" instead of "Notifications".
+### Writing Text
+
+- Aim for brevity in text descriptions. Avoid long phrases or complex sentences.
+- Use active verbs that clearly indicate the action associated with the selection (e.g., "Subscribe to newsletter" instead of "Newsletter subscription").
+- Give users a complete understanding of what will happen if they select a checkbox (e.g., "Receive notifications about new articles" instead of "Notifications").

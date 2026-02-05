@@ -1,0 +1,69 @@
+O `Checkbox` é um elemento de interface que permite aos usuários selecionar uma ou várias opções de uma lista.
+
+## Exemplos de Uso
+
+![Cases](/static/images/design/Checkbox/Checkbox1.png)
+
+Após a ativação do `Checkbox`, a ação não é executada imediatamente. Para que as alterações entrem em vigor, é necessário clicar em um botão de confirmação (por exemplo, "Salvar", "Aplicar", "Enviar"). Na maioria dos casos, o `Checkbox` é usado em conjunto com um rótulo que explica seu significado. No entanto, existem cenários em que o `Checkbox` pode ser usado sem um rótulo, por exemplo, em tabelas ou em situações em que exibir o rótulo "Ativar" ao lado de cada `Checkbox` pode ser redundante. O texto deve começar com uma formulação positiva, como "Ativar" em vez de "Desativar", caso contrário, o usuário terá que resolver um problema lógico.
+
+## Anatomia
+
+O `Checkbox` é composto por:
+
+![Anatomy](/static/images/design/Checkbox/Checkbox2.png)
+
+1.  **Container** — A área visual retangular que envolve o `Checkbox`. O container serve para indicar a borda e a ativação do `Checkbox`.
+2.  **Checkmark** — O símbolo que aparece dentro do container quando o `Checkbox` está ativado. Este símbolo serve como confirmação visual da seleção do usuário para este `Checkbox`.
+3.  **Label de Texto (Opcional)** — O texto que está posicionado à direita do `Checkbox`. O label de texto explica o significado ou propósito do `Checkbox`.
+
+## Tamanhos
+
+O componente `Checkbox` possui dois tamanhos principais:
+
+![Sizes](/static/images/design/Checkbox/Checkbox3.png)
+
+**M** — Usado por padrão e possui tamanhos padrão adequados para a maioria dos casos. Neste tamanho, o container é de 14x14 px, e a fonte usada para o label de texto é de 13 px.
+
+**L** — Usado quando é necessário destacar o `Checkbox` entre outros elementos da interface ou quando a interface requer elementos maiores para facilitar o uso. Neste tamanho, o container é de 17x17 px, e a fonte usada para o label de texto é de 15 px.
+
+## Estados
+
+![States](/static/images/design/Checkbox/Checkbox4.png)
+
+**Padrão** — estado principal da caixa de seleção, que pode ser ativada ou desativada com um clique.
+
+**Hover** — estado quando o cursor do mouse é posicionado sobre a área da caixa de seleção (caixa de seleção + rótulo).
+
+**Desativado** — estado quando a interação com a caixa de seleção não está disponível por qualquer motivo.
+
+**Indeterminado** — estado do cabeçalho de um grupo de caixas de seleção, quando um de vários itens é selecionado (frequentemente encontrado em tabelas com seleção múltipla de linhas).
+
+## Recomendações
+
+### Deve ser usado
+
+- **Seleção de opções** — quando o usuário precisa selecionar uma ou várias opções de uma lista apresentada.
+
+- **Ativação/desativação de funções** — quando o usuário pode ativar ou desativar determinadas funções na interface. Por exemplo, é possível ativar ou desativar notificações, reprodução automática e outras funções. Nesses casos, as caixas de seleção proporcionam uma interação intuitiva.
+
+- **Seleção múltipla em tabelas ou listas** — quando o usuário precisa selecionar vários itens para operações em grupo, como exclusão ou exportação. Isso simplifica o trabalho com os dados e torna a execução de ações em grupo mais conveniente.
+
+- **Filtragem de conteúdo ou resultados** — em filtros, onde o usuário seleciona parâmetros para filtrar conteúdo ou resultados de pesquisa.
+
+### Não deve ser usado
+
+- **Seleção de apenas uma opção** — se o usuário deve selecionar apenas uma opção de um conjunto de variantes mutuamente exclusivas, é melhor usar botões de rádio (radio).
+
+- **Ativação/desativação de duas posições (ação instantânea)** — se a opção tiver apenas dois estados (ligado e desligado) e as alterações deverem entrar em vigor instantaneamente sem clicar no botão "Aplicar", então para esse fim é melhor usar interruptores (switches). Eles fornecem uma representação mais clara e concisa para tais opções e permitem aplicar as alterações imediatamente.
+
+Aqui está a tradução do arquivo fonte do guia de design para português, mantendo a naturalidade e as especificações solicitadas:
+
+- **Seleção Segmentada** — Se houver várias opções mutuamente exclusivas que podem ser selecionadas simultaneamente em diferentes categorias, use controles de segmento (segment controls). Eles permitem que o usuário selecione opções em diferentes segmentos ou categorias.
+
+- **Seleção de um Grande Número de Opções** — Se houver uma longa lista de opções das quais uma deve ser selecionada, é melhor usar um menu suspenso (select). Isso economizará espaço na tela e facilitará a seleção de um grande conjunto de opções.
+
+### Escrita de Texto
+
+- Busque a concisão na descrição do texto. Evite frases longas ou sentenças complexas.
+- Use verbos ativos que indiquem claramente a ação associada à seleção (por exemplo, "Assinar newsletter" em vez de "Assinatura da newsletter").
+- Dê aos usuários uma compreensão completa do que acontecerá se eles selecionarem uma caixa de seleção (por exemplo, "Receber notificações sobre novos artigos" em vez de "Notificações").

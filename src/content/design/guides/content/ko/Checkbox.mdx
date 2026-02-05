@@ -1,0 +1,67 @@
+체크박스는 사용자가 여러 옵션 중에서 하나 이상을 선택할 수 있도록 하는 인터페이스 요소입니다.
+
+## 사용 사례
+
+![Cases](/static/images/design/Checkbox/Checkbox1.png)
+
+체크박스를 활성화해도 즉시 작업이 실행되지 않습니다. 변경 사항을 적용하려면 "저장", "적용", "제출"과 같은 확인 버튼을 눌러야 합니다. 대부분의 경우 체크박스는 그 의미를 설명하는 레이블과 함께 사용됩니다. 하지만 테이블이나 각 체크박스 옆에 "켜기"라는 레이블을 표시하는 것이 불필요한 경우처럼 레이블 없이 체크박스를 사용할 수 있는 시나리오도 있습니다. 텍스트는 "끄기" 대신 "켜기"와 같이 긍정적인 표현으로 시작해야 합니다. 그렇지 않으면 사용자가 논리적인 문제를 풀어야 합니다.
+
+## 구조
+
+체크박스는 다음으로 구성됩니다.
+
+![Anatomy](/static/images/design/Checkbox/Checkbox2.png)
+
+1. **컨테이너** — 체크박스를 둘러싸는 시각적인 사각형 영역입니다. 컨테이너는 체크박스의 경계를 표시하고 활성화하는 역할을 합니다.
+2. **체크 표시** — 체크박스가 활성화될 때 컨테이너 내부에 나타나는 기호입니다. 이 기호는 사용자가 해당 체크박스를 선택했음을 시각적으로 확인시켜 줍니다.
+3. **텍스트 레이블 (선택 사항)** — 체크박스 오른쪽에 위치하는 텍스트입니다. 텍스트 레이블은 체크박스의 의미나 목적을 설명합니다.
+
+## 크기
+
+`Checkbox` 컴포넌트는 두 가지 주요 크기를 가집니다.
+
+![Sizes](/static/images/design/Checkbox/Checkbox3.png)
+
+**M** — 기본값으로 사용되며 대부분의 경우에 적합한 표준 크기입니다. 이 크기에서 컨테이너는 14x14px이고 텍스트 레이블에는 13px 글꼴이 사용됩니다.
+
+**L** — 체크박스를 다른 인터페이스 요소와 구분하거나 인터페이스에서 더 큰 요소를 사용하여 사용 편의성을 높여야 할 때 사용됩니다. 이 크기에서 컨테이너는 17x17px이고 텍스트 레이블에는 15px 글꼴이 사용됩니다.
+
+## 상태
+
+![States](/static/images/design/Checkbox/Checkbox4.png)
+
+**기본** — 체크박스의 기본 상태로, 클릭하면 켜거나 끌 수 있습니다.
+
+**호버** — 체크박스 영역(체크박스 + 레이블)에 마우스 커서가 올라갔을 때의 상태입니다.
+
+**비활성화** — 어떤 이유로든 체크박스와의 상호작용이 불가능한 상태입니다.
+
+**불확정** — 여러 항목 중 하나만 선택되었을 때 체크박스 그룹의 헤더 상태입니다 (여러 행을 선택하는 테이블에서 자주 볼 수 있습니다).
+
+## 권장 사항
+
+### 사용해야 하는 경우
+
+- **옵션 선택** — 사용자가 제공된 목록에서 하나 이상의 옵션을 선택해야 할 때.
+
+- **기능 켜기/끄기** — 사용자가 인터페이스에서 특정 기능을 켜거나 끌 수 있을 때. 예를 들어, 알림, 자동 재생 및 기타 기능을 켜거나 끌 수 있습니다. 이러한 경우 체크박스는 직관적인 상호작용을 제공합니다.
+
+- **테이블 또는 목록에서 다중 선택** — 사용자가 삭제 또는 내보내기와 같은 그룹 작업을 위해 여러 항목을 선택해야 할 때. 이는 데이터 작업을 단순화하고 그룹 작업을 더 편리하게 만듭니다.
+
+- **콘텐츠 또는 결과 필터링** — 사용자가 콘텐츠 또는 검색 결과를 필터링하기 위한 매개변수를 선택하는 필터에서.
+
+### 사용하지 않아야 하는 경우
+
+- **단일 옵션 선택** — 사용자가 상호 배타적인 옵션 세트에서 단 하나의 옵션만 선택해야 하는 경우, 라디오 버튼(radio)을 사용하는 것이 좋습니다.
+
+- **이진 켜기/끄기 (즉시 적용)** — 옵션이 두 가지 상태(켜짐 및 꺼짐)만 가지고 있고 "적용" 버튼을 누르지 않고 변경 사항이 즉시 적용되어야 하는 경우, 이 목적을 위해 토글 스위치(switches)를 사용하는 것이 좋습니다. 이는 이러한 옵션에 대해 더 명확하고 간결한 표현을 제공하며 변경 사항을 즉시 적용할 수 있도록 합니다.
+
+- **Segmented Control** — If there are multiple mutually exclusive options that can be selected simultaneously across different categories, use segment controls. They allow users to select options within different segments or categories.
+
+- **Select from a large number of options** — If there is a long list of options to choose from, it's better to use a select (dropdown). This saves screen space and makes it easier to choose from a large set of options.
+
+### Writing Text
+
+- Aim for brevity in text descriptions. Avoid long phrases or complex sentences.
+- Use active verbs that clearly indicate the action related to the selection (e.g., "Subscribe to newsletter" instead of "Newsletter subscription").
+- Give users a complete understanding of what will happen if they select a checkbox (e.g., "Receive notifications about new articles" instead of "Notifications").
