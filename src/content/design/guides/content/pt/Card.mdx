@@ -1,0 +1,85 @@
+O componente `Card` é usado para dividir o conteúdo em blocos semânticos. Essencialmente, é um contêiner para agrupar conteúdo com a capacidade opcional de recolher o conteúdo.
+
+## Uso
+
+O componente tem 4 tipos.
+
+![Usage](/static/images/design/Card/Placement.png)
+
+## **Cartão com Tematização (`With themes`)**
+
+![Placement](/static/images/design/Card/Placement1.png)
+
+Um cartão tematizado pode alterar a cor de fundo ou da borda. É frequentemente usado para descrever erros/sucessos de um bloco ou para alertar o usuário. Mais comumente, este cartão é aplicado na cor padrão (normal) para agrupar conteúdo. O parâmetro `theme` é usado para indicar o tema do cartão, e `view` é responsável pelo estado da borda ou preenchido.
+
+Para cartões deste tipo (`type: container`), você pode escolher:
+
+**View**: Outlined / Filled (borda ou preenchimento).
+
+**Theme**: Normal, Info, Success, Warning, Danger (cor).
+
+![theme](/static/images/design/Card/theme.png)
+
+- Normal — o estado base do cartão com uma borda, usado na maioria dos casos.
+- Info — usado em situações relacionadas à informação do usuário.
+- Success — usado para exibir eventos com coloração positiva.
+- Warning — usado para exibir informações de aviso.
+- Danger — um contêiner projetado para chamar a atenção máxima para eventos como perda de dados, falha do serviço, etc.
+
+## **Cartão Selecionável (`Selectable`)**
+
+![Selectable](/static/images/design/Card/Selectable.png)
+
+Os cartões deste grupo implicam a seleção de uma das opções oferecidas. O cartão tem três estados: normal, selecionado e hover.
+
+Para este tipo (`type = selection`), você pode escolher:
+
+**selected**: true / false
+
+**disabled**: true / false
+
+## **Cartão Elevado (`Raised`)**
+
+Assim como a variante **Normal** do grupo `With themes`, serve para agrupar conteúdo. A diferença é a presença de uma sombra. Recomendamos aplicá-lo em locais onde é necessário dar um destaque adicional ao cartão — por exemplo, para widgets:
+
+![Raised](/static/images/design/Card/Raised.png)
+
+É importante notar que para tais cartões, é necessário deixar espaço suficiente entre eles para que a sombra não se estenda para o cartão vizinho.
+
+No tamanho `L`, o card tem uma sombra mais "arejada", portanto, ao usar este tamanho, a distância entre os cards deve ser um pouco maior do que no tamanho `M`.
+
+**type**: container
+
+**view**: raised
+
+## **Card `Raised with action`**
+
+Um análogo do card acima, mas pressupõe uma ação ao clicar no card. Ao contrário do card do tipo **Raised**, ele tem um estado de hover, mas não tem o estado "opção selecionada", como no card `Selectable`. Recomendamos usá-lo quando você precisa dar uma escolha ao usuário com detalhes descritos dentro do card.
+
+Vale a pena notar que clicar nele redireciona para uma página aninhada, portanto, os usuários devem esperar esse comportamento do card (isso deve ficar claro pela sua aparência).
+
+![WithActions](/static/images/design/Card/WithActions.png)
+
+Para este tipo (`type = action`), você pode escolher:
+
+**disabled**: true / false
+
+## Tamanho
+
+![Sizes M and L, using the example of cards with a shadow (Raised)](/static/images/design/Card/Size.png)
+
+Tamanhos `M` e `L` no exemplo de cards com sombra (`Raised`).
+
+Dois tamanhos estão disponíveis: `M` e `L`. O tamanho determina o raio dos cantos arredondados: `L radius` (8 px) e `2XL radius` (16 px). O tamanho do card é escolhido dependendo da localização, recuos e tamanho dos controles na página. Por exemplo, se o tamanho `L` for usado para inputs, botões e outros elementos na página, então o tamanho do card também é recomendado para ser correspondente.
+
+A largura e a altura do componente são escolhidas dependendo do conteúdo interno. O tamanho mínimo pode ser escolhido com um pequeno recuo do conteúdo. O máximo pode ser igual a 100% da largura da página.
+
+### Exemplos de uso
+
+![Use case](/static/images/design/Card/Usecase.png)
+
+Exemplo de uso de cards:
+
+1 — `with themes` com preenchimento para informar o usuário;
+
+2 — card com borda para agrupar conteúdo.

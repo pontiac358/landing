@@ -1,0 +1,87 @@
+Der `Card`-Komponente wird verwendet, um Inhalte in sinnvolle Blöcke zu unterteilen. Im Wesentlichen ist es ein Container zum Gruppieren von Inhalten mit der optionalen Möglichkeit, den Inhalt einzuklappen.
+
+## Verwendung
+
+Die Komponente gibt es in 4 Typen.
+
+![Usage](/static/images/design/Card/Placement.png)
+
+## **Thematisierte Karte (`With themes`)**
+
+![Placement](/static/images/design/Card/Placement1.png)
+
+Eine thematisierte Karte kann die Hintergrundfarbe oder den Rahmen ändern. Sie wird häufig für Fehler-/Erfolgsbeschreibungen eines Blocks oder zur Warnung des Benutzers verwendet. Am häufigsten wird diese Karte in der Standardfarbe (normal) verwendet, um Inhalte zu gruppieren. Der Parameter `theme` wird verwendet, um das Thema der Karte zu definieren, und `view` ist für den Rahmen oder den gefüllten Zustand zuständig.
+
+Bei Karten dieses Typs (`type: container`) können Sie wählen:
+
+**View**: Outlined / Filled (Umrandung oder Füllung).
+
+**Theme**: Normal, Info, Success, Warning, Danger (Farbe).
+
+![theme](/static/images/design/Card/theme.png)
+
+- Normal — der Standardzustand der Karte mit Umrandung, wird in den meisten Fällen verwendet.
+- Info — wird in Situationen verwendet, die mit der Information des Benutzers zusammenhängen.
+- Success — wird zur Anzeige von positiv gefärbten Ereignissen verwendet.
+- Warning — wird zur Anzeige von Warninformationen verwendet.
+- Danger — ein Container, der darauf abzielt, die Aufmerksamkeit auf Ereignisse wie Datenverlust, Serviceausfälle usw. zu lenken.
+
+## **Auswählbare Karte (`Selectable`)**
+
+![Selectable](/static/images/design/Card/Selectable.png)
+
+Karten dieser Gruppe implizieren die Auswahl einer der angebotenen Optionen. Die Karte hat drei Zustände: normal, ausgewählt und Hover.
+
+Bei diesem Typ (`type = selection`) können Sie wählen:
+
+**selected**: true / false
+
+**disabled**: true / false
+
+## **Erhöhte Karte (`Raised`)**
+
+Ähnlich wie die Variante **Normal** aus der Gruppe `With themes` dient sie der Zusammenfassung von Inhalten. Der Unterschied liegt in der Anwesenheit eines Schattens. Wir empfehlen, sie für Bereiche zu verwenden, in denen die Karte zusätzlich hervorgehoben werden soll – zum Beispiel für Widgets:
+
+![Raised](/static/images/design/Card/Raised.png)
+
+Es ist zu beachten, dass für solche Karten ausreichend Abstand zwischen ihnen geschaffen werden muss, damit der Schatten nicht auf die benachbarte Karte übergeht.
+
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche:
+
+Bei der Größe `L` hat die Karte einen "luftigeren" Schatten, daher sollte bei Verwendung dieser Größe der Abstand zwischen den Karten etwas größer gewählt werden als bei der Größe `M`.
+
+**type**: container
+
+**view**: raised
+
+## **Karte `Raised with action`**
+
+Ein Analogon zur obigen Karte, das jedoch eine Aktion beim Klicken auf die Karte vorsieht. Im Gegensatz zur Karte vom Typ **Raised** gibt es einen Hover-Zustand, aber keinen "ausgewählten" Zustand wie bei der Karte `Selectable`. Wir empfehlen die Verwendung, wenn Sie dem Benutzer eine Auswahl mit detaillierten Beschreibungen innerhalb der Karte anbieten möchten.
+
+Es ist zu beachten, dass ein Klick darauf zu einer untergeordneten Seite weiterleitet, daher sollten Benutzer ein solches Verhalten der Karte erwarten (dies sollte aus ihrem Erscheinungsbild ersichtlich sein).
+
+![WithActions](/static/images/design/Card/WithActions.png)
+
+Für diesen Typ (`type = action`) können Sie wählen:
+
+**disabled**: true / false
+
+## Größe
+
+![Sizes M and L, using the example of cards with a shadow (Raised)](/static/images/design/Card/Size.png)
+
+Die Größen `M` und `L` am Beispiel von Karten mit Schatten (`Raised`).
+
+Es sind zwei Größen verfügbar: `M` und `L`. Die Größe bestimmt den Radius der Abrundungen: `L radius` (8 px) und `2XL radius` (16 px). Die Kartengröße wird je nach Platzierung, Abständen und Größe der Steuerelemente auf der Seite gewählt. Wenn beispielsweise auf der Seite die Größe `L` für Eingabefelder, Schaltflächen und andere Elemente verwendet wird, wird auch die entsprechende Kartengröße empfohlen.
+
+Die Breite und Höhe der Komponente wird je nach Inhalt gewählt. Die Mindestgröße kann mit einem kleinen Abstand zum Inhalt gewählt werden. Die Maximalgröße kann 100 % der Seitenbreite betragen.
+
+### Anwendungsbeispiele
+
+![Use case](/static/images/design/Card/Usecase.png)
+
+Beispiel für die Verwendung von Karten:
+
+1 — `with themes` mit Füllung zur Information des Benutzers;
+
+2 — Karte mit Umrandung zur Zusammenfassung von Inhalten.

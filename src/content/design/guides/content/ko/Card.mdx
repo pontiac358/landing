@@ -1,0 +1,85 @@
+`Card` 컴포넌트는 콘텐츠를 의미 있는 블록으로 분리하는 데 사용됩니다. 본질적으로 콘텐츠를 그룹화하는 컨테이너이며, 콘텐츠를 접을 수 있는 선택적 기능을 제공합니다.
+
+## 사용법
+
+이 컴포넌트는 4가지 유형이 있습니다.
+
+![Usage](/static/images/design/Card/Placement.png)
+
+## **테마가 있는 카드 (`With themes`)**
+
+![Placement](/static/images/design/Card/Placement1.png)
+
+테마가 있는 카드는 배경색이나 테두리 색상을 변경할 수 있습니다. 종종 블록의 오류/성공에 대한 설명을 표시하거나 사용자에게 경고하는 데 사용됩니다. 이 카드는 대부분 기본 색상(normal)으로 콘텐츠를 결합하는 데 사용됩니다. `theme` 매개변수는 카드의 테마를 지정하는 데 사용되며, `view`는 테두리 또는 채워진 상태를 담당합니다.
+
+이 유형의 카드(`type: container`)에서는 다음을 선택할 수 있습니다.
+
+**View**: Outlined / Filled (테두리 또는 채우기).
+
+**Theme**: Normal, Info, Success, Warning, Danger (색상).
+
+![theme](/static/images/design/Card/theme.png)
+
+- Normal — 대부분의 경우에 사용되는 테두리가 있는 카드의 기본 상태입니다.
+- Info — 사용자에게 정보를 제공하는 상황에 사용됩니다.
+- Success — 긍정적인 이벤트를 표시하는 데 사용됩니다.
+- Warning — 경고 정보를 표시하는 데 사용됩니다.
+- Danger — 데이터 손실, 서비스 중단 등과 같은 이벤트에 최대한 주의를 끌기 위한 컨테이너입니다.
+
+## **선택 가능한 카드 (`Selectable`)**
+
+![Selectable](/static/images/design/Card/Selectable.png)
+
+이 그룹의 카드는 제안된 옵션 중 하나를 선택하는 것을 의미합니다. 카드는 일반, 선택됨, 호버의 세 가지 상태를 가집니다.
+
+이 유형(`type = selection`)에서는 다음을 선택할 수 있습니다.
+
+**selected**: true / false
+
+**disabled**: true / false
+
+## **Raised 카드**
+
+`With themes` 그룹의 **Normal** 옵션과 마찬가지로 콘텐츠를 결합하는 데 사용됩니다. 차이점은 그림자가 있다는 것입니다. 그림자로 인해 카드에 추가적인 강조를 해야 하는 경우(예: 위젯)에 사용하는 것이 좋습니다.
+
+![Raised](/static/images/design/Card/Raised.png)
+
+이러한 카드에는 그림자가 옆 카드에 겹치지 않도록 충분한 간격을 두어야 한다는 점을 고려해야 합니다.
+
+`L` 크기의 카드는 더 "공기 같은" 그림자를 가지고 있으므로 이 크기를 사용할 때 카드 간의 간격은 `M` 크기보다 약간 더 크게 선택해야 합니다.
+
+**type**: container
+
+**view**: raised
+
+## **`Raised with action` 카드**
+
+위의 카드와 유사하지만 카드 클릭 시 동작을 예상합니다. **Raised** 보기의 카드와 달리 호버 상태가 있지만 `Selectable` 카드와 같은 "선택된 항목" 상태는 없습니다. 카드 내부에 자세한 설명과 함께 사용자에게 선택권을 제공해야 할 때 적용하는 것이 좋습니다.
+
+이 카드를 클릭하면 하위 페이지로 이동하므로 사용자는 이러한 카드 동작을 예상해야 합니다(이는 외관상 명확해야 합니다).
+
+![WithActions](/static/images/design/Card/WithActions.png)
+
+이 유형(`type = action`)에서는 다음을 선택할 수 있습니다.
+
+**disabled**: true / false
+
+## 크기
+
+![Sizes M and L, using the example of cards with a shadow (Raised)](/static/images/design/Card/Size.png)
+
+그림자(`Raised`)가 있는 카드를 예로 든 `M` 및 `L` 크기.
+
+두 가지 크기(`M` 및 `L`)를 사용할 수 있습니다. 크기는 모서리 반경을 결정합니다: `L radius`(8px) 및 `2XL radius`(16px). 카드 크기는 페이지의 배치, 여백 및 컨트롤 크기에 따라 선택됩니다. 예를 들어, 페이지에서 입력란, 버튼 및 기타 요소에 `L` 크기를 사용하는 경우 카드 크기도 해당 크기를 사용하는 것이 좋습니다.
+
+컴포넌트의 너비와 높이는 내부 콘텐츠에 따라 선택됩니다. 최소 크기는 콘텐츠에서 약간의 여백을 두고 선택할 수 있습니다. 최대 너비는 페이지 너비의 100%가 될 수 있습니다.
+
+### 사용 예시
+
+![Use case](/static/images/design/Card/Usecase.png)
+
+카드 사용 예시:
+
+1 — 사용자에게 정보를 제공하기 위한 채워진 `with themes`;
+
+2 — 콘텐츠를 그룹화하기 위한 테두리가 있는 카드.
