@@ -1,21 +1,21 @@
-该组件允许用户逐页浏览显示的内容，例如在表格中。
+组件允许用户按页浏览内容，例如在表格中。
 
 ![IMG - 8.png](/static/images/design/Pagination/paginator-0001.png)
 
-## 何时使用DLQ
+## Применение (Usage)
 
-✅ **何时使用**
+✅ **Когда применять (When to use)**
 
-- 在所有分页显示的情况下。
-- 使用户能够跳过几页或直接转到所需页面。
-- 使用户能够自定义显示的行数。
-- 固定页面内部分的大小，使顶部自动加载内容不会移动底部内容。
+- Для всех случаев с постраничным выводом. (For all cases with paginated output.)
+- Если может потребоваться «перепрыгнуть» через несколько страниц или сразу перейти к нужной. (If it might be necessary to "jump" over several pages or go directly to the desired one.)
+- В тех случаях, когда будет полезно настраивать отображение числа строк. (In cases where it would be useful to adjust the display of the number of rows.)
+- Для фиксирования размера блоков внутри страницы, чтобы автоматическая подгрузка контента верхнего постоянно не сдвигала нижний. (To fix the size of blocks within a page, so that automatic loading of content at the top does not constantly shift the bottom.)
 
 ![3.png](/static/images/design/Pagination/paginator-0002.png)
 
-🚫 **何时避免**
+🚫 **Когда не следует применять (When not to use)**
 
-当您需要在搜索结果页面之间无缝过渡时，请使用自动加载或通过按钮加载，除非这会减慢页面速度。
+В случаях, когда важно обеспечить бесшовный переход между страницами выдачи, рекомендуем использовать автоматическую подгрузку или подгрузку по кнопке, если это не затормозит работу страницы. (In cases where it is important to ensure a seamless transition between pages of results, we recommend using automatic loading or loading by button, if it does not slow down the page's performance.)
 
 <div className="row">
    <div className="col-12 col-md-6">
@@ -26,25 +26,25 @@
    </div>
 </div>
 
-## 结构
+## Структура (Structure)
 
 ![IMG - 18.png](/static/images/design/Pagination/paginator-0005.png)
 
-1. **当前页面。** 显示显示页面的序列号。
-2. **上一页。** 打开上一页。
-3. **下一页。** 打开下一页。
-4. **内容最后一页。** 如果已知总内容并且可以立即分成页面，则会显示。点击打开最后一页。
-5. **溢出图标。** 如果页数超过四页，则显示。
-6. **前进/后退开关。** 逐页切换页面。
-7. **转到第一页。** 打开第一个内容页面。
-8. **转到特定页面。** 当用户输入页码并按Enter键时，打开指定页面。
-9. **每页项目数。** 一个用于在一页上显示的元素数量的开关。
+1. **Текущая страница** — показывает порядковый номер отображаемой страницы. (Current page — shows the sequential number of the displayed page.)
+2. **Предыдущая страница** — открывает предыдущую страницу. (Previous page — opens the previous page.)
+3. **Следующая страница** — открывает следующую страницу. (Next page — opens the next page.)
+4. **Последняя страница контента** — показывается, если известно общее количество контента и его можно сразу поделить на страницы. По клику открывает последнюю страницу. (Last page of content — is shown if the total amount of content is known and can be immediately divided into pages. Opens the last page on click.)
+5. **Иконка переполнения** — появляется, если страниц больше, чем 4. (Overflow icon — appears if there are more than 4 pages.)
+6. **Переключатели вперед/назад** — переключают страницы по порядку. (Forward/backward toggles — switch pages sequentially.)
+7. **Переход к первой странице** — открывает первую страницу контента. (Go to first page — opens the first page of content.)
+8. **Переход к конкретной странице** — при вводе номера страницы и нажатии на Enter открывает указанную страницу. (Go to specific page — upon entering the page number and pressing Enter, opens the specified page.)
+9. **Количество элементов на одной странице** — переключатель количества отображаемых элементов на одной странице. (Number of items per page — a toggle for the number of items displayed on one page.)
 
-您不必一起使用所有结构元素。您可以在"修改"下找到可用配置。
+Использовать все элементы структуры вместе не обязательно. Доступные конфигурации перечислены в разделе «Модификации». (It is not necessary to use all structural elements together. Available configurations are listed in the "Modifications" section.)
 
-## 尺寸
+## Размеры (Sizes)
 
-默认情况下，分页器中按钮、输入框和选择框的大小为M。
+По умолчанию размер кнопок, инпута и селекта в пагинаторе — `M`. (By default, the size of buttons, input, and select in the paginator is `M`.)
 
 ![Frame 2087326211.png](/static/images/design/Pagination/paginator-0006.png)
 
@@ -52,21 +52,21 @@
 
 ![IMG - 19.png](/static/images/design/Pagination/paginator-0007.png)
 
-**第一页** 显示第一页。
+**第一页** — 显示第一页。
 
-**第二/下一页** 显示第二页和下一页。
+**第二页/下一页** **页** — 显示第二页及后续页面的状态。
 
-**最后一页** 显示最后一页。
+**最后一页** — 显示最后一页。
 
-## 修改
+## 变体
 
 ![IMG - 20.png](/static/images/design/Pagination/paginator-0008.png)
 
-1. **页面大小选项和显示输入框**：如果用户不能转到特定页面或控制页面上显示的内容量，您可以禁用这些字段。
-2. **总数未知** 仅显示当前页面。在未知元素总数时使用
-3. **隐藏页面** 确保在没有序列号的情况下切换页面。当元素列表是动态的，并且页数以及序列号将不断变化并使用户感到困惑时使用。
-4. **紧凑** 是一种没有文本的紧凑格式。当界面空间有限时使用（例如，在对话框中）
+1. **页面大小选项和显示输入框** — 当无法跳转到特定页面或控制每页显示的内容数量时，可以禁用这些字段。
+2. **总数未知** — 只显示当前页面的变体。当未知元素总数时使用。
+3. **隐藏页码** — 没有页码的页面切换器。当列表元素是动态的，并且页面数量和页码会不断变化而让用户感到困惑时使用。
+4. **紧凑型** — 没有文本的紧凑型变体。当界面区域受限时使用（例如，对话框）。
 
-对于移动设备界面，您可以使用分页器的移动版本。
+对于移动设备界面，可以使用移动版分页器。
 
 ![IMG - 23.png](/static/images/design/Pagination/paginator-0009.png)

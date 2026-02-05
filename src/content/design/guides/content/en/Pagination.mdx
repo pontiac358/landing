@@ -1,21 +1,21 @@
-This component allows users to navigate the content displayed page by page, for example, in tables.
+The component allows users to browse content page by page, for example, in tables.
 
 ![IMG - 8.png](/static/images/design/Pagination/paginator-0001.png)
 
-## When to use
+## Usage
 
-✅ **When to use**
+✅ **When to use**
 
-- In all cases with paginated display.
-- To enable the user to skip several pages or go directly to the desired page.
-- To enable the user to customize the number of displayed rows.
-- To fix the size of sections within a page so that the automatic content loading at the top is not shifting the bottom content.
+- For all cases with paginated output.
+- If it might be necessary to "jump" over several pages or go directly to the desired one.
+- In cases where it's useful to customize the number of rows displayed.
+- To fix the size of blocks within a page, so that the automatic loading of content at the top doesn't constantly shift the content at the bottom.
 
 ![3.png](/static/images/design/Pagination/paginator-0002.png)
 
-🚫 **When to avoid**
+🚫 **When not to use**
 
-When you need a seamless transition between search result pages, use automatic loading or loading by a button, unless this slows down the page.
+In cases where it's important to ensure a seamless transition between pages of results, we recommend using automatic loading or loading via a button, provided it doesn't slow down the page's performance.
 
 <div className="row">
    <div className="col-12 col-md-6">
@@ -30,43 +30,47 @@ When you need a seamless transition between search result pages, use automatic l
 
 ![IMG - 18.png](/static/images/design/Pagination/paginator-0005.png)
 
-1. **Current page.** Shows the serial number of the displayed page.
-2. **Previous page.** Opens the previous page.
-3. **Next page.** Opens the next page.
-4. **Last page of content.** Shows up if the total content is known and can be divided into pages right away. Opens the last page by a click.
-5. **Overflow icon.** Shows up if the number of pages exceeds four.
-6. **Forward/backward switches.** Switch pages one by one.
-7. **Go to the first page.** Opens the first content page.
-8. **Go to a specific page.** Opens the specified page when the user enters the page number and presses Enter.
-9. **Number of items per page.**  A switch for the number of elements displayed on one page.
+1. **Current page** — displays the sequential number of the page being shown.
+2. **Previous page** — opens the previous page.
+3. **Next page** — opens the next page.
+4. **Last content page** — shown if the total content count is known and can be immediately divided into pages. Clicking it opens the last page.
+5. **Overflow icon** — appears if there are more than 4 pages.
+6. **Forward/backward navigators** — switch pages sequentially.
+7. **Go to first page** — opens the first page of content.
+8. **Go to specific page** — by entering the page number and pressing Enter, opens the specified page.
+9. **Number of items per page** — a switcher for the number of items displayed on one page.
 
-You do not have to use all elements of the structure together. You can find the available configurations under "Modifications".
+It's not necessary to use all structural elements together. Available configurations are listed in the "Modifications" section.
 
 ## Sizes
 
-By default, the size of the buttons, input, and select in the paginator is M.
+By default, the size of buttons, input fields, and select elements in the paginator is `M`.
 
+Here's the translated design guide source file:
+
+```md
 ![Frame 2087326211.png](/static/images/design/Pagination/paginator-0006.png)
 
 ## States
 
 ![IMG - 19.png](/static/images/design/Pagination/paginator-0007.png)
 
-**First page** shows the first page.
+**First page** — displays the first page.
 
-**Second/next** **page** shows the second and next pages.
+**Second/next page** — state for displaying the second and subsequent pages.
 
-**Last page** shows the last page.
+**Last page** — displays the last page.
 
-## Modifications
+## Variations
 
 ![IMG - 20.png](/static/images/design/Pagination/paginator-0008.png)
 
-1. **Page Size Options and Show Input**: You can disable these fields if the user cannot go to a specific page or control the amount of content displayed on the page.
-2. **Total Unknown** only displays the current page. Use when the total number of elements is unknown
-3. **Hide Pages** ensures page switching without serial numbers. Use when the list of elements is dynamic and the number of pages, as well as the serial number, will constantly change and confuse the user.
-4. **Compact** is a compact format without text. Use when the interface space is limited (for example, in dialog boxes)
+1. **Page Size Options and Show Input** — if it's not possible to navigate to a specific page or control the amount of content displayed per page, these fields can be disabled.
+2. **Total Unknown** — a variation displaying only the current page. Used when the total number of items is unknown.
+3. **Hide Pages** — page selectors without sequential numbers. Used when the list of items is dynamic, and the page count and sequential numbers will constantly change, potentially confusing the user.
+4. **Compact** — a compact version without text. Used when the interface area is limited (e.g., a dialog box).
 
 For mobile device interfaces, you can use the mobile version of the paginator.
 
 ![IMG - 23.png](/static/images/design/Pagination/paginator-0009.png)
+```

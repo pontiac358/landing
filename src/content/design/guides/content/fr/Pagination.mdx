@@ -1,0 +1,76 @@
+Voici la traduction du fichier source du guide de conception en français :
+
+Le composant permet aux utilisateurs de parcourir le contenu page par page, par exemple dans des tableaux.
+
+![IMG - 8.png](/static/images/design/Pagination/paginator-0001.png)
+
+## Utilisation
+
+✅ **Quand l'utiliser**
+
+- Pour tous les cas de pagination.
+- S'il peut être nécessaire de « sauter » plusieurs pages ou d'aller directement à la page souhaitée.
+- Dans les cas où il est utile de pouvoir configurer le nombre de lignes affichées.
+- Pour fixer la taille des blocs à l'intérieur d'une page, afin que le chargement automatique du contenu supérieur ne déplace pas constamment le contenu inférieur.
+
+![3.png](/static/images/design/Pagination/paginator-0002.png)
+
+🚫 **Quand ne pas l'utiliser**
+
+Dans les cas où il est important d'assurer une transition transparente entre les pages de résultats, nous recommandons d'utiliser le chargement automatique ou le chargement par bouton, si cela ne ralentit pas le fonctionnement de la page.
+
+<div className="row">
+   <div className="col-12 col-md-6">
+      ![2.png](/static/images/design/Pagination/paginator-0003.png)
+   </div>
+   <div className="col-12 col-md-6">
+      ![1.png](/static/images/design/Pagination/paginator-0004.png)
+   </div>
+</div>
+
+## Structure
+
+![IMG - 18.png](/static/images/design/Pagination/paginator-0005.png)
+
+1. **Page actuelle** — indique le numéro de la page affichée.
+2. **Page précédente** — ouvre la page précédente.
+3. **Page suivante** — ouvre la page suivante.
+4. **Dernière page de contenu** — s'affiche si le nombre total de contenus est connu et peut être divisé en pages. En cliquant, ouvre la dernière page.
+5. **Icône de débordement** — apparaît s'il y a plus de 4 pages.
+6. **Boutons de navigation avant/arrière** — permettent de passer aux pages suivantes/précédentes.
+7. **Aller à la première page** — ouvre la première page du contenu.
+8. **Aller à une page spécifique** — en saisissant le numéro de page et en appuyant sur Entrée, ouvre la page spécifiée.
+9. **Nombre d'éléments par page** — sélecteur permettant de choisir le nombre d'éléments affichés par page.
+
+Il n'est pas obligatoire d'utiliser tous les éléments de la structure ensemble. Les configurations disponibles sont listées dans la section « Modifications ».
+
+## Tailles
+
+Par défaut, la taille des boutons, de l'input et du sélecteur dans le composant de pagination est `M`.
+
+Voici la traduction du fichier source du guide de conception en français :
+
+![Frame 2087326211.png](/static/images/design/Pagination/paginator-0006.png)
+
+## États
+
+![IMG - 19.png](/static/images/design/Pagination/paginator-0007.png)
+
+**Première page** — affichage de la première page.
+
+**Deuxième/page suivante** — état d'affichage de la deuxième page et des pages suivantes.
+
+**Dernière page** — affichage de la dernière page.
+
+## Modifications
+
+![IMG - 20.png](/static/images/design/Pagination/paginator-0008.png)
+
+1. **Options de taille de page et Afficher l'entrée** — si la possibilité de passer à une page spécifique ou de gérer la quantité de contenu affiché par page est absente, ces champs peuvent être désactivés.
+2. **Total inconnu** — variante avec l'affichage de la page actuelle uniquement. Utilisée lorsque le nombre total d'éléments est inconnu.
+3. **Masquer les pages** — boutons de pagination sans numéro de page. Utilisé lorsque la liste d'éléments est dynamique et que le nombre de pages et le numéro de page changeront constamment, ce qui pourrait confondre l'utilisateur.
+4. **Compact** — variante compacte sans texte. Utilisée lorsque l'espace de l'interface est limité (par exemple, une boîte de dialogue).
+
+Pour les interfaces mobiles, vous pouvez utiliser la version mobile du paginateur.
+
+![IMG - 23.png](/static/images/design/Pagination/paginator-0009.png)

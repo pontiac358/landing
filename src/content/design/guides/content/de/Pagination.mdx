@@ -1,0 +1,78 @@
+Der Komponent ermöglicht es Benutzern, Inhalte seitenweise anzuzeigen – zum Beispiel in Tabellen.
+
+![IMG - 8.png](/static/images/design/Pagination/paginator-0001.png)
+
+## Anwendung
+
+✅ **Wann anwenden**
+
+- Für alle Fälle mit seitenweiser Ausgabe.
+- Wenn es notwendig sein könnte, über mehrere Seiten zu "springen" oder direkt zur gewünschten Seite zu gelangen.
+- In Fällen, in denen es nützlich ist, die Anzahl der angezeigten Zeilen anzupassen.
+- Um die Größe von Blöcken innerhalb einer Seite zu fixieren, damit das automatische Laden von Inhalten oben den unteren nicht ständig verschiebt.
+
+![3.png](/static/images/design/Pagination/paginator-0002.png)
+
+🚫 **Wann nicht anwenden**
+
+In Fällen, in denen ein nahtloser Übergang zwischen den Ausgabeseiten wichtig ist, empfehlen wir die Verwendung von automatischem Laden oder Laden per Button, sofern dies die Seitenleistung nicht beeinträchtigt.
+
+<div className="row">
+   <div className="col-12 col-md-6">
+      ![2.png](/static/images/design/Pagination/paginator-0003.png)
+   </div>
+   <div className="col-12 col-md-6">
+      ![1.png](/static/images/design/Pagination/paginator-0004.png)
+   </div>
+</div>
+
+## Struktur
+
+![IMG - 18.png](/static/images/design/Pagination/paginator-0005.png)
+
+1. **Aktuelle Seite** – zeigt die fortlaufende Nummer der angezeigten Seite an.
+2. **Vorherige Seite** – öffnet die vorherige Seite.
+3. **Nächste Seite** – öffnet die nächste Seite.
+4. **Letzte Inhaltsseite** – wird angezeigt, wenn die Gesamtzahl der Inhalte bekannt ist und diese sofort in Seiten aufgeteilt werden kann. Beim Klicken öffnet sie die letzte Seite.
+5. **Überlauf-Symbol** – erscheint, wenn mehr als 4 Seiten vorhanden sind.
+6. **Vorwärts-/Rückwärts-Schalter** – schalten die Seiten nacheinander um.
+7. **Zum ersten Seite wechseln** – öffnet die erste Inhaltsseite.
+8. **Zu einer bestimmten Seite wechseln** – durch Eingabe der Seitennummer und Drücken von Enter wird die angegebene Seite geöffnet.
+9. **Anzahl der Elemente pro Seite** – Schalter für die Anzahl der pro Seite angezeigten Elemente.
+
+Es ist nicht zwingend erforderlich, alle Strukturelemente gemeinsam zu verwenden. Verfügbare Konfigurationen sind im Abschnitt "Modifikationen" aufgeführt.
+
+## Größen
+
+Standardmäßig ist die Größe der Buttons, des Inputs und des Selects im Paginator `M`.
+
+Gerne, hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche, wobei darauf geachtet wurde, dass sie natürlich klingt und technische Elemente beibehalten werden:
+
+---
+
+![Frame 2087326211.png](/static/images/design/Pagination/paginator-0006.png)
+
+## Zustände
+
+![IMG - 19.png](/static/images/design/Pagination/paginator-0007.png)
+
+**Erste Seite** — Anzeige der ersten Seite.
+
+**Zweite/nächste Seite** — Zustand, der die zweite und nachfolgende Seiten anzeigt.
+
+**Letzte Seite** — Anzeige der letzten Seite.
+
+## Modifikationen
+
+![IMG - 20.png](/static/images/design/Pagination/paginator-0008.png)
+
+1.  **Seitengrößenoptionen und Eingabe anzeigen** — Wenn es nicht möglich ist, zu einer bestimmten Seite zu springen oder die Anzahl der auf einer Seite angezeigten Inhalte zu steuern, können diese Felder deaktiviert werden.
+2.  **Gesamtanzahl unbekannt** — Eine Variante, die nur die aktuelle Seite anzeigt. Wird verwendet, wenn die Gesamtzahl der Elemente unbekannt ist.
+3.  **Seiten ausblenden** — Seitenwechsler ohne Seitennummerierung. Wird verwendet, wenn die Liste der Elemente dynamisch ist und die Anzahl der Seiten sowie die Seitennummerierung sich ständig ändern und den Benutzer verwirren würden.
+4.  **Kompakt** — Eine kompakte Variante ohne Text. Wird verwendet, wenn der Benutzeroberflächenbereich begrenzt ist (z. B. in einem Dialogfenster).
+
+Für mobile Benutzeroberflächen kann die mobile Version des Paginators verwendet werden.
+
+![IMG - 23.png](/static/images/design/Pagination/paginator-0009.png)
+
+---
