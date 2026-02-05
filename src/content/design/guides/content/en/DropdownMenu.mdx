@@ -1,23 +1,19 @@
-The component allows the user to select a parameter or action from a context list. A drop-down list can be accessed by clicking a button with three-dots. The icon is customizable and can be replaced. Users can navigate between items on the list using keyboard controls.
-
+The component allows the user to select a parameter or action from a contextual list. A button with a three-dot icon is typically used to open the dropdown list. The icon can be reassigned to any other, and navigation between list items can be controlled with the keyboard.
 
 # **Structure**
 
 ![35.png](/static/images/design/DropdownMenu/35.png)
 
-➊ Context menu icon
-
+➊ Context menu trigger icon
 ➋ List item
-
-➌ Separator
-
+➌ Divider
 ➍ Submenu chevron
 
 # **States**
 
 ![36.png](/static/images/design/DropdownMenu/36.png)
 
-# Types of **content**
+# **Content Types**
 
 ![Types of content](/static/images/design/DropdownMenu/Types.png)
 
@@ -27,50 +23,50 @@ The component allows the user to select a parameter or action from a context lis
 
 **Icon**
 
-The context menu icon has four built-in sizes by default.
+By default, the context menu trigger icon has 4 built-in sizes:
 
-Size S: 24x24 px, M: 28x28 px, L: 36x36 px, and XL: 44x44 px.
+`S` (24 x 24 px), `M` (28 x 28 px), `L` (36 x 36 px), and `XL` (44 x 44 px).
 
 ![Group 2087326002.png](/static/images/design/DropdownMenu/Group_2087326002.png)
 
-**Component width**
+**Component Width**
 
-When a menu item is longer than the object that triggers it, the menu will expand to match the width of the longest item in the list. The maximum component width is 280 px.When the text of a menu item exceeds its maximum width, it will be truncated with an ellipsis.
+In cases where a menu item is longer than the element that triggers it, the menu will expand to the width of the longest item in the list. The maximum component width is 280 px. If the menu item text exceeds this width, it will be truncated with an ellipsis.
 
-# Scope
+# Applicability
 
 ![43.png](/static/images/design/DropdownMenu/43.png)
 
-**Configurable call icon**
+**Customizable Trigger Icon**
 
-The context menu icon can be resized or replaced with a different one. The component uses a three-dot button with a 16px size by default.
+The context menu trigger icon can be resized or replaced with any other icon. By default, the component uses a three-dot button with a 16 px icon size.
 
 ![44.png](/static/images/design/DropdownMenu/44.png)
 
-**Optional menu item icon**
+**Optional Menu Item Icon**
 
-You can add icons next to context menu items to help the user understand their functions. The default size of the icon in the context menu is 16x16px.
+Context menu items can include icons to improve understanding. By default, the icon size in the context menu is 16x16 px.
 
 ![41.png](/static/images/design/DropdownMenu/41%201.png)
 
-**Nested dropdown submenus**
+**Nested Dropdown Submenus**
 
-Elements of the context menu can be nested within each other. The default nesting depth is set to support up to three levels.
+Context menu items can be nested within each other. By default, nesting is supported up to 3 levels deep.
 
 ![46.png](/static/images/design/DropdownMenu/46.png)
 
-**Positioning**
+**Placement**
 
-By default, the dropdown menu appears beneath the element that invokes it, with the menu icon in the right corner. If the interface does not support a drop-down list beneath the switch icon, the list expands above the icon.
+By default, the dropdown menu opens below the element that triggers it, with the menu icon located in the right corner. If the interface doesn't allow for rendering the dropdown list below the toggle icon, the list opens above the icon.
 
 ![47.png](/static/images/design/DropdownMenu/47.png)
 
-**Closing the context menu**
+**Closing the Context Menu**
 
-You can close the context menu by clicking on the area outside of it or by pressing the ESC key. By default, the menu collapses during page scrolling, but this behavior can be disabled.
+The context menu can be closed by clicking outside of it or by pressing the Esc key. The menu hides when the page is scrolled (optional, this behavior can be disabled).
 
 # Recommendations
 
-Dropdown menus are used when there are at least two options to choose from.The optimal number of options is between 5 and 10.
+Dropdown menus are used when you have a choice of at least two options. The optimal number of options is between 5 and 10.
 
-When arranging menu elements, ensure a logical order by placing the most frequently used and popular options at the top.Try out different menu items and refine them as needed.
+When organizing menu items, maintain a logical order, placing the most in-demand and popular options at the top. Test different menu items and refine them as needed.
