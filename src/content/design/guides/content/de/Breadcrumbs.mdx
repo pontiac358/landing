@@ -1,0 +1,64 @@
+**Breadcrumbs** – eine Kette von Links, die den Pfad in der Struktur eines Dienstes von der Stammseite zur aktuellen Seite widerspiegelt und die Möglichkeit bietet, zu jeder Seite zu navigieren. Diese Komponente hilft dem Benutzer zu verstehen, in welchem Teil des Dienstes er sich befindet, und schnell zu einer oder mehreren Ebenen zurückzukehren.
+
+![Example](/static/images/design/Breadcrumbs/Example.png)
+
+## Anwendung
+
+- Die Breadcrumbs-Komponente sollte verwendet werden, wenn die Seiten des Dienstes verschachtelt sind.
+- Auf der Hauptseite sind Breadcrumbs nicht erforderlich.
+- Breadcrumbs werden normalerweise ganz oben auf der Seite in der Aktionsleiste platziert.
+
+## Struktur
+
+![Structure](/static/images/design/Breadcrumbs/Structure.png)
+
+1 – **Aktuelle Seite**.
+
+2 – **Vorherige Seite**. Es wird empfohlen, diese zuerst anzuzeigen, wenn die Breite des Containers dies zulässt.
+
+3 – **Stammseite des Dienstes**.
+
+4 – **Trennzeichen**. Standardmäßig wird `/` verwendet, aber auch `>` kann verwendet werden.
+
+5 – **Überlauf-Symbol**. Erscheint, wenn alle Seitennamen nicht in den Container passen. Nicht passende Seiten werden in einem Dropdown-Menü angezeigt, das beim Klicken auf die Auslassungspunkte erscheint.
+
+## Größen
+
+Die Basisschriftgröße in Breadcrumbs ist `body-1`. Die Größe der Symbole beträgt 16x16 px.
+
+![Sizes](/static/images/design/Breadcrumbs/Sizes.png)
+
+## Zustände
+
+![States](/static/images/design/Breadcrumbs/States.png)
+
+**Default** – Standardzustand.
+
+**Hover** – Zustand beim Überfahren des Seitennamens mit der Maus.
+
+**Disable** – nicht klickbare Variante. Kann für die aktuelle Seite oder für Seiten verwendet werden, zu denen keine Links vorhanden sind.
+
+**Loading** – Die Komponente hat die Möglichkeit, eine Funktion zur Anzeige des Elementinhalts über den Parameter `renderItemContent` zu übergeben (z. B. `Skeleton` anzeigen, wenn die Daten für das Breadcrumb-Element noch nicht geladen sind).
+
+## Modifikationen
+
+![Modifications](/static/images/design/Breadcrumbs/Modifications1.png)
+
+Die folgenden zusätzlichen Elemente können in Breadcrumbs platziert werden:
+
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche, wobei die Übersetzung so natürlich wie möglich klingt und alle MDX-Komponenten-Tags, Codeblöcke und technischen Begriffe beibehalten werden:
+
+1.  **Aktionsikone** – z. B. „Zu Favoriten hinzufügen“, „Seitentitel kopieren“, Kontextmenü.
+2.  **[Label](/design/guides/label)** – Status oder eine andere Eigenschaft, die sich auf die Seite bezieht.
+3.  **Selektor** – Beim Klicken auf ein Element können Optionen ausgewählt werden.
+4.  **Zusätzlicher Text** – ID, Zähler, andere Seiteneigenschaften.
+
+Für die Navigation zur Startseite kann auch eine „Haus“-Ikone als Ersatz für das Wort „Startseite“ verwendet werden.
+
+![Modifications](/static/images/design/Breadcrumbs/Modifications1.png)
+
+## Anpassung
+
+Farben, Trennzeichen und der Hover-Stil können geändert werden. Dabei ist es wichtig, die hervorgehobene Darstellung der aktuellen Seite und eine ausreichende Kontraststärke der Elemente beizubehalten.
+
+![Customization](/static/images/design/Breadcrumbs/Customization.png)

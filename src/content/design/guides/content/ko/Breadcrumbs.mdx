@@ -1,0 +1,62 @@
+**Breadcrumbs** — a chain of links reflecting the path in the service structure from the root page to the current one, with the ability to navigate to any page. This component helps the user understand where they are in the service and quickly go back one or more levels.
+
+![Example](/static/images/design/Breadcrumbs/Example.png)
+
+## Usage
+
+- The Breadcrumbs component should be used if the service has nested pages.
+- Breadcrumbs are not needed on the main page.
+- Breadcrumbs are usually placed at the very top of the page in the action bar.
+
+## Structure
+
+![Structure](/static/images/design/Breadcrumbs/Structure.png)
+
+1 — **Current page.**
+
+2 — **Previous page**. It is recommended to display it first if the container width allows.
+
+3 — **Root page of the service**.
+
+4 — **Separator**. By default, `/` is used, but `>` can also be used.
+
+5 — **Overflow icon**. Appears if all page names do not fit within the container width. Pages that do not fit are displayed in a dropdown menu, which appears when you click on the ellipsis.
+
+## Sizes
+
+The base font size in breadcrumbs is `body-1`. The icon size is 16x16 px.
+
+![Sizes](/static/images/design/Breadcrumbs/Sizes.png)
+
+## States
+
+![States](/static/images/design/Breadcrumbs/States.png)
+
+**Default** — the default state.
+
+**Hover** — the state when hovering over the page name.
+
+**Disable** — a non-clickable option. Can be used for the current page or for pages that are not linked.
+
+**Loading** — the component has the ability to pass a function to display the content of an item through the `renderItemContent` parameter (for example, to display `Skeleton` if the data for the breadcrumb item has not yet loaded).
+
+## Modifications
+
+![Modifications](/static/images/design/Breadcrumbs/Modifications1.png)
+
+The following additional elements can be placed in breadcrumbs:
+
+1. **액션 아이콘** — 예를 들어, "즐겨찾기에 추가", "페이지 이름 복사", 컨텍스트 메뉴.
+2. **[레이블](/design/guides/label)** — 페이지와 관련된 상태 또는 기타 속성.
+3. **셀렉트** — 요소를 클릭하면 옵션을 선택할 수 있습니다.
+4. **추가 텍스트** — ID, 개수 카운터, 기타 페이지 속성.
+
+홈 페이지로 이동하기 위해 "홈"이라는 단어 대신 "집" 아이콘을 사용할 수도 있습니다.
+
+![Modifications](/static/images/design/Breadcrumbs/Modifications1.png)
+
+## 커스터마이징
+
+색상, 구분 기호, 호버 스타일을 변경할 수 있습니다. 이때 현재 페이지에 대한 더 밝은 강조 표시와 요소 간의 충분한 대비를 유지하는 것이 중요합니다.
+
+![Customization](/static/images/design/Breadcrumbs/Customization.png)

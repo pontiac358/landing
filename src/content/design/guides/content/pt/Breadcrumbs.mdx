@@ -1,0 +1,64 @@
+**Breadcrumbs** — uma cadeia de links que reflete o caminho na estrutura do serviço, da página raiz à página atual, com a capacidade de navegar para qualquer página. Este componente ajuda o usuário a entender em qual parte do serviço ele está e a retornar rapidamente um ou vários níveis.
+
+![Example](/static/images/design/Breadcrumbs/Example.png)
+
+## Uso
+
+- O componente Breadcrumbs deve ser usado se o serviço tiver páginas aninhadas.
+- As migalhas de pão não são necessárias na página principal.
+- As migalhas de pão geralmente são colocadas no topo da página, na barra de ação.
+
+## Estrutura
+
+![Structure](/static/images/design/Breadcrumbs/Structure.png)
+
+1 — **Página atual.**
+
+2 — **Página anterior**. Recomenda-se exibi-la primeiro, se a largura do contêiner permitir.
+
+3 — **Página raiz do serviço**.
+
+4 — **Separador**. Por padrão, usa-se `/`, mas também pode-se usar `>`.
+
+5 — **Ícone de overflow**. Aparece se todos os nomes das páginas não couberem no contêiner em largura. As páginas que não couberam são exibidas em um menu suspenso que aparece ao clicar nas reticências.
+
+## Tamanhos
+
+O tamanho básico da fonte nas migalhas de pão é `body-1`. O tamanho dos ícones é 16x16 px.
+
+![Sizes](/static/images/design/Breadcrumbs/Sizes.png)
+
+## Estados
+
+![States](/static/images/design/Breadcrumbs/States.png)
+
+**Default** — estado padrão.
+
+**Hover** — estado ao passar o mouse sobre o nome da página.
+
+**Disable** — opção não clicável. Pode ser usada para a página atual ou para páginas que não têm links.
+
+**Loading** — o componente tem a capacidade de passar uma função para exibir o conteúdo do item através do parâmetro `renderItemContent` (por exemplo, exibir `Skeleton` se os dados para o item de migalha ainda não foram carregados).
+
+## Modificações
+
+![Modifications](/static/images/design/Breadcrumbs/Modifications1.png)
+
+Os seguintes elementos adicionais podem ser colocados nas migalhas de pão:
+
+Aqui está a tradução do arquivo fonte do guia de design para português, mantendo a naturalidade e os elementos técnicos:
+
+1.  **Иконка действия** (Ícone de ação) — por exemplo, "adicionar aos favoritos", "copiar nome da página", menu de contexto.
+2.  **[Лейбл](/design/guides/label)** (Rótulo) — status ou outra propriedade relacionada à página.
+3.  **Селект** (Seleção) — ao clicar no item, é possível escolher opções.
+4.  **Дополнительный текст** (Texto adicional) — ID, contador de quantidade, outras propriedades da página.
+
+Para navegar para a página inicial, você também pode usar o ícone de "casa" como substituto da palavra "início".
+
+![Modifications](/static/images/design/Breadcrumbs/Modifications1.png)
+
+## Кастомизация (Personalização)
+
+É possível alterar cores, separadores e o estilo de hover. Ao mesmo tempo, é importante manter um destaque mais acentuado para a página atual e contraste suficiente entre os elementos.
+
+![Customization](/static/images/design/Breadcrumbs/Customization.png)

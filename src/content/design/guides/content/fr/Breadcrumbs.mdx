@@ -1,0 +1,64 @@
+**Chapelure (Breadcrumbs)** — une chaîne de liens reflétant le chemin dans la structure du service, de la page racine à la page actuelle, avec la possibilité de naviguer vers n'importe quelle page. Ce composant aide l'utilisateur à comprendre dans quelle partie du service il se trouve et à revenir rapidement à un ou plusieurs niveaux en arrière.
+
+![Example](/static/images/design/Breadcrumbs/Example.png)
+
+## Utilisation
+
+- Le composant Breadcrumbs doit être utilisé s'il y a une imbrication de pages dans le service.
+- Les chapelures ne sont pas nécessaires sur la page d'accueil.
+- Les chapelures sont généralement placées en haut de la page dans la barre d'action.
+
+## Structure
+
+![Structure](/static/images/design/Breadcrumbs/Structure.png)
+
+1 — **Page actuelle.**
+
+2 — **Page précédente**. Il est recommandé de l'afficher en premier lieu si la largeur du conteneur le permet.
+
+3 — **Page racine du service**.
+
+4 — **Séparateur**. Par défaut, `/` est utilisé, mais `>` peut également être utilisé.
+
+5 — **Icône de débordement**. Elle apparaît si tous les noms de pages ne rentrent pas dans le conteneur en largeur. Les pages qui ne rentrent pas sont affichées dans un menu déroulant qui apparaît au clic sur les points de suspension.
+
+## Tailles
+
+La taille de police de base dans les chapelures est `body-1`. La taille des icônes est de 16x16 px.
+
+![Sizes](/static/images/design/Breadcrumbs/Sizes.png)
+
+## États
+
+![States](/static/images/design/Breadcrumbs/States.png)
+
+**Défaut** — état par défaut.
+
+**Survol** — état lors du passage de la souris sur le nom de la page.
+
+**Désactivé** — variante non cliquable. Peut être utilisé pour la page actuelle ou pour les pages qui ne sont pas des liens.
+
+**Chargement** — le composant a la possibilité de transmettre une fonction pour afficher le contenu de l'élément via le paramètre `renderItemContent` (par exemple, afficher un `Skeleton` si les données de l'élément de chapelure ne sont pas encore chargées).
+
+## Modifications
+
+![Modifications](/static/images/design/Breadcrumbs/Modifications1.png)
+
+Les éléments supplémentaires suivants peuvent être placés dans les chapelures :
+
+Voici la traduction du fichier source du guide de conception en français :
+
+1. **Icône d'action** — par exemple, « ajouter aux favoris », « copier le nom de la page », menu contextuel.
+2. **[Label](/design/guides/label)** — statut ou autre propriété relative à la page.
+3. **Sélecteur** — en cliquant sur un élément, on peut choisir parmi différentes options.
+4. **Texte supplémentaire** — ID, compteur de quantité, autres propriétés de la page.
+
+Pour naviguer vers la page d'accueil, vous pouvez également utiliser l'icône « maison » comme substitut du mot « accueil ».
+
+![Modifications](/static/images/design/Breadcrumbs/Modifications1.png)
+
+## Personnalisation
+
+Il est possible de modifier les couleurs, les séparateurs, le style du survol. Il est important de conserver une mise en évidence plus vive de la page actuelle et un contraste suffisant entre les éléments.
+
+![Customization](/static/images/design/Breadcrumbs/Customization.png)

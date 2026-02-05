@@ -1,30 +1,30 @@
-**Breadcrumbs** are a chain of links that represent the path in the service's structure from the root page to the current page, allowing users to navigate to any page in between. They help the user determine which part of the service they are in and quickly navigate one or more levels back.
+**Breadcrumbs** — a chain of links reflecting the path in the service structure from the root page to the current one, with the ability to navigate to any page. This component helps the user understand where they are in the service and quickly navigate back one or more levels.
 
 ![Example](/static/images/design/Breadcrumbs/Example.png)
 
-## When to use
+## Usage
 
-- Use the Breadcrumbs component for nested pages.
-- There is no need to use breadcrumbs on the home page.
-- Breadcrumbs are usually placed in the action bar at the very top of the page.
+- The Breadcrumbs component should be used if the service has nested pages.
+- Breadcrumbs are not needed on the main page.
+- Breadcrumbs are usually placed at the very top of the page in the action bar.
 
 ## Structure
 
 ![Structure](/static/images/design/Breadcrumbs/Structure.png)
 
-1 - **Current page.**
+1 — **Current page.**
 
-2 - **Previous page.** Best to display first, if the width of the container allows for that.
+2 — **Previous page**. It is recommended to display this first if the container width allows.
 
-3 - **Root page of the service.**
+3 — **Service root page**.
 
-4 - **Divider.** "/" is used by default, but ">" is also acceptable.
+4 — **Separator**. By default, `/` is used, but `>` can also be used.
 
-5 - **Overflow icon.** Appears when page titles do not fit within the width of the container. Pages that take up more space than is available are accessed via a drop-down menu, which is revealed by clicking the ellipsis.
+5 — **Overflow icon**. Appears if all page names do not fit within the container width. Pages that don't fit are displayed in a dropdown menu that appears when you click on the ellipsis.
 
 ## Sizes
 
-The basic font size in breadcrumbs is body-1. The icon size is 16x16 px.
+The base font size in breadcrumbs is `body-1`. Icon size is 16x16 px.
 
 ![Sizes](/static/images/design/Breadcrumbs/Sizes.png)
 
@@ -32,31 +32,33 @@ The basic font size in breadcrumbs is body-1. The icon size is 16x16 px.
 
 ![States](/static/images/design/Breadcrumbs/States.png)
 
-**Default** - default state.
+**Default** — the default state.
 
-**Hover** - hovering over the page title.
+**Hover** — the state when hovering over a page name.
 
-**Disable** - non-clickable. Can be used for the current page or for pages that are not linked.
+**Disable** — a non-clickable option. Can be used for the current page or for pages that are not linked.
 
-**Loading** - the component can display the content of the element by passing a function through the renderItemContent parameter. For example, display Skeleton if the data for the crumbs element has not been loaded yet.
+**Loading** — the component has the ability to pass a function to display the element's content via the `renderItemContent` parameter (for example, to display a `Skeleton` if the data for the breadcrumb item has not yet loaded).
 
 ## Modifications
 
 ![Modifications](/static/images/design/Breadcrumbs/Modifications1.png)
 
-Breadcrumbs may contain the following additional elements:
+The following additional elements can be placed in breadcrumbs:
 
-1. **Action icon -** such as add to favorites, copy page title, or context menu.
-2. **[Label](/design/guides/label) —** a status or another attribute associated with the page.
-3. **Select —** clicking on the element enables you to choose between various options.
-4. **Additional text**—ID, quantity counter, and other page attributes
+Here's the translated design guide source file:
 
-A house icon can be used instead of the word "Main" to indicate a return to the home page.
+1.  **Action Icon** — for example, "add to favorites," "copy page title," context menu.
+2.  **[Label](/design/guides/label)** — status or another property related to the page.
+3.  **Select** — clicking on an element allows you to choose options.
+4.  **Additional Text** — ID, count, other page properties.
+
+You can also use a "home" icon to navigate to the main page as a replacement for the word "Home."
 
 ![Modifications](/static/images/design/Breadcrumbs/Modifications1.png)
 
 ## Customization
 
-You can change colors, dividers, and hover styles. Remember to keep a brighter highlight on the current page and enough contrast between elements.
+You can change colors, separators, and hover styles. It's important to maintain a more prominent highlight for the current page and sufficient contrast for the elements.
 
 ![Customization](/static/images/design/Breadcrumbs/Customization.png)
