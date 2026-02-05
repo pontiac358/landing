@@ -51,10 +51,48 @@ jobs:
           echo "Modified guides: $JSON_OUTPUT"
           echo "modified_guides=$JSON_OUTPUT" >> $GITHUB_OUTPUT
 
-  translate-and-create-pr:
-    needs: prepare-inputs
+  create-pr:
+    permissions:
+      pull-requests: write
+      contents: write
     runs-on: ubuntu-latest
+    needs: prepare-inputs
     if: ${{ needs.prepare-inputs.outputs.modified_guides != '[]' && needs.prepare-inputs.outputs.modified_guides != '' }}
+    outputs:
+      pr_number: ${{ steps.create-pr.outputs.pr_number }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 24
+      - name: Create pull request
+        id: create-pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "temporary file" > temporary-file.txt
+
+          git config user.email ""
+          git config user.name "Update design guides action"
+          git checkout -b update-design-guides
+          git add temporary-file.txt
+
+          export COMMIT_MESSAGE="initial commit"
+          git commit -m "$COMMIT_MESSAGE"
+          git push --set-upstream origin update-design-guides --force
+          gh pr create --title "docs: update design guides translations" --body "Automated translations for design guides" -a "pontiac358" 2>/dev/null || true
+          PR_NUMBER=$(gh pr view --json number -q ".number")
+
+          echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
+
+  translate-guides:
+    needs:
+      - prepare-inputs
+      - create-pr
+    runs-on: ubuntu-latest
+    if: ${{ needs.create-pr.outputs.pr_number != '' && needs.create-pr.outputs.pr_number != null }}
     strategy:
       max-parallel: 1
       matrix:
@@ -62,24 +100,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: refs/pull/${{ needs.create-pr.outputs.pr_number }}/head
           fetch-depth: 0
-      - name: Setup git and create branch
-        run: |
-          git config user.email ""
-          git config user.name "Update design guides action"
-          
-          # Check if branch exists locally and delete it
-          git branch -D update-design-guides 2>/dev/null || true
-          
-          # Fetch to see if remote branch exists
-          git fetch origin update-design-guides 2>/dev/null || true
-          
-          # Create or checkout branch
-          if git rev-parse --verify origin/update-design-guides >/dev/null 2>&1; then
-            git checkout -b update-design-guides origin/update-design-guides
-          else
-            git checkout -b update-design-guides
-          fi
       - name: Prepare inputs for ${{ matrix.guide }}
         id: prepare-inputs
         env:
@@ -109,6 +131,7 @@ jobs:
           outputFiles: ${{ steps.prepare-inputs.outputs.output_files }}
           languages: ${{ env.LANGUAGES }}
           commitMessage: 'docs: translations for design guide ${{ matrix.guide }}'
+          pullRequestNumber: ${{ needs.create-pr.outputs.pr_number }}
           prompt: |
             Please translate the design guide source file to {targetLanguage}. \
             Make the translation sound as natural as possible. \
@@ -116,22 +139,26 @@ jobs:
             Keep all MDX component tags, code blocks, and technical terms intact. \
             Do not translate component names like Button, Alert, Dialog, etc. \
             Don't convert markdown code blocks to html!
-      - name: Push changes to branch
-        run: |
-          git push origin update-design-guides
-      - name: Create or update PR
+
+  cleanup:
+    needs:
+      - create-pr
+      - translate-guides
+    runs-on: ubuntu-latest
+    if: ${{ always() && needs.create-pr.outputs.pr_number != '' && needs.create-pr.outputs.pr_number != null }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refs/pull/${{ needs.create-pr.outputs.pr_number }}/head
+          fetch-depth: 0
+      - name: Remove temporary file
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Check if PR already exists
-          PR_EXISTS=$(gh pr list --head update-design-guides --json number -q ".[0].number" || echo "")
-          
-          if [ -z "$PR_EXISTS" ]; then
-            echo "Creating new PR..."
-            gh pr create \
-              --title "docs: update design guides translations" \
-              --body "Automated translations for design guides" \
-              -a "pontiac358"
-          else
-            echo "PR already exists: #$PR_EXISTS"
-          fi
+          git config user.email ""
+          git config user.name "Update design guides action"
+          rm -rf temporary-file.txt
+          git add .
+
+          git commit -m "chore: remove temporary files"
+          git push origin HEAD:update-design-guides
