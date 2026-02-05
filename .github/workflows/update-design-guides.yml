@@ -16,12 +16,8 @@ env:
 
 jobs:
   prepare-inputs:
-    permissions:
-      pull-requests: write
-      contents: write
     runs-on: ubuntu-latest
     outputs:
-      pr_number: ${{ steps.create-pr.outputs.pr_number }}
       modified_guides: ${{ steps.get-modified-files.outputs.modified_guides }}
     steps:
       - uses: actions/checkout@v4
@@ -54,49 +50,11 @@ jobs:
 
           echo "Modified guides: $JSON_OUTPUT"
           echo "modified_guides=$JSON_OUTPUT" >> $GITHUB_OUTPUT
-      - name: Create PR branch
-        id: create-pr
-        if: ${{ steps.get-modified-files.outputs.modified_guides != '[]' && steps.get-modified-files.outputs.modified_guides != '' }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config user.email ""
-          git config user.name "Update design guides action"
-          
-          # Check if branch exists and delete it
-          git push origin --delete update-design-guides 2>/dev/null || true
-          git branch -D update-design-guides 2>/dev/null || true
-          
-          # Create fresh branch
-          git checkout -b update-design-guides
-          git push --set-upstream origin update-design-guides
-          
-          # Create empty commit to allow PR creation
-          git commit --allow-empty -m "chore: prepare for design guides translations"
-          git push
-          
-          # Create PR
-          export COMMIT_MESSAGE="docs: update design guides translations"
-          echo "Creating PR..."
-          gh pr create --title "$COMMIT_MESSAGE" --body "Automated translations for design guides" -a "pontiac358" || {
-            echo "Warning: PR creation failed, checking if PR already exists..."
-          }
-          
-          # Get PR number
-          PR_NUMBER=$(gh pr view update-design-guides --json number -q ".number" 2>/dev/null || echo "")
-          echo "PR number: $PR_NUMBER"
-          
-          if [ -z "$PR_NUMBER" ]; then
-            echo "Error: Could not get PR number"
-            exit 1
-          fi
-          
-          echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
 
   translations:
     needs: prepare-inputs
     runs-on: ubuntu-latest
-    if: ${{ needs.prepare-inputs.outputs.pr_number != '' && needs.prepare-inputs.outputs.pr_number != null && needs.prepare-inputs.outputs.modified_guides != '[]' }}
+    if: ${{ needs.prepare-inputs.outputs.modified_guides != '[]' && needs.prepare-inputs.outputs.modified_guides != '' }}
     strategy:
       max-parallel: 1
       matrix:
@@ -104,12 +62,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: refs/pull/${{ needs.prepare-inputs.outputs.pr_number }}/head
-          fetch-depth: 2
+          fetch-depth: 0
+      - name: Setup git and create branch
+        run: |
+          git config user.email ""
+          git config user.name "Update design guides action"
+          
+          # Check if branch exists locally and delete it
+          git branch -D update-design-guides 2>/dev/null || true
+          
+          # Fetch to see if remote branch exists
+          git fetch origin update-design-guides 2>/dev/null || true
+          
+          # Create or checkout branch
+          if git rev-parse --verify origin/update-design-guides >/dev/null 2>&1; then
+            git checkout -b update-design-guides origin/update-design-guides
+          else
+            git checkout -b update-design-guides
+          fi
       - name: Prepare inputs for ${{ matrix.guide }}
         id: prepare-inputs
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GUIDE: ${{ matrix.guide }}
         run: |
           SOURCE_FILE="src/content/design/guides/content/${{ env.SOURCE_LANG }}/${GUIDE}.mdx"
@@ -134,9 +107,8 @@ jobs:
           model: 'google/gemini-2.5-flash-lite'
           inputFiles: ${{ steps.prepare-inputs.outputs.input_files }}
           outputFiles: ${{ steps.prepare-inputs.outputs.output_files }}
-          pullRequestNumber: ${{ needs.prepare-inputs.outputs.pr_number }}
           languages: ${{ env.LANGUAGES }}
-          commitMessage: 'translations: for design guide ${{ matrix.guide }}'
+          commitMessage: 'docs: translations for design guide ${{ matrix.guide }}'
           prompt: |
             Please translate the design guide source file to {targetLanguage}. \
             Make the translation sound as natural as possible. \
@@ -144,3 +116,37 @@ jobs:
             Keep all MDX component tags, code blocks, and technical terms intact. \
             Do not translate component names like Button, Alert, Dialog, etc. \
             Don't convert markdown code blocks to html!
+      - name: Push changes to branch
+        run: |
+          git push origin update-design-guides
+
+  create-pr:
+    needs:
+      - prepare-inputs
+      - translations
+    permissions:
+      pull-requests: write
+      contents: write
+    runs-on: ubuntu-latest
+    if: ${{ needs.prepare-inputs.outputs.modified_guides != '[]' && needs.prepare-inputs.outputs.modified_guides != '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: update-design-guides
+          fetch-depth: 0
+      - name: Create or update PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Check if PR already exists
+          PR_EXISTS=$(gh pr list --head update-design-guides --json number -q ".[0].number" || echo "")
+          
+          if [ -z "$PR_EXISTS" ]; then
+            echo "Creating new PR..."
+            gh pr create \
+              --title "docs: update design guides translations" \
+              --body "Automated translations for design guides" \
+              -a "pontiac358"
+          else
+            echo "PR already exists: #$PR_EXISTS"
+          fi
