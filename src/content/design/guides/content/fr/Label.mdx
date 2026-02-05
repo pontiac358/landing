@@ -1,0 +1,109 @@
+Voici la traduction du fichier source du guide de conception en français :
+
+Le label contient des informations textuelles sur un objet et décrit une de ses propriétés, comme son statut ou son type. Les labels sont utilisés pour la catégorisation, le marquage ou la classification, ainsi que pour l'étiquetage d'entités au format « clé-valeur ».
+
+### Application
+
+Les labels sont utilisés partout (par exemple, dans les cartes, les tableaux, les pages d'entités) pour indiquer les propriétés d'un objet et aider les utilisateurs à identifier et classer rapidement le contenu. Généralement, les labels sont affichés à côté des objets auxquels ils se rapportent.
+
+Une utilisation distincte consiste à afficher le nombre d'objets qui ne rentrent pas dans une liste. Dans ce cas, lorsque l'on survole le label avec la souris, une infobulle (popover) apparaît avec la liste des entités restantes.
+
+![DLQ](/static/images/design/Label/DLQ1.png)
+
+Les labels peuvent également être utilisés comme des étiquettes pour organiser les entités et faciliter leur manipulation.
+
+![DLQ](/static/images/design/Label/DLQ2.png)
+
+Lors de l'affichage de labels dans un tableau, il est conseillé de limiter le nombre de labels par cellule (maximum 2-3 labels consécutifs et maximum 2 colonnes de labels dans un même tableau), ainsi que le nombre maximum de caractères (maximum 20 caractères par label, suivi de points de suspension).
+
+### Structure
+
+![Structure](/static/images/design/Label/Structure2.png)
+
+![Structure](/static/images/design/Label/Structure.png)
+
+![Application Examples](/static/images/design/Label/Application.png)
+
+1 — icône gauche, optionnelle, non interactive. Utilisée pour une lecture plus rapide de l'information.
+
+2 — texte, il est recommandé d'utiliser au maximum 20 caractères par label. On peut utiliser des adjectifs (par exemple, « nouveau », « actif », « gratuit »), des participes (« arrêté »), des noms (« réduction »), ainsi que des adverbes. Le texte du label ne doit pas contenir de verbes (par exemple, « activer »). Si un verbe est nécessaire, il est préférable d'utiliser un bouton.
+
+3 — variante alternative du texte au format « clé-valeur », utilisée pour l'étiquetage manuel des objets par l'utilisateur. Par exemple, on peut attribuer les étiquettes suivantes à un objet : `service: delivery`, `release: 23`.
+
+Voici la traduction du fichier source du guide de conception en français :
+
+4 — icône droite, interactive. Peut être, par exemple, une icône de fermeture ou de copie.
+
+### Tailles
+
+![Tailles](/static/images/design/Label/Sizes.png)
+
+**Il existe 3 tailles d'étiquettes :**
+
+**XS** — utilisées dans la plupart des endroits : tableaux, listes, titres, popups, page d'entité.
+
+**S** — utilisée sur les formulaires pour prévisualiser les étiquettes ajoutées et là où l'espace le permet.
+
+**M** — une taille similaire est moins utilisée car elle ressemble à un bouton.
+
+### Thèmes
+
+![Thèmes](/static/images/design/Label/Themes.png)
+
+![Thèmes](/static/images/design/Label/Themes2.png)
+
+**Sans coloration sémantique** :
+
+**Default** — étiquette par défaut, souvent utilisée pour mettre en évidence des informations, sans coloration sémantique.
+
+**Clear** — n'a pas de fond, seulement un contour. Utilisée pour un accent minimal.
+
+**Avec coloration sémantique** :
+
+**Unknown** — variante neutre, utilisée lorsqu'il n'est pas nécessaire d'attirer l'attention sur les informations encapsulées dans l'étiquette.
+
+**Accent** — pour mettre en évidence des informations importantes et pour les opérations « en cours ».
+
+**Success** — pour afficher un processus terminé avec succès ou la « santé » d'une entité.
+
+**Warning** — pour les situations anormales, afin d'avertir l'utilisateur de quelque chose.
+
+**Danger** — pour attirer un maximum d'attention lorsqu'une erreur survient et que des actions doivent être entreprises pour résoudre le problème.
+
+### Étiquettes sémantiques vs boutons
+
+Les étiquettes, y compris celles avec coloration sémantique, sont utilisées pour indiquer un état. La seule interaction possible avec elles est le survol de l'étiquette ou le clic sur l'icône. Une étiquette ne peut pas être dans l'état `Selected`. Si vous devez créer un élément interactif basé sur des étiquettes sémantiques (par exemple, pour des filtres par statut), il est préférable d'utiliser des boutons : ils ont un état pressé (appliqué) `Selected` prévu et prennent en charge les couleurs sémantiques.
+
+### Modifications et états
+
+Toutes les étiquettes ont 5 états prévus : texte seul, icône avant le texte, après le texte, icônes avant et après, et une seule icône.
+
+![États](/static/images/design/Label/States.png)
+
+![États](/static/images/design/Label/States2.png)
+
+Il est possible d'interagir :
+
+Voici la traduction du fichier source du guide de conception en français :
+
+1. Avec toute l'étiquette — par exemple, lorsque vous survolez l'étiquette, une infobulle apparaît avec des informations détaillées.
+
+2. Séparément avec une icône à droite — selon l'icône, cliquer dessus peut supprimer l'étiquette ou copier sa valeur.
+
+La règle principale lors de l'ajout d'une interaction avec une étiquette est de s'assurer que la possibilité d'interagir avec l'étiquette est claire pour l'utilisateur.
+
+### Fonctionnalités supplémentaires
+
+Sur la base de l'étiquette, des filtres dynamiques peuvent être créés pour trier le contenu. En cliquant sur l'icône plus, une nouvelle valeur est ajoutée, et en cliquant sur la croix, le filtre est annulé.
+
+![Features](/static/images/design/Label/Features.png)
+
+Si votre interface permet aux utilisateurs de créer leurs propres étiquettes et de marquer des objets, les utilisateurs doivent pouvoir ajouter et supprimer des étiquettes.
+
+### Personnalisation
+
+Pour une étiquette, vous pouvez modifier les couleurs, les arrondis, les tailles et les espacements. Le texte de l'étiquette doit être facilement lisible.
+
+![Customization](/static/images/design/Label/Customization.png)
+
+Lorsque l'utilisateur survole une étiquette avec sa souris, modifiez son apparence ou sa couleur pour signaler la possibilité d'interaction.

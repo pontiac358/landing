@@ -1,0 +1,109 @@
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche:
+
+Ein Label enthält textuelle Informationen über ein Objekt und beschreibt dessen Eigenschaft – zum Beispiel Status oder Typ. Labels werden zur Kategorisierung, Kennzeichnung oder Klassifizierung sowie zur Markierung von Entitäten im Format „Schlüssel-Wert“ verwendet.
+
+### Anwendung
+
+Labels werden überall (z. B. in Karten, Tabellen, auf Entitätsseiten) verwendet, um Eigenschaften eines Objekts zu kennzeichnen und den Benutzern zu helfen, Inhalte schnell zu identifizieren und zu klassifizieren. Normalerweise werden Labels neben den Objekten angezeigt, auf die sie sich beziehen.
+
+Eine weitere Anwendungsmöglichkeit ist die Anzeige der Anzahl von Objekten, die bei einer Aufzählung nicht mehr Platz finden. In diesem Fall erscheint beim Überfahren des Labels mit der Maus ein Popover mit einer Liste der übrigen Entitäten.
+
+![DLQ](/static/images/design/Label/DLQ1.png)
+
+Labels können auch als Tags verwendet werden – um Entitäten zu ordnen und deren Handhabung zu erleichtern.
+
+![DLQ](/static/images/design/Label/DLQ2.png)
+
+Bei der Anzeige von Labels in einer Tabelle sollte die Anzahl der Labels in einer Zelle begrenzt werden (maximal 2–3 Labels hintereinander und maximal 2 Spalten mit Labels in einer Tabelle) sowie die maximale Anzahl von Zeichen (maximal 20 Zeichen in einem Label, danach Ellipse).
+
+### Struktur
+
+![Structure](/static/images/design/Label/Structure2.png)
+
+![Structure](/static/images/design/Label/Structure.png)
+
+![Application Examples](/static/images/design/Label/Application.png)
+
+1 – linke Ikone, optional, nicht interaktiv. Wird für eine schnellere Informationserfassung verwendet.
+
+2 – Text, es wird empfohlen, nicht mehr als 20 Zeichen pro Label zu verwenden. Es können Adjektive (z. B. „neu“, „aktiv“, „kostenlos“), Partizipien („gestoppt“), Substantive („Rabatt“) sowie Adverbien verwendet werden. Der Text des Labels sollte keine Verben enthalten (z. B. „aktivieren“). Wenn ein Verb benötigt wird, ist es besser, einen Button zu verwenden.
+
+3 – alternative Textvariante im Format „Schlüssel-Wert“, wird für die manuelle Markierung von Objekten durch den Benutzer verwendet. Zum Beispiel können einem Objekt folgende Tags zugewiesen werden: `service: delivery`, `release: 23`.
+
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche, wobei die Lesbarkeit und Natürlichkeit im Vordergrund stehen:
+
+4 — rechte Ikone, interaktiv. Kann zum Beispiel eine Schließen- oder Kopierikone sein.
+
+### Größen
+
+![Sizes](/static/images/design/Label/Sizes.png)
+
+**Es gibt 3 Größen für Labels:**
+
+**XS** — wird an den meisten Stellen verwendet: Tabellen, Listen, Überschriften, Popups, Entitätsseiten.
+
+**S** — wird in Formularen zur Vorschau hinzugefügter Labels verwendet und dort, wo der Platz es erlaubt.
+
+**M** — eine ähnliche Größe wird seltener verwendet, da sie einer Schaltfläche ähnelt.
+
+### Themen
+
+![Themes](/static/images/design/Label/Themes.png)
+
+![Themes](/static/images/design/Label/Themes2.png)
+
+**Ohne semantische Färbung**:
+
+**Default** — das Standard-Label, wird oft zur Hervorhebung von Informationen verwendet, ohne semantische Färbung.
+
+**Clear** — hat keinen Hintergrund, nur eine Kontur. Wird für minimale Akzente verwendet.
+
+**Mit semantischer Färbung**:
+
+**Unknown** — eine neutrale Variante, wird verwendet, wenn keine Betonung auf den im Label enthaltenen Informationen erforderlich ist.
+
+**Accent** — zur Hervorhebung wichtiger Informationen und für "in Bearbeitung"-Operationen.
+
+**Success** — zur Anzeige eines erfolgreich abgeschlossenen Prozesses oder des "Gesundheitszustands" einer Entität.
+
+**Warning** — für Ausnahmesituationen, um den Benutzer vor etwas zu warnen.
+
+**Danger** — um maximale Aufmerksamkeit zu erregen, wenn ein Fehler aufgetreten ist und Maßnahmen zur Behebung des Problems ergriffen werden müssen.
+
+### Semantische Labels vs. Schaltflächen
+
+Labels, auch solche mit semantischer Färbung, werden zur Anzeige von Zuständen verwendet. Die einzige mögliche Interaktion damit ist der Hover über das Label oder ein Klick auf die Ikone. Ein Label kann nicht im Zustand `Selected` sein. Wenn ein interaktives Element auf Basis semantischer Labels erstellt werden soll (z. B. für Filter nach Status), ist es besser, Schaltflächen zu verwenden: Diese haben einen gedrückten (angewendeten) Zustand `Selected` und unterstützen semantische Farben.
+
+### Modifikationen und Zustände
+
+Alle Labels haben 5 Zustände: nur Text, Ikone vor dem Text, nach dem Text, Ikonen davor und danach und nur eine Ikone.
+
+![States](/static/images/design/Label/States.png)
+
+![States](/static/images/design/Label/States2.png)
+
+Interagieren kann man:
+
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche:
+
+1. Mit dem gesamten Label – zum Beispiel erscheint beim Überfahren des Labels mit der Maus ein Tooltip mit detaillierten Informationen.
+
+2. Separat mit einem Icon rechts – je nach Icon kann ein Klick darauf das Label entfernen oder seinen Wert kopieren.
+
+Die wichtigste Regel bei der Hinzufügung von Interaktionen mit Labels ist sicherzustellen, dass die Möglichkeit der Interaktion mit dem Label für den Benutzer verständlich ist.
+
+### Zusätzliche Funktionen
+
+Basierend auf Labels können dynamische Filter zum Sortieren von Inhalten erstellt werden. Durch Klicken auf das Plus-Icon wird ein neuer Wert hinzugefügt, und durch Klicken auf das Kreuz wird der Filter abgebrochen.
+
+![Features](/static/images/design/Label/Features.png)
+
+Wenn Ihre Benutzeroberfläche es Benutzern ermöglicht, eigene Labels zu erstellen und Objekte zu markieren, sollten Benutzer Labels hinzufügen und entfernen können.
+
+### Anpassung
+
+Bei Labels können Farben, Abrundungen, Größen und Abstände geändert werden. Der Text im Label sollte gut lesbar sein.
+
+![Customization](/static/images/design/Label/Customization.png)
+
+Wenn der Benutzer mit der Maus über ein Label fährt, ändern Sie sein Aussehen oder seine Farbe, um die Interaktionsmöglichkeit anzuzeigen.

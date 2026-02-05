@@ -1,18 +1,18 @@
-A label is a textual description of the attributes of an object, such as its status or type. Labels are used to categorize, label, or classify entities, as well as to mark them up in a Key:Value format.
+A label contains textual information about an object and describes its property, such as status or type. Labels are used for categorization, marking, or classification, as well as for annotating entities in a "key-value" format.
 
-### When to use
+### Usage
 
-Labels are used everywhere (e.g., in cards, in tables, on entity pages) to indicate attributes of objects and help users quickly identify and categorize content. Labels are usually displayed next to the related objects.
+Labels are used everywhere (e.g., in cards, tables, entity pages) to indicate object properties and help users quickly identify and classify content. Typically, labels are displayed next to the objects they refer to.
 
-Another application option is displaying the number of objects that don’t fit in the list. In this case, hovering over the label shows a Popover with the list of the remaining entities.
+A specific use case is displaying the count of objects that don't fit when listed. In this scenario, hovering over the label reveals a popover with a list of the remaining entities.
 
 ![DLQ](/static/images/design/Label/DLQ1.png)
 
-Labels can also be used as tags to organize entities and make working with them easier.
+Labels can also be used as tags to organize entities and make them easier to work with.
 
 ![DLQ](/static/images/design/Label/DLQ2.png)
 
-When displaying labels in a table, limit the number of labels in a cell (no more than 2-3 labels in a row and no more than 2 columns with labels in one table) and the maximum number of characters (no more than 20 characters followed by an ellipsis).
+When displaying labels in a table, limit the number of labels per cell (a maximum of 2-3 labels in a row and a maximum of 2 columns with labels in one table), as well as the maximum number of characters (a maximum of 20 characters per label, followed by an ellipsis).
 
 ### Structure
 
@@ -22,25 +22,23 @@ When displaying labels in a table, limit the number of labels in a cell (no more
 
 ![Application Examples](/static/images/design/Label/Application.png)
 
-1 — Left icon: optional and non-interactive. Used for faster information retrieval.
+1.  **Left icon:** Optional, non-interactive. Used for quicker information retrieval.
+2.  **Text:** It is recommended to use no more than 20 characters per label. You can use adjectives (e.g., "new," "active," "free"), participles ("stopped"), nouns ("discount"), and adverbs. The label text should not contain verbs (e.g., "enable"). If a verb is required, it's better to use a button.
+3.  **Key-value text:** An alternative text format used for manual object annotation by the user. For example, you can assign tags like `service: delivery`, `release: 23` to an object.
 
-2 — Text: a label shouldn’t exceed 20 characters. You can use adjectives (e.g., New, Active, Free), Participles (e.g., Stopped), Nouns (e.g., Discount), and Adverbs. Label text should not contain verbs (e.g., Enable). If you need to use verbs, use buttons instead.
-
-3 — An alternate version of the text in the "Key: Value" format, which is used to manually mark objects. For example, you could label the object "service: delivery" or "release: 23."
-
-4 — Right button: interactive. Can be an exit icon or copy icon.
+4 — right icon, interactive. It could be a close or copy icon, for example.
 
 ### Sizes
 
 ![Sizes](/static/images/design/Label/Sizes.png)
 
-**There are three label sizes:**
+**There are 3 label sizes:**
 
-**XS** - Often used in tables, lists, headers, popups, and entity pages.
+**XS** — used in most places: tables, lists, headers, popups, entity pages.
 
-**S** - Used to preview newly added marks on forms and other areas if there is enough space.
+**S** — used in forms for previewing added labels and where space allows.
 
-**M** - Used less often because of its resemblance to a button.
+**M** — a similar size is used less often because it resembles a button.
 
 ### Themes
 
@@ -48,56 +46,58 @@ When displaying labels in a table, limit the number of labels in a cell (no more
 
 ![Themes](/static/images/design/Label/Themes2.png)
 
-**Without semantic color**
+**Without semantic coloring**:
 
-**Default** — The default label, which is often used to highlight information without semantic coloring.
+**Default** — the default label, often used to highlight information, without semantic coloring.
 
-**Clear** — Doesn't have a background, only an outline. Used for minimal emphasis
+**Clear** — has no background, only an outline. Used for minimal emphasis.
 
-**With semantic coloring**
+**With semantic coloring**:
 
-**Unknown** — A neutral option used when there is no need to focus on the information contained within the label.
+**Unknown** — a neutral option, used when there's no need to draw attention to the information wrapped in the label.
 
-**Accent** — Used for highlighting important information and for “in progress” operations.
+**Accent** — for highlighting important information and for "in progress" operations.
 
-**Success** — Used to indicate a successfully completed process or an entity's "health".
+**Success** — for displaying a successfully completed process or the "health" of an entity.
 
-**Warning** — Used for emergency situations, such as to alert the user about something
+**Warning** — for exceptional situations, to warn the user about something.
 
-**Danger** — To draw the user's full attention, such as when an error has occurred and immediate action is required to fix it.
+**Danger** — to attract maximum attention when an error has occurred and actions need to be taken to resolve the issue.
 
-### Semantic Labels vs Buttons
+### Semantic Labels vs. Buttons
 
-Labels, including those with semantic coloring, are used to indicate states. The only way to interact with them is to hover over the label or click the icon. The label cannot be set to "selected." If you need to create an interactive element based on semantic labels (for example, for status filters), use buttons. They have a pressed (applied) state - selected - and can be used with semantic colors.
+Labels, including those with semantic coloring, are used to indicate status. The only available interactions with them are hovering over the label or clicking the icon. A label cannot be in a `Selected` state. If you need to create an interactive element based on semantic labels (e.g., for status filters), it's better to use buttons: they have a pressed (applied) `Selected` state and support semantic colors.
 
-### Modifications and states
+### Modifications and States
 
-All labels have five states: text only, icon before text, icon after text, icon before and after, and only one icon.
+All labels have 5 available states: text only, icon before text, icon after text, icons before and after, and icon only.
 
 ![States](/static/images/design/Label/States.png)
 
 ![States](/static/images/design/Label/States2.png)
 
-You can interact:
+You can interact with:
 
-1. With the entire label. For example, to display a Popover with detailed information by hovering over a label.
+Here's the translated design guide source file:
 
-2. With the right icon only. Depending on the icon, clicking on it may delete the label or copy its value.
+1.  **With the entire label** — for example, hovering over the label displays a tooltip with detailed information.
 
-When adding label interactions, make sure they are intuitive and straightforward.
+2.  **Separately with a right-side icon** — depending on the icon, clicking it can delete the label or copy its value.
 
-### Additional features
+The main rule when adding interaction to a label is to ensure that the possibility of interacting with the label is clear to the user.
 
-You can create dynamic filters for sorting content based on the label. For example, clicking on the plus icon adds a new value, while clicking on the cross icon cancels the filter.
+### Additional Features
+
+Based on labels, dynamic filters can be built to sort content. Clicking the plus icon adds a new value, and clicking the cross cancels the filter.
 
 ![Features](/static/images/design/Label/Features.png)
 
-If your interface allows users to create their own labels and mark objects, they should also be able to add and delete them.
+If your interface allows users to create their own tags and mark objects, users should be able to add and remove labels.
 
 ### Customization
 
-The label's colors, fillets, sizes, and paddings can be customized. The text contained within the label should be easy to read.
+The label's colors, rounding, size, and spacing can be changed. The text within the label should be easily readable.
 
 ![Customization](/static/images/design/Label/Customization.png)
 
-Change the appearance or color of a label when a user hovers over it to indicate the possibility of interaction.
+When the user hovers their mouse over a label, change its appearance or color to indicate interactivity.
