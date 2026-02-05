@@ -1,0 +1,60 @@
+Voici la traduction du fichier source du guide de conception en français :
+
+Le type d'infobulle utilisé lorsque vous survolez un bouton. Il contient généralement une explication ou des informations supplémentaires sur l'action qui se produira après avoir cliqué sur le bouton. Il est souvent utilisé pour les boutons avec une seule icône afin que les utilisateurs comprennent sans ambiguïté quelle action est cachée derrière.
+
+## Structure
+
+![2.png](/static/images/design/ActionTooltip/Structure.png)
+
+1.  **Titre (Title)** – L'élément principal et obligatoire de l'infobulle, décrivant brièvement l'action principale lors du clic sur le bouton. Il est recommandé de formuler le texte du titre de manière à ce qu'il tienne sur une seule ligne.
+2.  **Description (Description)** – Un élément optionnel de l'infobulle, fournissant des informations supplémentaires qui expliquent le titre.
+3.  **Raccourci clavier (Shortcut)** – Un élément optionnel de l'infobulle, une combinaison de touches dont la pression déclenche l'action décrite dans l'interface. Il est utilisé pour apprendre à l'utilisateur des actions rapides et pour accélérer son interaction avec le service.
+
+## Variantes
+
+![Group 2087325956.png](/static/images/design/ActionTooltip/Variants.png)
+
+1.  **Titre uniquement** – La variante la plus fréquemment utilisée, où l'infobulle décrit brièvement l'action elle-même. Il est recommandé de formuler le texte de manière à ce qu'il ne contienne pas plus de 5 mots.
+2.  **Titre et raccourci clavier** – Si une combinaison de touches est attribuée à l'action, il est préférable de l'afficher pour aider l'utilisateur.
+3.  **Titre et description** – Si l'action est complexe et que le titre ne peut pas être formulé de manière concise et sans ambiguïté, il est recommandé d'ajouter une description pour fournir des informations supplémentaires.
+4.  **Titre, description et raccourci clavier** – L'ensemble maximal pour le composant, pour les cas où tous les éléments sont nécessaires à l'utilisateur pour prendre une décision dans l'interface.
+
+## Tailles
+
+Dans la variante avec un seul titre ou un titre et un raccourci clavier, la largeur de l'infobulle s'adaptera au texte, tandis que dans les variantes avec une description, sa largeur est fixe et est de 300 px.
+
+Les marges dans toutes les variantes sont : gauche et droite – 12px, haut et bas – 8px.
+
+Voici la traduction du fichier source du guide de conception en français :
+
+Dans la version avec raccourcis clavier, l'espacement entre le titre et le label est de 8px.
+
+Dans la version avec description (qu'il y ait des raccourcis clavier ou non), l'espacement entre le titre et la description est de 2px.
+
+![158.png](/static/images/design/ActionTooltip/Sizes.png)
+
+## Position
+
+La position principale du tooltip par rapport au bouton est en dessous et centré, avec un espacement de 4px entre les éléments.
+
+![13.png](/static/images/design/ActionTooltip/LocationUnder.png)
+
+Si les boutons sont situés sur le bord gauche ou droit de la page, le tooltip est aligné sur le bord correspondant du bouton.
+
+![14.png](/static/images/design/ActionTooltip/LocationUnderLeft&right.png)
+
+Si les boutons sont situés en bas de l'écran, le tooltip s'affiche au-dessus, dans la position qui correspond à l'emplacement du bouton : aligné à gauche, centré ou aligné à droite.
+
+![15.png](/static/images/design/ActionTooltip/LocationAboveLeft&center&right.png)
+
+## Timing
+
+Le délai d'apparition et de disparition du tooltip au survol du bouton peut être ajusté en fonction de son objectif. Le plus souvent, le délai d'apparition du tooltip est absent ou très court, jusqu'à 250 ms, et le tooltip disparaît instantanément une fois que l'utilisateur a retiré son curseur du bouton.
+
+Si vous supposez que la plupart des utilisateurs comprendront le bouton sans aide et que le tooltip s'affiche dans ce cas pour ceux qui rencontrent des difficultés, le délai d'apparition peut être augmenté afin de ne pas irriter les utilisateurs avec des éléments inutiles.
+
+## Exemples d'utilisation
+
+![Example](/static/images/design/ActionTooltip/Example1.png)
+
+![Example](/static/images/design/ActionTooltip/Example2.png)

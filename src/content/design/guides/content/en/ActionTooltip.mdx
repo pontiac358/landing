@@ -1,55 +1,59 @@
-A tooltip that appears when the user hovers over a button. Typically, includes an explanation or additional information about the action that will be performed upon clicking the button. Often used for buttons with only one icon, providing users with a clear understanding of the action associated with it.
+Here's the translated design guide source file:
+
+The type of tooltip used when hovering over a button. It usually contains an explanation or additional information about the action that will occur after clicking the button. It's often used for buttons with a single icon to ensure users clearly understand the action it performs.
 
 ## Structure
 
 ![2.png](/static/images/design/ActionTooltip/Structure.png)
 
-1. **Title** is the most important and required element of the tooltip; it describes the primary function of the button. We recommend formulating the title text so that it fits into a single line.
-2. **Description** — an optional tooltip element that provides additional information about the title.
-3. **Hotkeys / Shortcut** - an optional tooltip element, a key combination that, when pressed, initiates the described action in the interface Used to teach users quick actions to speed up their interaction with the service.
+1.  **Title** – The main and mandatory element of the tooltip, it briefly describes the primary action upon clicking the button. It's recommended to formulate the title text so it fits on a single line.
+2.  **Description** – An optional element of the tooltip, providing additional information that clarifies the title.
+3.  **Shortcut** – An optional element of the tooltip, a key combination that, when pressed, triggers the described action in the interface. It's used to teach users quick actions and speed up their interaction with the service.
 
-## Options
+## Variants
 
 ![Group 2087325956.png](/static/images/design/ActionTooltip/Variants.png)
 
-1. The **title alone** is the most commonly used option; the tooltip briefly describes only the action itself. We recommend formulating the text so that it contains no more than 5 words
-2. **Title and shortcut** - If an action has a key combination assigned to it, it is recommended to display it for user guidance.
-3. **Title and description** - If the action is complex and the title cannot be formulated concisely and clearly, it is recommended to include a description with additional information.
-4. **Title, description, and shortcut** - the maximum set for a component, used when all elements are required for the user to make a decision in the interface.
+1.  **Title only** – The most frequently used variant, where the tooltip briefly describes only the action itself. It's recommended to formulate the text to contain no more than 5 words.
+2.  **Title and shortcut** – If an action has an assigned key combination, it's best to display it to assist the user.
+3.  **Title and description** – If the action is complex and the title cannot be formulated concisely and unambiguously, it's recommended to add a description to provide additional information.
+4.  **Title, description, and shortcut** – The maximum set for the component, for cases where all elements are necessary for the user to make a decision in the interface.
 
 ## Sizes
 
-When a single title or title+shortcut is used, the tooltip width adjusts to the text. For descriptions, the width is set at 300px.
+In the variant with a single title or a title and shortcut, the tooltip's width will adjust to the text. In variants with a description, its width is fixed at 300 px.
 
-Padding in all options: 12px left and right, 8px top and bottom.
+Padding in all variants: left and right – 12px, top and bottom – 8px.
 
-In the option with shortcuts, the space between the title and label is set at 8px.
+Here's the translated design guide source file:
 
-In the option with a description (regardless of whether there are hotkeys or not), the distance between the title and description is 2px.
+In the version with hotkeys, the spacing between the heading and the label is 8px.
+
+In the version with a description (regardless of whether hotkeys are present or not), the spacing between the heading and the description is 2px.
 
 ![158.png](/static/images/design/ActionTooltip/Sizes.png)
 
 ## Position
 
-The tooltip's main position in relation to the button is bottom and center, with a 4px distance between elements.
+The primary position of the tooltip relative to the button is below and centered, with a 4px gap between the elements.
 
 ![13.png](/static/images/design/ActionTooltip/LocationUnder.png)
 
-If buttons are positioned at the left or right edge of the page, the tooltip is aligned with the corresponding button edge.
+If buttons are located at the left or right edge of the page, the tooltip aligns with the corresponding edge of the button.
 
 ![14.png](/static/images/design/ActionTooltip/LocationUnderLeft&right.png)
 
-If buttons are at the bottom of the screen, the tooltip is displayed at the top in the position that corresponds to the location of the button: left edge, center, or right edge.
+If buttons are located at the bottom of the screen, the tooltip appears above, positioned to match the button's alignment – left-aligned, centered, or right-aligned.
 
 ![15.png](/static/images/design/ActionTooltip/LocationAboveLeft&center&right.png)
 
 ## Timing
 
-Depending on its purpose, you can adjust the delay for the tooltip to appear and disappear upon hovering over it. In most cases, the tooltip appears instantly or with a minimal delay of up to 250 ms and disappears when the user moves the cursor away from the button.
+The delay for the tooltip's appearance and disappearance on hover can be adjusted based on its purpose. Most often, there is no delay for the tooltip to appear, or it has a small value – up to 250ms. The tooltip disappears instantly after the user moves the cursor away from the button.
 
-If you think that the majority of users will understand the function of the button without a hint, the tooltip can be shown only to those who are having difficulty, and the appearance delay can be increased to avoid annoying users with unnecessary elements.
+If you anticipate that most users will understand the button without a hint, and the tooltip is shown in such cases for those who experience difficulty, the appearance delay can be increased to avoid annoying users with unnecessary elements.
 
-## Use cases
+## Usage Examples
 
 ![Example](/static/images/design/ActionTooltip/Example1.png)
 

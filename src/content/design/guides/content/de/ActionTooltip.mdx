@@ -1,0 +1,60 @@
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche:
+
+Die Art des Tooltips, die beim Überfahren einer Schaltfläche mit der Maus verwendet wird. Er enthält normalerweise eine Erklärung oder zusätzliche Informationen zu der Aktion, die nach dem Klicken auf die Schaltfläche ausgeführt wird. Er wird häufig für Schaltflächen mit nur einem Symbol verwendet, damit die Benutzer eindeutig verstehen, welche Aktion dahinter steckt.
+
+## Struktur
+
+![2.png](/static/images/design/ActionTooltip/Structure.png)
+
+1.  **Titel (Title)** – Das Hauptelement und ein obligatorisches Element des Tooltips, das die Hauptaktion beim Klicken auf die Schaltfläche kurz beschreibt. Es wird empfohlen, den Titel so zu formulieren, dass er in eine Zeile passt.
+2.  **Beschreibung (Description)** – Ein optionales Element des Tooltips, zusätzliche Informationen, die den Titel erläutern.
+3.  **Tastenkombinationen (Shortcut)** – Ein optionales Element des Tooltips, eine Tastenkombination, deren Drücken die beschriebene Aktion in der Benutzeroberfläche auslöst. Wird verwendet, um den Benutzer in schnellen Aktionen zu schulen und seine Interaktion mit dem Dienst zu beschleunigen.
+
+## Varianten
+
+![Group 2087325956.png](/static/images/design/ActionTooltip/Variants.png)
+
+1.  **Nur Titel** – Die am häufigsten verwendete Variante, bei der der Tooltip nur die Aktion selbst kurz beschreibt. Es wird empfohlen, den Text so zu formulieren, dass er nicht mehr als 5 Wörter enthält.
+2.  **Titel und Tastenkombinationen** – Wenn der Aktion eine Tastenkombination zugewiesen ist, ist es besser, diese anzuzeigen, um dem Benutzer zu helfen.
+3.  **Titel und Beschreibung** – Wenn die Aktion komplex ist und der Titel nicht prägnant und eindeutig formuliert werden kann, wird empfohlen, eine Beschreibung hinzuzufügen, um zusätzliche Informationen bereitzustellen.
+4.  **Titel, Beschreibung und Tastenkombinationen** – Die maximale Ausstattung für die Komponente, für Fälle, in denen alle Elemente für den Benutzer zur Entscheidungsfindung in der Benutzeroberfläche erforderlich sind.
+
+## Größen
+
+Bei der Variante mit nur einem Titel oder Titel und Tastenkombinationen passt sich die Breite des Tooltips dem Text an. Bei Varianten mit Beschreibung ist die Breite fest und beträgt 300 Pixel.
+
+Abstände in allen Varianten: links und rechts – 12px, oben und unten – 8px.
+
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche:
+
+Im Fall mit Hotkeys beträgt der Abstand zwischen dem Titel und dem Label 8px.
+
+Im Fall mit einer Beschreibung (unabhängig davon, ob Hotkeys vorhanden sind oder nicht) beträgt der Abstand zwischen dem Titel und der Beschreibung 2px.
+
+![158.png](/static/images/design/ActionTooltip/Sizes.png)
+
+## Position
+
+Die Hauptposition des Tooltips relativ zur Schaltfläche ist unten und zentriert, mit einem Abstand von 4px zwischen den Elementen.
+
+![13.png](/static/images/design/ActionTooltip/LocationUnder.png)
+
+Wenn Schaltflächen am linken oder rechten Rand der Seite platziert sind, wird der Tooltip am entsprechenden Rand der Schaltfläche ausgerichtet.
+
+![14.png](/static/images/design/ActionTooltip/LocationUnderLeft&right.png)
+
+Wenn Schaltflächen am unteren Bildschirmrand platziert sind, wird der Tooltip oben in der Position angezeigt, die der Platzierung der Schaltfläche entspricht – am linken Rand, zentriert oder am rechten Rand.
+
+![15.png](/static/images/design/ActionTooltip/LocationAboveLeft&center&right.png)
+
+## Timing
+
+Die Verzögerung beim Erscheinen und Verschwinden des Tooltips beim Überfahren der Schaltfläche mit der Maus kann je nach Zweck angepasst werden. Meistens gibt es keine Verzögerung beim Erscheinen des Tooltips oder eine geringe Verzögerung – bis zu 250ms, und der Tooltip verschwindet sofort, nachdem der Benutzer den Mauszeiger von der Schaltfläche wegbewegt hat.
+
+Wenn Sie davon ausgehen, dass die meisten Benutzer die Schaltfläche ohne Hinweis verstehen und der Tooltip in diesem Fall für diejenigen angezeigt wird, die Schwierigkeiten hatten, kann die Verzögerung beim Erscheinen erhöht werden, um die Benutzer nicht mit unnötigen Elementen zu irritieren.
+
+## Anwendungsbeispiele
+
+![Example](/static/images/design/ActionTooltip/Example1.png)
+
+![Example](/static/images/design/ActionTooltip/Example2.png)

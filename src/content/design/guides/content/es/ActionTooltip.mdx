@@ -1,55 +1,59 @@
-Una información sobre herramientas que aparece cuando el usuario pasa el ratón por encima de un botón. Por lo general, incluye una explicación o información adicional sobre la acción que se realizará al hacer clic en el botón. A menudo se usa para botones con un solo icono, lo que proporciona a los usuarios una comprensión clara de la acción asociada a él.
+Aquí tienes la traducción del archivo fuente de la guía de diseño al español, buscando que suene lo más natural posible:
+
+El tipo de tooltip que se utiliza al pasar el cursor sobre un botón. Generalmente contiene una explicación o información adicional sobre la acción que se realizará al hacer clic en el botón. Se utiliza a menudo para botones con un solo icono, para que los usuarios comprendan inequívocamente qué acción está oculta detrás de él.
 
 ## Estructura
 
 ![2.png](/static/images/design/ActionTooltip/Structure.png)
 
-1. **El título** es el elemento más importante y obligatorio de la descripción emergente; describe la función principal del botón. Recomendamos formular el texto del título de manera que quepa en una sola línea.
-2. **Descripción**: un elemento de información sobre herramientas opcional que proporciona información adicional sobre el título.
-3. **Teclas rápidas y atajos**: un elemento de información sobre herramientas opcional, una combinación de teclas que, al presionarlas, inicia la acción descrita en la interfaz. Se utiliza para enseñar a los usuarios acciones rápidas para acelerar su interacción con el servicio.
+1.  **Título (Title)** – El elemento principal y obligatorio del tooltip, describe brevemente la acción principal al hacer clic en el botón. Se recomienda formular el texto del título de manera que quepa en una sola línea.
+2.  **Descripción (Description)** – Un elemento opcional del tooltip, información adicional que explica el título.
+3.  **Atajos de teclado (Shortcut)** – Un elemento opcional del tooltip, una combinación de teclas que, al presionarse, ejecuta la acción descrita en la interfaz. Se utiliza para enseñar al usuario acciones rápidas y acelerar su interacción con el servicio.
 
-## Opciones
+## Variantes
 
 ![Group 2087325956.png](/static/images/design/ActionTooltip/Variants.png)
 
-1. El **título por sí solo** es la opción más utilizada; la información sobre herramientas describe brevemente solo la acción en sí. Recomendamos formular el texto de manera que no contenga más de 5 palabras
-2. **Título y acceso directo**: si una acción tiene asignada una combinación de teclas, se recomienda mostrarla para que sirva de guía al usuario.
-3. **Título y descripción**: si la acción es compleja y el título no se puede formular de manera concisa y clara, se recomienda incluir una descripción con información adicional.
-4. **Título, descripción y acceso directo**: el máximo establecido para un componente, que se utiliza cuando todos los elementos son necesarios para que el usuario tome una decisión en la interfaz.
+1.  **Solo título** – La variante más utilizada, el tooltip describe brevemente solo la acción en sí. Se recomienda formular el texto de manera que no contenga más de 5 palabras.
+2.  **Título y atajos de teclado** – Si a la acción se le ha asignado una combinación de teclas, es mejor mostrarla para ayudar al usuario.
+3.  **Título y descripción** – Si la acción es compleja y el título no se puede formular de manera concisa y claramente comprensible, se recomienda añadir una descripción para proporcionar información adicional.
+4.  **Título, descripción y atajos de teclado** – El conjunto máximo para el componente, para casos en los que todos los elementos son necesarios para que el usuario tome una decisión en la interfaz.
 
-## Tallas
+## Tamaños
 
-Cuando se utiliza un solo título o título+atajo, el ancho de la información sobre herramientas se ajusta al texto. Para las descripciones, el ancho se establece en 300 px.
+En la variante con un solo título o título y atajos de teclado, el ancho del tooltip se ajustará al texto, mientras que en las variantes con descripción, su ancho es fijo y es de 300 px.
 
-Acolchado en todas las opciones: 12 píxeles a la izquierda y a la derecha, 8 píxeles en la parte superior e inferior.
+Los márgenes en todas las variantes son: izquierda y derecha – 12px, arriba y abajo – 8px.
 
-En la opción con atajos, el espacio entre el título y la etiqueta se establece en 8px.
+Aquí tienes la traducción del archivo fuente de la guía de diseño al español, manteniendo un tono natural y conservando los elementos técnicos:
 
-En la opción con una descripción (independientemente de si hay teclas rápidas o no), la distancia entre el título y la descripción es de 2 píxeles.
+En la variante con atajos de teclado, el espacio entre el encabezado y la etiqueta es de 8px.
+
+En la variante con descripción (independientemente de si hay atajos de teclado o no), el espacio entre el encabezado y la descripción es de 2px.
 
 ![158.png](/static/images/design/ActionTooltip/Sizes.png)
 
 ## Posición
 
-La posición principal de la información sobre herramientas en relación con el botón es inferior y central, con una distancia de 4 píxeles entre los elementos.
+La posición principal del tooltip con respecto al botón es debajo y centrado, con una distancia de 4px entre los elementos.
 
 ![13.png](/static/images/design/ActionTooltip/LocationUnder.png)
 
-Si los botones están situados en el borde izquierdo o derecho de la página, la información sobre herramientas se alinea con el borde del botón correspondiente.
+Si los botones se encuentran en el borde izquierdo o derecho de la página, el tooltip se alinea con el borde correspondiente del botón.
 
 ![14.png](/static/images/design/ActionTooltip/LocationUnderLeft&right.png)
 
-Si los botones están en la parte inferior de la pantalla, la información sobre herramientas se muestra en la parte superior, en la posición que corresponde a la ubicación del botón: borde izquierdo, centro o borde derecho.
+Si los botones están ubicados en la parte inferior de la pantalla, el tooltip se muestra arriba, en la posición que corresponde a la ubicación del botón: alineado a la izquierda, centrado o alineado a la derecha.
 
 ![15.png](/static/images/design/ActionTooltip/LocationAboveLeft&center&right.png)
 
-## Sincronización
+## Tiempos
 
-En función de su finalidad, puede ajustar el retraso para que la información emergente aparezca y desaparezca al pasar el ratón por encima de ella. En la mayoría de los casos, la descripción emergente aparece al instante o con un retraso mínimo de hasta 250 ms y desaparece cuando el usuario aleja el cursor del botón.
+El retraso para la aparición y desaparición del tooltip al pasar el cursor sobre un botón se puede ajustar según su propósito. La mayoría de las veces, el retraso para la aparición del tooltip es nulo o tiene un valor pequeño, hasta 250ms, y el tooltip desaparece instantáneamente después de que el usuario retire el cursor del botón.
 
-Si crees que la mayoría de los usuarios entenderán la función del botón sin ninguna pista, la información sobre herramientas solo se mostrará a aquellos que tengan dificultades y se puede aumentar el retraso de aparición para evitar molestar a los usuarios con elementos innecesarios.
+Si se espera que la mayoría de los usuarios comprendan el botón sin ayuda y el tooltip se muestra en ese caso para aquellos que experimentaron dificultades, el retraso de aparición se puede aumentar para no molestar a los usuarios con elementos innecesarios.
 
-## Casos de uso
+## Ejemplos de uso
 
 ![Example](/static/images/design/ActionTooltip/Example1.png)
 

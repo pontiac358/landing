@@ -1,0 +1,60 @@
+Aqui está a tradução do arquivo fonte do guia de design para português:
+
+O tipo de tooltip usado ao passar o mouse sobre um botão. Geralmente contém uma explicação ou informações adicionais sobre a ação que ocorrerá após clicar no botão. Frequentemente usado para botões com um único ícone, para que os usuários entendam inequivocamente qual ação está oculta por trás dele.
+
+## Estrutura
+
+![2.png](/static/images/design/ActionTooltip/Structure.png)
+
+1.  **Título (Title)** – O elemento principal e obrigatório do tooltip, descreve brevemente a ação principal ao clicar no botão. Recomenda-se formular o texto do título de forma que caiba em uma única linha.
+2.  **Descrição (Description)** – Um elemento opcional do tooltip, informações adicionais que explicam o título.
+3.  **Atalho (Shortcut)** – Um elemento opcional do tooltip, uma combinação de teclas que, ao serem pressionadas, executa a ação descrita na interface. Usado para ensinar ao usuário ações rápidas e acelerar sua interação com o serviço.
+
+## Variantes
+
+![Group 2087325956.png](/static/images/design/ActionTooltip/Variants.png)
+
+1.  **Apenas Título** – A variante mais comum, o tooltip descreve brevemente apenas a ação em si. Recomenda-se formular o texto de forma que não contenha mais de 5 palavras.
+2.  **Título e Atalho** – Se uma combinação de teclas for atribuída à ação, é melhor mostrá-la para ajudar o usuário.
+3.  **Título e Descrição** – Se a ação for complexa e o título não puder ser formulado de forma concisa e inequivocamente clara, recomenda-se adicionar uma descrição para fornecer informações adicionais.
+4.  **Título, Descrição e Atalho** – O conjunto máximo para o componente, para casos em que todos os elementos são necessários para o usuário tomar uma decisão na interface.
+
+## Tamanhos
+
+Na variante com um único título ou título e atalho, a largura do tooltip se ajustará ao texto, e nas variantes com descrição, sua largura é fixa e é de 300 px.
+
+Os espaçamentos em todas as variantes são: esquerda e direita – 12px, superior e inferior – 8px.
+
+Aqui está a tradução do arquivo fonte do guia de design para português:
+
+No caso com atalhos de teclado, o espaçamento entre o título e o rótulo é de 8px.
+
+No caso com descrição (independentemente de haver ou não atalhos de teclado), o espaçamento entre o título e a descrição é de 2px.
+
+![158.png](/static/images/design/ActionTooltip/Sizes.png)
+
+## Posição
+
+A posição principal da tooltip em relação ao botão é abaixo e centralizada, com um espaçamento de 4px entre os elementos.
+
+![13.png](/static/images/design/ActionTooltip/LocationUnder.png)
+
+Se os botões estiverem localizados na borda esquerda ou direita da página, a tooltip é alinhada com a borda correspondente do botão.
+
+![14.png](/static/images/design/ActionTooltip/LocationUnderLeft&right.png)
+
+Se os botões estiverem localizados na parte inferior da tela, a tooltip é exibida acima, na posição que corresponde à localização do botão – à esquerda, centralizada ou à direita.
+
+![15.png](/static/images/design/ActionTooltip/LocationAboveLeft&center&right.png)
+
+## Tempo
+
+O atraso para a aparição e desaparecimento da tooltip ao passar o mouse sobre o botão pode ser ajustado dependendo do seu propósito. Na maioria das vezes, o atraso para a aparição da tooltip está ausente ou tem um valor pequeno – até 250ms, e a tooltip desaparece instantaneamente após o usuário remover o cursor do botão.
+
+Se você supõe que a maioria dos usuários entenderá o botão sem a dica e a tooltip, neste caso, é exibida para aqueles que encontraram dificuldades, o atraso de aparição pode ser aumentado para não irritar os usuários com elementos desnecessários.
+
+## Exemplos de Uso
+
+![Example](/static/images/design/ActionTooltip/Example1.png)
+
+![Example](/static/images/design/ActionTooltip/Example2.png)
