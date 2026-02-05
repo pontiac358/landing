@@ -1,8 +1,8 @@
-Clipboard copy button is a modification of the `Button` `Flat` component with the `ClipboardIcon` icon placed separately.
+The clipboard copy button is a modification of the `Button` component of type `Flat` with a `ClipboardIcon` icon, placed separately.
 
 ### Icon
 
-Within the `ClipboardButton` is a `ClipboardIcon` component, which is an animated icon with two states: Success and Error. To customize the copy button, use the standard button component `Button` with the `ClipboardIcon` icon.
+Inside `ClipboardButton` is the `ClipboardIcon` component — an icon with animation and two states: `Success` and `Error`. If the copy button needs to be styled, the standard `Button` component with the `ClipboardIcon` icon is used.
 
 ### States
 
@@ -10,30 +10,30 @@ Within the `ClipboardButton` is a `ClipboardIcon` component, which is an animate
 
 ### Sizes
 
-The component supports standard button sizes `XS`, `S`, `M`, `L`, and `XL`
+The component supports standard button sizes: `XS`, `S`, `M`, `L`, and `XL`.
 
 ### Behavior
 
-If content copying is not performed frequently or if the icon reduces readability, the copy button will not appear until the cursor is moved closer.
+If copying content is an infrequent action and the icon degrades readability, the copy button is hidden and becomes visible only when the cursor approaches.
 
 ![In tables, the icon is hidden until the cursor is placed over a cell with content](/static/images/design/ClipboardButton/Use-cases2.png)
 
-In tables, the icon is hidden until the cursor is placed over a cell with content
+In tables, the icon is hidden and appears when the cursor is over a cell with content.
 
 ### Tooltip
 
-The component has a tooltip that can be disabled. It is used to indicate what content will be copied.
+The component has a disable-able tooltip. It's used to indicate what content will be copied.
 
 ![The task key is copied in the Yandex Tracker service](/static/images/design/ClipboardButton/Tooltip.png)
 
-The task key is copied in the Yandex Tracker service
+In the Yandex Tracker service, the task key is copied.
 
-### Use cases
+### Usage Examples
 
-A block code is copied in the documentation.
+In documentation, a code block is copied:
 
 ![Use-cases](/static/images/design/ClipboardButton/Use-cases1.png)
 
-Cell values are copied in tables.
+In tables, cell values are copied:
 
 ![Use-cases](/static/images/design/ClipboardButton/Use-cases2.png)

@@ -1,0 +1,41 @@
+Aqui está a tradução do arquivo fonte do guia de design para português:
+
+O componente `ClipboardButton` é uma modificação do componente `Button` do tipo `Flat` com um ícone `ClipboardIcon`, que é exibido separadamente.
+
+### Ícone
+
+Dentro do `ClipboardButton` está o componente `ClipboardIcon` — um ícone com animação e dois estados: `Success` e `Error`. Se o botão de cópia precisar ser estilizado, o componente de botão padrão `Button` com o ícone `ClipboardIcon` é usado.
+
+### Estados
+
+![States](/static/images/design/ClipboardButton/States.png)
+
+### Tamanhos
+
+O componente suporta os tamanhos de botão padrão: `XS`, `S`, `M`, `L` e `XL`.
+
+### Comportamento
+
+Se a ação de copiar conteúdo não for frequente e o ícone prejudicar a legibilidade, o botão de cópia fica oculto e só se torna visível quando o cursor se aproxima.
+
+![In tables, the icon is hidden until the cursor is placed over a cell with content](/static/images/design/ClipboardButton/Use-cases2.png)
+
+Em tabelas, o ícone fica oculto e é exibido quando o cursor está sobre uma célula com conteúdo.
+
+### Tooltip
+
+O componente possui um tooltip que pode ser desativado. Ele é usado para indicar qual conteúdo será copiado.
+
+![The task key is copied in the Yandex Tracker service](/static/images/design/ClipboardButton/Tooltip.png)
+
+No serviço Yandex Tracker, a chave da tarefa é copiada.
+
+### Exemplos de Uso
+
+Na documentação, um bloco de código é copiado:
+
+![Use-cases](/static/images/design/ClipboardButton/Use-cases1.png)
+
+Em tabelas, os valores das células são copiados:
+
+![Use-cases](/static/images/design/ClipboardButton/Use-cases2.png)
