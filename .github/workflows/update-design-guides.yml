@@ -54,7 +54,7 @@ jobs:
 
           echo "Modified guides: $JSON_OUTPUT"
           echo "modified_guides=$JSON_OUTPUT" >> $GITHUB_OUTPUT
-      - name: Create PR branch and PR
+      - name: Create PR branch
         id: create-pr
         if: ${{ steps.get-modified-files.outputs.modified_guides != '[]' && steps.get-modified-files.outputs.modified_guides != '' }}
         env:
@@ -62,13 +62,26 @@ jobs:
         run: |
           git config user.email ""
           git config user.name "Update design guides action"
+          
+          # Check if branch exists and delete it
+          git push origin --delete update-design-guides 2>/dev/null || true
+          git branch -D update-design-guides 2>/dev/null || true
+          
+          # Create fresh branch
           git checkout -b update-design-guides
-          git push --set-upstream origin update-design-guides --force
-
+          git push --set-upstream origin update-design-guides
+          
+          # Create empty commit to allow PR creation
+          git commit --allow-empty -m "chore: prepare for design guides translations"
+          git push
+          
+          # Create PR
           export COMMIT_MESSAGE="docs: update design guides translations"
-          gh pr create --title "$COMMIT_MESSAGE" --body "" -a "dgaponov" -a "imsitnikov" -a "vvtimofeev" 2>/dev/null || true
-          PR_NUMBER=$(gh pr view --json number -q ".number")
-
+          gh pr create --title "$COMMIT_MESSAGE" --body "Automated translations for design guides" -a "dgaponov" -a "imsitnikov" -a "vvtimofeev" || true
+          
+          # Get PR number
+          PR_NUMBER=$(gh pr view update-design-guides --json number -q ".number" 2>/dev/null || echo "")
+          
           echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
 
   translations:
