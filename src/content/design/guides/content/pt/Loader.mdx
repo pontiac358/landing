@@ -1,0 +1,54 @@
+{/*  */}
+
+Um indicador que exibe a conclusão de uma tarefa: carregamento, descarregamento de dados, processamento, etc., até que a interface esteja totalmente pronta para interação com o usuário. O indicador não exibe progresso mensurável, mas apenas mostra que o processo ainda não terminou e está em andamento.
+
+### **Aplicação**
+
+✅ **Quando aplicar**
+
+1. Quando o carregamento leva mais de 300 ms de espera. O `Loader` não deve aparecer por períodos muito curtos, pois isso causa um piscar desagradável. Se você exibir um `Loader`, evite o efeito de piscar. Se o carregamento levar menos de 300 ms, não exiba nada.
+2. Quando a aparência do conteúdo após o carregamento não pode ser prevista.
+3. Se o `Loader` for aplicado para carregamento assíncrono, ele deve ser exibido exatamente no local onde o carregamento está ocorrendo. O carregamento de um único elemento não deve bloquear o restante da interface.
+
+{/*  */}
+
+
+🚫 **Quando não aplicar**
+
+1. Se o carregamento levar mais de 10 segundos e soubermos quanto tempo ele levará, é melhor exibir uma barra de progresso.
+2. Se a aparência do conteúdo puder ser prevista, para esses casos, um esqueleto pode ser adequado, e faz sentido usá-lo.
+3. Se o carregamento ocorrer devido ao clique em um botão, o estado do próprio botão será suficiente para feedback, por exemplo, em janelas modais.
+
+### Tamanhos
+
+![Sizes](/static/images/design/Loader/Sizes.png)
+
+1. **S** — tamanho base. Usado em campos de entrada, pop-ups e células de tabela, e em outros casos onde o espaço é limitado.
+2. **M** — tamanho médio, usado em cartões e tabelas.
+3. **L** — tamanho grande, usado em páginas inteiras e janelas modais (de diálogo) grandes.
+
+### Exemplos de aplicação
+
+1. Quando o conteúdo ainda não apareceu.
+
+   ![Example](/static/images/design/Loader/Example5.png)
+
+2. Sobre o conteúdo, se ele estiver sendo atualizado ou se alguma alteração estiver sendo feita nele. Exemplo:
+
+   ![Content transparency 30%](/static/images/design/Loader/Example1.png)
+
+   Transparência do conteúdo 30%
+
+   {/* ![Loader on a background layer](/static/images/design/Loader/Example2.png)
+
+   `Loader` em uma camada de fundo */}
+
+Aqui está a tradução do arquivo fonte do guia de design para português, mantendo a naturalidade e os elementos técnicos:
+
+3. Você também pode tentar evitar que o `Loader` se sobreponha ao conteúdo, se houver espaço para isso.
+
+   ![Exemplo](/static/images/design/Loader/Example3.png)
+
+4. Você pode adicionar uma dica, mas apenas se ela contiver informações úteis — por exemplo, explicar o que está acontecendo no momento. Não é necessário escrever sobre o fato de que o carregamento está em andamento, pois o usuário entenderá isso pelo próprio elemento `Loader`.
+
+   ![Exemplo](/static/images/design/Loader/Example4.png)

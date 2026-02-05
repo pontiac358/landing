@@ -1,52 +1,54 @@
-{/* ![Ejemplo](/static/images/design/Loader/Example.gif) */}
+{/*  */}
 
-Un indicador que muestra el progreso de una tarea, como carga, descarga, procesamiento, etc., hasta que la interfaz esté lista para la interacción del usuario. El indicador no muestra un progreso medible; más bien, indica que el proceso aún no se ha completado y sigue en curso.
+Un indicador que muestra la finalización de una tarea: carga, descarga de datos, procesamiento, etc., hasta que la interfaz esté completamente lista para la interacción del usuario. El indicador no muestra un progreso medible, sino que solo indica que el proceso aún no ha terminado y continúa.
 
-### **Aplicación**
+### **Uso**
 
-✅ **Cuándo usar**
+✅ **Cuándo usar**
 
-1. Cuando la carga toma más de 300 ms. El loader no debe mostrarse durante intervalos extremadamente cortos, ya que esto causa parpadeos que podrían ser incómodos para el usuario. Si elige mostrar el loader, evite el efecto de parpadeo. Si la carga toma menos de 300 ms, no muestre nada.
-2. Cuando no se puede predecir el tipo de contenido.
-3. Cuando se usa un loader para carga asíncrona, debe mostrarse exactamente donde se está realizando la carga. La carga de un solo elemento no debe bloquear el resto de la interfaz.
+1. Cuando la carga tarda más de 300 ms de espera. `Loader` no debe aparecer durante períodos de tiempo muy cortos, ya que esto provoca un parpadeo molesto. Si ha mostrado `Loader`, evite el efecto de parpadeo. Si la carga tarda menos de 300 ms, no muestre nada.
+2. Cuando no se puede predecir la apariencia del contenido después de la carga.
+3. Si `Loader` se utiliza para carga asíncrona, debe mostrarse exactamente en el lugar donde ocurre la carga. La carga de un solo elemento no debe bloquear el resto de la interfaz.
 
-{/* ![Aplicación](/static/images/design/Loader/Application.png) */}
+{/*  */}
 
 
-🚫 **Cuándo no usar**
+🚫 **Cuándo no usar**
 
-1. Si el tiempo de carga excede los 10 segundos y se conoce la duración exacta, se debe mostrar una barra de progreso.
-2. Si se puede predecir el tipo de contenido, considere usar un skeleton.
-3. Cuando la carga se inicia con un clic en un botón, usar el estado del botón como retroalimentación es suficiente, especialmente en ventanas modales.
+1. Si la carga tarda más de 10 segundos y sabemos cuánto tiempo llevará, es mejor mostrar una barra de progreso.
+2. Si se puede predecir la apariencia del contenido, para tales casos, un esqueleto podría ser adecuado y tiene sentido usarlo.
+3. Si la carga se produce al hacer clic en un botón, el estado del propio botón será suficiente para la retroalimentación, por ejemplo, en ventanas modales.
 
 ### Tamaños
 
-![Tamaños](/static/images/design/Loader/Sizes.png)
+![Sizes](/static/images/design/Loader/Sizes.png)
 
-1. **S** — Tamaño básico. Se utiliza en campos de entrada, ventanas emergentes, celdas de tabla y otras áreas de espacio limitado.
-2. **M** — tamaño medio, utilizado en tarjetas y tablas
-3. **L** — tamaño grande, utilizado en páginas completas y ventanas modales grandes (diálogo)
+1. **S** — tamaño base. Se utiliza en campos de entrada, ventanas emergentes y celdas de tablas, y en otros casos donde el espacio es limitado.
+2. **M** — tamaño mediano, se utiliza en tarjetas y tablas.
+3. **L** — tamaño grande, se utiliza en páginas completas y ventanas modales (de diálogo) grandes.
 
-### Ejemplos de aplicaciones
+### Ejemplos de uso
 
-1. Cuando el contenido aún no se ha mostrado.
+1. Cuando el contenido aún no ha aparecido.
 
-   ![Ejemplo](/static/images/design/Loader/Example5.png)
+   ![Example](/static/images/design/Loader/Example5.png)
 
-2. Sobre el contenido si se está actualizando o modificando. Así es como se usa el loader sobre el contenido:
+2. Sobre el contenido, si se está actualizando o se le están realizando cambios. Ejemplo:
 
-   ![Transparencia del contenido 30%](/static/images/design/Loader/Example1.png)
+   ![Content transparency 30%](/static/images/design/Loader/Example1.png)
 
    Transparencia del contenido 30%
 
-   {/* ![Loader en una capa de fondo](/static/images/design/Loader/Example2.png)
+   {/* ![Loader on a background layer](/static/images/design/Loader/Example2.png)
 
-   Loader en una capa de fondo */}
+   `Loader` en una capa de fondo */}
 
-3. Trate de evitar superponer el loader sobre el contenido si hay espacio para esto.
+Aquí tienes la traducción del archivo fuente de la guía de diseño al español, manteniendo un tono natural y conservando los componentes MDX, bloques de código y términos técnicos:
+
+3. También puedes intentar evitar que el `Loader` se superponga al contenido si hay espacio para ello.
 
    ![Ejemplo](/static/images/design/Loader/Example3.png)
 
-4. Si la pista proporciona información útil, como una explicación del proceso en curso, puede incluirse. Dado que el loader ya muestra al usuario que la carga está en progreso, no se necesitan revelaciones adicionales.
+4. Puedes añadir una pista, pero solo si aporta información útil, por ejemplo, para explicar lo que está sucediendo en este momento. No es necesario escribir que la carga está en curso, ya que el usuario lo entenderá por el propio elemento `Loader`.
 
    ![Ejemplo](/static/images/design/Loader/Example4.png)

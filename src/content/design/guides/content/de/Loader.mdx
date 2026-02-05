@@ -1,0 +1,54 @@
+{/*  */}
+
+Ein Indikator, der den Abschluss einer Aufgabe anzeigt: Laden, Hochladen von Daten, Verarbeitung usw., bis die Benutzeroberfläche vollständig für die Benutzerinteraktion bereit ist. Der Indikator zeigt keinen messbaren Fortschritt an, sondern nur, dass der Prozess noch nicht abgeschlossen ist und fortgesetzt wird.
+
+### **Anwendung**
+
+✅ **Wann anwenden**
+
+1. Wenn das Laden länger als 300 ms dauert. `Loader` sollte nicht für sehr kurze Zeiträume angezeigt werden, da dies zu einem unangenehmen Flackern führt. Wenn Sie einen `Loader` angezeigt haben, vermeiden Sie den Flackereffekt. Wenn das Laden weniger als 300 ms dauert, zeigen Sie nichts an.
+2. Wenn die Art des Inhalts nach dem Laden nicht vorhersehbar ist.
+3. Wenn `Loader` für asynchrones Laden verwendet wird, sollte er genau dort angezeigt werden, wo das Laden stattfindet. Das Laden eines einzelnen Elements sollte nicht den Rest der Benutzeroberfläche blockieren.
+
+{/*  */}
+
+
+🚫 **Wann nicht anwenden**
+
+1. Wenn das Laden länger als 10 Sekunden dauert und wir wissen, wie lange es dauern wird, ist es besser, eine Fortschrittsleiste anzuzeigen.
+2. Wenn die Art des Inhalts vorhersehbar ist, ist für solche Fälle möglicherweise ein Skeleton geeignet und es ist sinnvoll, dieses zu verwenden.
+3. Wenn das Laden durch Klicken auf eine Schaltfläche erfolgt, reicht der Zustand der Schaltfläche selbst als Rückmeldung aus – zum Beispiel in modalen Fenstern.
+
+### Größen
+
+![Sizes](/static/images/design/Loader/Sizes.png)
+
+1. **S** — Grundgröße. Wird in Eingabefeldern, Pop-up-Fenstern und Tabellenzellen sowie in anderen Fällen verwendet, in denen wenig Platz vorhanden ist.
+2. **M** — mittlere Größe, wird in Karten und Tabellen verwendet.
+3. **L** — große Größe, wird auf ganzen Seiten und großen modalen (Dialog-) Fenstern verwendet.
+
+### Anwendungsbeispiele
+
+1. Wenn der Inhalt noch nicht erschienen ist.
+
+   ![Example](/static/images/design/Loader/Example5.png)
+
+2. Über dem Inhalt, wenn er aktualisiert wird oder Änderungen daran vorgenommen werden. Beispiel:
+
+   ![Content transparency 30%](/static/images/design/Loader/Example1.png)
+
+   Transparenz des Inhalts 30 %
+
+   {/* ![Loader on a background layer](/static/images/design/Loader/Example2.png)
+
+   `Loader` auf einer Hintergrundebene */}
+
+Hier ist die Übersetzung der Design-Guide-Quelldatei ins Deutsche, wobei darauf geachtet wurde, dass sie natürlich klingt und technische Begriffe sowie MDX-Komponenten unverändert bleiben:
+
+3. Sie können auch versuchen, die Überlagerung des `Loader` auf den Inhalt zu vermeiden, wenn dafür Platz vorhanden ist.
+
+   ![Beispiel](/static/images/design/Loader/Example3.png)
+
+4. Sie können einen Hinweis hinzufügen, aber nur, wenn er nützliche Informationen liefert – zum Beispiel, um zu erklären, was gerade passiert. Sie müssen nicht schreiben, dass etwas geladen wird, da der Benutzer dies anhand des `Loader`-Elements selbst erkennen wird.
+
+   ![Beispiel](/static/images/design/Loader/Example4.png)

@@ -1,12 +1,13 @@
+```md
 {/*  */}
 
-An indicator that displays the progress of a task: loading, uploading data, processing, etc., until the interface is fully ready for user interaction. The indicator does not show measurable progress, but only indicates that the process is not yet finished and is ongoing.
+Indicates the progress of a task: loading, uploading data, processing, etc., until the interface is fully ready for user interaction. The indicator does not show measurable progress, but only indicates that the process is not yet complete and is ongoing.
 
 ### **Usage**
 
 ✅ **When to use**
 
-1. When the loading time exceeds 300 ms. `Loader` should not appear for very short periods, as this leads to an unpleasant flicker. If you show a `Loader`, avoid the flickering effect. If the loading time is less than 300 ms, show nothing.
+1. When loading takes more than 300 ms. `Loader` should not appear for very short periods, as this leads to an unpleasant flicker. If you show a `Loader`, avoid the flickering effect. If loading takes less than 300 ms, show nothing.
 2. When the appearance of content after loading cannot be predicted.
 3. If `Loader` is used for asynchronous loading, it should be displayed exactly where the loading is happening. Loading a single element should not block the rest of the interface.
 
@@ -15,8 +16,8 @@ An indicator that displays the progress of a task: loading, uploading data, proc
 
 🚫 **When not to use**
 
-1. If the loading takes more than 10 seconds and we know how long it will take, it's better to show a progress bar.
-2. If the content's appearance can be predicted, a skeleton might be suitable for such cases, and it makes sense to use it.
+1. If loading takes more than 10 seconds and we know how long it will take, it's better to show a progress bar.
+2. If the appearance of content can be predicted, a skeleton might be suitable for such cases, and it makes sense to use it.
 3. If loading occurs due to a button click, the state of the button itself will be sufficient for feedback, for example, in modal windows.
 
 ### Sizes
@@ -42,13 +43,12 @@ An indicator that displays the progress of a task: loading, uploading data, proc
    {/* ![Loader on a background layer](/static/images/design/Loader/Example2.png)
 
    `Loader` on a background layer */}
+```
 
-Here's the translated design guide source file:
-
-3. You can also try to avoid layering the `Loader` on top of the content if there's enough space.
+3. `Loader`가 콘텐츠 위에 겹쳐 보이지 않도록 공간이 있다면 피하는 것이 좋습니다.
 
    ![Example](/static/images/design/Loader/Example3.png)
 
-4. You can add a tooltip, but only if it provides useful information, for example, explaining what is happening right now. There's no need to write that it's loading, as the user will understand this from the `Loader` element itself.
+4. 유용한 정보를 제공하는 경우에만 툴팁을 추가할 수 있습니다. 예를 들어, 현재 어떤 작업이 진행 중인지 설명하는 데 사용할 수 있습니다. `Loader` 요소 자체를 통해 사용자가 로딩 중임을 인지할 수 있으므로, 단순히 로딩 중이라는 내용은 작성하지 마세요.
 
    ![Example](/static/images/design/Loader/Example4.png)

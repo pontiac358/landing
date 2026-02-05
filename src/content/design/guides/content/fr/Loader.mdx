@@ -1,0 +1,56 @@
+```md
+{/*  */}
+
+Un indicateur qui affiche l'achèvement d'une tâche : chargement, téléchargement de données, traitement, etc., jusqu'à ce que l'interface soit entièrement prête à interagir avec l'utilisateur. L'indicateur n'affiche pas de progression mesurable, mais montre seulement que le processus n'est pas encore terminé et est en cours.
+
+### **Utilisation**
+
+✅ **Quand l'utiliser**
+
+1. Lorsque le chargement prend plus de 300 ms d'attente. `Loader` ne doit pas apparaître pendant de très courtes périodes, car cela provoque un clignotement désagréable. Si vous affichez un `Loader`, évitez l'effet de clignotement. Si le chargement prend moins de 300 ms, n'affichez rien.
+2. Lorsque l'apparence du contenu après le chargement ne peut pas être prédite.
+3. Si `Loader` est utilisé pour un chargement asynchrone, il doit être affiché exactement à l'endroit où le chargement se produit. Le chargement d'un seul élément ne doit pas bloquer le reste de l'interface.
+
+{/*  */}
+
+
+🚫 **Quand ne pas l'utiliser**
+
+1. Si le chargement prend plus de 10 secondes et que nous savons combien de temps il prendra, il est préférable d'afficher une barre de progression.
+2. Si l'apparence du contenu peut être prédite, un squelette peut convenir dans de tels cas, et il est judicieux de l'utiliser.
+3. Si le chargement se produit suite à un clic sur un bouton, l'état du bouton lui-même suffira pour le retour d'information, par exemple dans les fenêtres modales.
+
+### Tailles
+
+![Sizes](/static/images/design/Loader/Sizes.png)
+
+1. **S** — taille de base. Utilisée dans les champs de saisie, les fenêtres pop-up et les cellules de tableau, ainsi que dans d'autres cas où l'espace est limité.
+2. **M** — taille moyenne, utilisée dans les cartes et les tableaux.
+3. **L** — grande taille, utilisée sur des pages entières et de grandes fenêtres modales (de dialogue).
+
+### Exemples d'utilisation
+
+1. Lorsque le contenu n'est pas encore apparu.
+
+   ![Example](/static/images/design/Loader/Example5.png)
+
+2. Par-dessus le contenu, s'il est mis à jour ou s'il subit des modifications. Exemple :
+
+   ![Content transparency 30%](/static/images/design/Loader/Example1.png)
+
+   Transparence du contenu 30%
+
+   {/* ![Loader on a background layer](/static/images/design/Loader/Example2.png)
+
+   `Loader` sur une couche de fond */}
+```
+
+Voici la traduction du fichier source du guide de conception en français :
+
+3. Vous pouvez également essayer d'éviter que le `Loader` ne se superpose au contenu, s'il y a de la place pour cela.
+
+   ![Example](/static/images/design/Loader/Example3.png)
+
+4. Vous pouvez ajouter une infobulle, mais uniquement si elle apporte une information utile, par exemple pour expliquer ce qui se passe actuellement. Il n'est pas nécessaire d'indiquer que le chargement est en cours, car l'utilisateur le comprendra grâce à l'élément `Loader` lui-même.
+
+   ![Example](/static/images/design/Loader/Example4.png)
