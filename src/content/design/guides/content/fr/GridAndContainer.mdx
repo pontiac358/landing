@@ -1,0 +1,29 @@
+Voici la traduction du fichier source du guide de conception en français :
+
+![Grid](/static/images/design/GridAndContainer/grid.png)
+
+Le module d'espacement aide à définir des règles strictes pour le calcul des tailles et des marges, tandis que la grille aide à organiser le contenu formé sur cette base en blocs structurés pour la perception. Nous utilisons une grille de 12, 8 et 4 colonnes, car elle permet de diviser la zone sélectionnée en moitiés, tiers et quarts.
+
+# Anatomie de la grille
+
+![Grid structure](/static/images/design/GridAndContainer/structure.png)
+
+Les colonnes ➊ définissent les limites pour l'alignement horizontal, les gouttières ➋ fournissent des margens entre les colonnes de la grille, et les marges extérieures ➌ assurent le rembourrage et le centrage du conteneur ➍. La largeur des colonnes de la grille est déterminée à l'aide d'un pourcentage, et le pas de la gouttière par défaut est toujours une valeur fixe de 20 px.
+
+# Conteneur
+
+![Container](/static/images/design/GridAndContainer/container.png)
+
+Le conteneur est un élément structurel fondamental de la conception du système qui contient et aligne le contenu dans une zone d'affichage définie. Nous utilisons deux types de conteneurs : `Fixed` avec une largeur constante (ce qui signifie que sa `max-width` fixe peut changer à chaque point d'arrêt) et `Fluid` avec une largeur flottante, qui occupera toujours 100 % de l'espace disponible (à l'exception des tailles `S`, `XS` et `2XS`).
+
+# Points d'arrêt
+
+Les points de contrôle des requêtes média, ou points d'arrêt, sont des zones d'affichage prédéfinies avec une largeur définie qui permettent de gérer différents paramètres de grille.
+
+![Breakpoints](/static/images/design/GridAndContainer/breakpoints.png)
+
+# Zones d'exclusion
+
+![Exclusion zones](/static/images/design/GridAndContainer/zones.png)
+
+Dans la mise en page de l'interface utilisateur, les utilisateurs s'attendent à trouver certains types de contenu dans des zones spécifiques. Nous appelons ces zones des zones d'exclusion, et la grille ne s'applique pas à elles. Lorsque des panneaux flexibles ou de navigation s'étendent, ils soit compactent le contenu et la grille, soit repoussent le contenu hors du navigateur. Les panneaux flottants se superposent au contenu sans affecter le conteneur principal.

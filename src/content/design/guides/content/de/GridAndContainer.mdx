@@ -1,0 +1,29 @@
+```md
+![Grid](/static/images/design/GridAndContainer/grid.png)
+
+Der Abstandsmodul hilft bei der Festlegung strenger Regeln für die Berechnung von Größen und Abständen, während das Raster hilft, den daraus resultierenden Inhalt in strukturierte, wahrnehmbare Blöcke zu ordnen. Wir verwenden ein Raster aus 12, 8 und 4 Spalten, da dies es ermöglicht, den ausgewählten Bereich in Hälften, Drittel und Viertel zu unterteilen.
+
+# Raster-Anatomie
+
+![Grid structure](/static/images/design/GridAndContainer/structure.png)
+
+Spalten ➊ definieren die Grenzen für die horizontale Ausrichtung, Zwischenräume ➋ sorgen für Abstände zwischen den Rasterspalten, und äußere Ränder ➌ sorgen für Abstände und zentrieren den Container ➍. Die Breite der Rasterspalten wird mit einem Prozentsatz bestimmt, und der Schritt des Zwischenraums ist standardmäßig immer ein fester Wert von 20 px.
+
+# Container
+
+![Container](/static/images/design/GridAndContainer/container.png)
+
+Der Container ist ein grundlegendes Strukturelement des Designsystems, das Inhalte innerhalb eines definierten Ansichtsfensters enthält und ausrichtet. Wir verwenden zwei Arten von Containern: `Fixed` mit einer festen Breite (was bedeutet, dass seine feste `max-width` bei jedem Breakpoint geändert werden kann) und `Fluid` mit einer flexiblen Breite, die immer 100 % des verfügbaren Platzes einnimmt (außer bei den Größen `S`, `XS` und `2XS`).
+
+# Breakpoints
+
+Medienabfrage-Kontrollpunkte oder Breakpoints sind vordefinierte Ansichtsfensterbereiche mit einer bestimmten Breite, die die Verwaltung verschiedener Rastereinstellungen ermöglichen.
+
+![Breakpoints](/static/images/design/GridAndContainer/breakpoints.png)
+
+# Ausschlusszonen
+
+![Exclusion zones](/static/images/design/GridAndContainer/zones.png)
+
+In einem UI-Layout erwarten Benutzer, bestimmte Inhaltstypen in bestimmten Bereichen zu finden. Wir bezeichnen diese Bereiche als Ausschlusszonen, und das Raster wird auf sie nicht angewendet. Wenn sich flexible oder Navigationsleisten erweitern, komprimieren sie entweder den Inhalt und das Raster oder schieben den Inhalt aus dem Browserfenster. Überlagernde Panels legen sich über den Inhalt, ohne den Hauptcontainer zu beeinträchtigen.
+```

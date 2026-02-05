@@ -1,27 +1,31 @@
+Here's the translated design guide source file:
+
+```md
 ![Grid](/static/images/design/GridAndContainer/grid.png)
 
-The space module allows us to define strict rules for size and spacing calculations, while the grid helps structure the content into visually organized blocks. We use a 12-, 8-, and 4-column grid that makes it possible to divide the selected area into halves, thirds, and fourths.
+The spacing module helps define strict rules for calculating sizes and indents, while the grid helps organize the content formed on their basis into structured blocks for perception. We use a 12, 8, and 4 column grid, as it allows us to divide the selected area into halves, thirds, and quarters.
 
-# Grid structure
+# Grid Anatomy
 
 ![Grid structure](/static/images/design/GridAndContainer/structure.png)
 
-Columns ➊ define the boundaries for horizontal alignment; spaces ➋ provide padding between grid columns; outer margins ➌ ensure padding and center alignment of the container ➍. The grid column width is determined by a percentage value, and the default column spacing is set to 20px.
+Columns ➊ define boundaries for horizontal alignment, gutters ➋ provide spacing between grid columns, and margins ➌ provide spacing and center alignment for the container ➍. The width of the grid columns is determined using a percentage value, and the default gutter step is always a fixed value of 20 px.
 
 # Container
 
 ![Container](/static/images/design/GridAndContainer/container.png)
 
-A container is a fundamental component of system design that contains and organizes content within a given viewport. We use two types of containers: Fixed with a fixed width (which means that its fixed max-width can change at each breakpoint) and Fluid with a variable width, which occupies 100% of the available space (except for sizes S, XS, and 2XS).
+A container is a fundamental structural element of the design system that holds and aligns content within a given viewport. We use two types of containers: `Fixed` with a constant width (meaning its fixed `max-width` can change at each breakpoint) and `Fluid` with a floating width, which will always occupy 100% of the available space (except for `S`, `XS`, and `2XS` sizes).
 
 # Breakpoints
 
-Media query breakpoints, or breakpoints, are predefined viewport widths that allow you to manage various grid settings.
+Media query control points, or breakpoints, are predefined viewport areas with a set width that allow for managing different grid settings.
 
 ![Breakpoints](/static/images/design/GridAndContainer/breakpoints.png)
 
-# Exclusion zones
+# Exclusion Zones
 
 ![Exclusion zones](/static/images/design/GridAndContainer/zones.png)
 
-In UI design layouts, users expect certain elements to be positioned in specific areas. We refer to these areas as "exclusion zones," and we do not include them in our grid system. When flexible or navigation panels expand, the content and grid are either compressed to fit within the browser or extended beyond it. Overlay panels cover the content without affecting the main container.
+In a UI layout, users expect to find certain types of content in specific areas. We call these areas exclusion zones, and the grid does not apply to them. When flexible or navigation panels expand, they either condense the content and grid or push the content outside the browser. Overlay panels appear on top of the content without affecting the main container.
+```

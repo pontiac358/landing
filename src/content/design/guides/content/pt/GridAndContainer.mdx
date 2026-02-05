@@ -1,0 +1,29 @@
+Aqui está a tradução do arquivo fonte do guia de design para português:
+
+![Grid](/static/images/design/GridAndContainer/grid.png)
+
+O módulo de espaçamento ajuda a definir regras rigorosas para o cálculo de tamanhos e espaçamentos, enquanto a grade ajuda a organizar o conteúdo formado com base neles em blocos estruturados para percepção. Usamos grades de 12, 8 e 4 colunas, pois elas permitem dividir a área selecionada em metades, terços e quartos.
+
+# Anatomia da Grade
+
+![Grid structure](/static/images/design/GridAndContainer/structure.png)
+
+As colunas ➊ definem os limites para o alinhamento horizontal, os *gutters* ➋ fornecem espaçamento entre as colunas da grade, e as margens externas ➌ fornecem espaçamento e centralizam o contêiner ➍. A largura das colunas da grade é determinada usando um valor percentual, e o *gutter* padrão é sempre um valor fixo de 20 px.
+
+# Contêiner
+
+![Container](/static/images/design/GridAndContainer/container.png)
+
+O contêiner é um elemento estrutural fundamental do design system que contém e alinha o conteúdo dentro de uma área de visualização definida. Usamos dois tipos de contêineres: `Fixed`, com largura constante (o que significa que seu `max-width` fixo pode mudar em cada breakpoint), e `Fluid`, com largura flutuante, que sempre ocupará 100% do espaço disponível (exceto para os tamanhos `S`, `XS` e `2XS`).
+
+# Breakpoints
+
+Os pontos de controle de media queries, ou breakpoints, são áreas de visualização pré-definidas com uma largura específica que permitem controlar diferentes configurações de grade.
+
+![Breakpoints](/static/images/design/GridAndContainer/breakpoints.png)
+
+# Zonas de Exclusão
+
+![Exclusion zones](/static/images/design/GridAndContainer/zones.png)
+
+No layout da interface do usuário, os usuários esperam encontrar certos tipos de conteúdo em áreas específicas. Chamamos essas áreas de zonas de exclusão, e a grade não se aplica a elas. Quando painéis flutuantes ou de navegação se expandem, eles compactam o conteúdo e a grade, ou empurram o conteúdo para fora da janela do navegador. Painéis flutuantes se sobrepõem ao conteúdo sem afetar o contêiner principal.
