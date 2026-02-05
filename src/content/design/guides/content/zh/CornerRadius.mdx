@@ -1,21 +1,23 @@
-控件的圆角半径可以被覆盖。为此，请使用以下变量：
+以下是设计指南源文件的中文翻译：
 
-- --g-border-radius-xs:3 px;
-- --g-border-radius-s:5 px;
-- --g-border-radius-m:6 px;
-- --g-border-radius-l:8 px;
-- --g-border-radius-xl：10 px;
-- --g-border-radius-2xl：16 px;
+可以为不同的控件重写圆角半径。为此，请使用以下变量：
+
+- `--g-border-radius-xs: 3px`;
+- `--g-border-radius-s: 5px`;
+- `--g-border-radius-m: 6px`;
+- `--g-border-radius-l: 8px`;
+- `--g-border-radius-xl: 10px`;
+- `--g-border-radius-2xl: 16px`.
 
 ![Corner radius](/static/images/design/CornerRadius/1.png)
 
-你可以覆盖 **变量中的值**
+可以在 **变量** 中重写值。
 
-变量用于相应大小的控件中。如果您更改变量的值，则所有相同大小的控件的圆角半径将相应更改。受此变量影响的控件列在 Figma 库的品牌推广页面上。由于不同的控件具有不同的大小范围，因此控件组可能不匹配。例如，标签的大小不大于 L，因此该组件中不使用以--g-border-radius-l 开头的变量，也不会影响其外观。
+变量用于相应尺寸的控件。更改变量的值将更改相同尺寸的所有控件的圆角半径。受此变量影响的控件列在 Figma 库的 Branding 页面上。不同控件的尺寸范围不同，因此控件集可能不匹配。例如，标签没有 `L` 及更大尺寸，因此从 `--g-border-radius-l` 开始的变量在此组件中不使用，也不会影响其外观。
 
 ![Corner radius](/static/images/design/CornerRadius/2.png)
 
-复选按钮嵌套元素的圆角半径由标记确定，并使用公式 “标记值-3”（其中 3 是内部和外部元素之间的距离）计算。在当前版本中，你必须手动执行计算并将结果输入到以下标记中：
+对于 `check-button`，嵌套元素的圆角半径取决于 token，并根据公式“token 值 - 3”计算，其中 3 是内部元素和外部元素之间的距离。在当前版本中，需要自行执行计算，然后将结果输入到 token 中：
 
 ![Corner radius](/static/images/design/CornerRadius/3.png)
 

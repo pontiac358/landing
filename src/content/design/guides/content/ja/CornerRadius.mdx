@@ -1,0 +1,22 @@
+各種コントロールの角丸半径は上書き可能です。これには以下の変数を使用します。
+
+- `--g-border-radius-xs: 3px`;
+- `--g-border-radius-s: 5px`;
+- `--g-border-radius-m: 6px`;
+- `--g-border-radius-l: 8px`;
+- `--g-border-radius-xl: 10px`;
+- `--g-border-radius-2xl: 16px`.
+
+![Corner radius](/static/images/design/CornerRadius/1.png)
+
+値は**変数**で上書きできます。
+
+変数は対応するサイズのコントロールで使用されます。変数の値を変更すると、同じサイズのすべてのコントロールの角丸半径が変更されます。この変数に影響されるコントロールは、Figma ライブラリの Branding ページに記載されています。コントロールによってサイズ範囲が異なるため、コントロールのセットが一致しない場合があります。たとえば、ラベルには `L` サイズ以上のものが存在しないため、`--g-border-radius-l` から始まる変数はこのコンポーネントでは使用されず、その外観に影響を与えません。
+
+![Corner radius](/static/images/design/CornerRadius/2.png)
+
+`check-button` の場合、ネストされた要素の角丸半径はトークンに依存し、「トークンの値 - 3」という式で計算されます。ここで 3 は内側と外側の要素間の距離です。現在のバージョンでは、計算を自分で行い、その結果をトークンに入力する必要があります。
+
+![Corner radius](/static/images/design/CornerRadius/3.png)
+
+![Corner radius](/static/images/design/CornerRadius/4.png)

@@ -1,0 +1,24 @@
+Voici la traduction du fichier source du guide de conception en français :
+
+Le rayon d'arrondi pour différents contrôles peut être redéfini. Pour ce faire, utilisez les variables suivantes :
+
+- `--g-border-radius-xs: 3px`;
+- `--g-border-radius-s: 5px`;
+- `--g-border-radius-m: 6px`;
+- `--g-border-radius-l: 8px`;
+- `--g-border-radius-xl: 10px`;
+- `--g-border-radius-2xl: 16px`.
+
+![Corner radius](/static/images/design/CornerRadius/1.png)
+
+Les valeurs peuvent être redéfinies dans les **variables**.
+
+Les variables sont utilisées dans les contrôles de tailles correspondantes. Lorsque la valeur d'une variable est modifiée, le rayon d'arrondi de tous les contrôles de la même taille changera. Les contrôles affectés par cette variable sont listés dans la bibliothèque Figma sur la page Branding. Différents contrôles ont des gammes de tailles différentes, ce qui peut entraîner des ensembles de contrôles non concordants. Par exemple, les labels n'ont pas de tailles à partir de `L` et au-delà, donc les variables à partir de `--g-border-radius-l` ne sont pas utilisées dans ce composant et n'affectent pas son apparence.
+
+![Corner radius](/static/images/design/CornerRadius/2.png)
+
+Pour le `check-button`, les rayons d'arrondi de l'élément imbriqué dépendent des tokens et sont calculés selon la formule « valeur du token – 3 », où 3 est la distance entre l'élément interne et externe. Dans la version actuelle, les calculs doivent être effectués par vous-même, puis les résultats doivent être intégrés dans les tokens :
+
+![Corner radius](/static/images/design/CornerRadius/3.png)
+
+![Corner radius](/static/images/design/CornerRadius/4.png)

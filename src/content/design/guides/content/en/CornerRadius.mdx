@@ -1,21 +1,21 @@
-The corner radius of controls can be overridden. To do this, use the following variables:
+The corner radius for various controls can be overridden. The following variables are used for this:
 
-- --g-border-radius-xs: 3px;
-- --g-border-radius-s: 5px;
-- --g-border-radius-m: 6px;
-- --g-border-radius-l: 8px;
-- --g-border-radius-xl: 10px;
-- --g-border-radius-2xl: 16px;
+- `--g-border-radius-xs: 3px`;
+- `--g-border-radius-s: 5px`;
+- `--g-border-radius-m: 6px`;
+- `--g-border-radius-l: 8px`;
+- `--g-border-radius-xl: 10px`;
+- `--g-border-radius-2xl: 16px`.
 
 ![Corner radius](/static/images/design/CornerRadius/1.png)
 
-You can override the values in **Variables**
+Values can be overridden in the **variables**.
 
-Variables are used in controls of corresponding sizes. If you change the variable's value, the corner radius of all controls of the same size will change accordingly. The controls affected by this variable are listed on the Branding page of the Figma library. Since different controls have different size ranges, sets of controls may not match. Labels, for example, do not come in sizes larger than L, so variables beginning with --g-border-radius-l are not used in this component and have no effect on its appearance.
+Variables are used in controls of corresponding sizes. Changing the variable's value will change the corner radius for all controls of the same size. The controls affected by this variable are listed in the Figma library on the Branding page. Different controls have different size ranges, which is why the sets of controls may not match. For example, labels do not have sizes starting from `L` and larger, so variables starting from `--g-border-radius-l` are not used in this component and do not affect its appearance.
 
 ![Corner radius](/static/images/design/CornerRadius/2.png)
 
-The corner radius of the nested element for the check-button is determined by the tokens and is calculated using the formula "token value - 3" (where 3 is the distance between the internal and external elements). In the current version, you have to perform the calculations manually and enter the results into the following tokens:
+For `check-button`, the corner radii of the nested element depend on tokens and are calculated using the formula "token value – 3", where 3 is the distance between the inner and outer elements. In the current version, calculations need to be performed manually, and then the results should be entered into the tokens:
 
 ![Corner radius](/static/images/design/CornerRadius/3.png)
 
