@@ -1,0 +1,194 @@
+# 테마 빠르게 만들기
+
+빠른 브랜딩을 사용하면 몇 가지 테마를 변경하여 즉시 작업 가능한 결과를 얻거나 향후 최적화할 수 있습니다. 몇 가지 색상만 지정하면 모든 것이 올바른 컨트롤에 올바른 위치에 적용됩니다. 그런 다음 지원되는 모든 테마에 대해 이 단계를 반복하면 됩니다.
+
+### 시작하기 전에
+
+1. Figma 라이브러리의 최신 버전을 다운로드하는 것이 좋습니다.
+2. 변수 작업 인터페이스에서 값을 구성합니다. Color Styles 컬렉션을 열고 Branding 그룹을 선택해야 합니다.
+
+   ![Branding](/static/images/design/Branding/Branding.png)
+
+3. Figma의 Branding 페이지에서 결과를 확인하는 것이 편리합니다. 여기에는 브랜드 변수를 사용하는 구성 요소가 모여 있어 최종 모양에 대한 초기 아이디어를 얻을 수 있습니다.
+4. 구성 요소에서는 colorstyles를 사용해야 합니다.
+5. 각 colorstyle의 값은 해당 변수입니다.
+
+### 1. 기본 브랜드 색상
+
+**--g-color-base-background**
+
+페이지 배경색입니다. 밝은 테마의 경우 흰색이 가장 자주 사용되지만 다른 색상도 사용할 수 있습니다. 어두운 테마의 경우 중립적인 회색 음영부터 따뜻하거나 차가운 색상까지 더 넓은 범위의 색상을 선택할 수 있습니다.
+
+![background](/static/images/design/Branding/background.png)
+
+**--g-color-base-brand**
+
+기본 브랜드 색상입니다. 기본 버튼, 체크박스, 라디오 버튼, 토글 스위치의 배경색이며 툴팁의 특수 테마입니다.
+
+![Primary brand color](/static/images/design/Branding/PrimaryBrandColor.png)
+
+**--g-color-base-brand-hover**
+
+기본 브랜드 색상의 호버 색상입니다. 더 어두운 색조를 사용하지만 더 밝거나 완전히 다른 색상도 허용됩니다.
+
+![Hover](/static/images/design/Branding/Hover.png)
+
+**--g-color-base-brand-selection**
+
+"선택됨" 의미를 가진 요소의 배경입니다.
+
+![Selection](/static/images/design/Branding/Selection.png)
+
+**--g-color-base-brand-selection-hover**
+
+선택된 요소의 호버 색상입니다. 일반적인 작업에서는 자주 사용되지 않으며, 새 구성 요소의 모든 상태를 준비하거나 프로토타입에서 더 자주 사용됩니다.
+
+![Selection Hover](/static/images/design/Branding/SelectionHover.png)
+
+**--g-color-line-brand**
+
+브랜드 색상 선입니다. 카드 및 탭의 선택된 상태이며 스피너의 색상입니다.
+
+![Lines](/static/images/design/Branding/Lines.png)
+
+**--g-color-text-brand**
+
+배경 없이 사용할 때 브랜드 색상 텍스트입니다.
+
+![Text](/static/images/design/Branding/Text.png)
+
+**--g-color-text-brand-heavy**
+
+배경색 위에 브랜드 색상의 텍스트. 배경색으로 인한 대비 감소를 보완하는 데 도움이 됩니다.
+
+![Text Heavy](/static/images/design/Branding/Heavy.png)
+
+**--g-color-text-brand-contrast**
+
+주요 컨트롤의 브랜딩 색상을 결정한 후에는 해당 색상에 대비되는 색상을 선택해야 합니다. 모든 테마에서 대비가 유지되어야 합니다.
+
+브랜드 색상의 밝기가 테마 전환 시 기본적으로 변경되지 않는다면, `--g-color-text-light-primary` 및 `--g-color-text-dark-primary`와 같이 일정한 밝기를 가진 색상을 시도해 볼 수 있습니다. 브랜드 색상의 밝기가 변경된다면, `-g-color-text-primary` 또는 `--g-color-text-inverted-primary`를 시도해 볼 수 있습니다.
+
+![Contrast](/static/images/design/Branding/Contrast.png)
+
+**--g-color-text-link**
+
+링크 색상입니다.
+
+![Link color](/static/images/design/Branding/LinkColor.png)
+
+**--g-color-text-link-hover**
+
+링크 호버(hover) 색상입니다.
+
+![Hover link color](/static/images/design/Branding/HoverLinkColor.png)
+
+**--g-color-text-link-visited**
+
+방문한 링크 색상입니다.
+
+![Visited link color](/static/images/design/Branding/VisitedLinkColor.png)
+
+**--g-color-text-link-visited-hover**
+
+방문한 링크 호버(hover) 색상입니다.
+
+![Visited link hover color](/static/images/design/Branding/VisitedLinkHoverColor.png)
+
+### 2. 타이포그래피
+
+모든 텍스트 스타일은 라이브러리의 오른쪽 열에 있는 Local Styles 섹션에 나열되어 있습니다. 이 섹션은 아무것도 선택되지 않았을 때 표시됩니다 (객체가 선택된 경우 해당 객체의 속성이 표시되며 라이브러리가 표시되지 않습니다).
+
+![Typography](/static/images/design/Branding/Typography1.png)
+
+텍스트 스타일 편집 인터페이스에 액세스하려면 스타일 이름 옆에 있는 설정 아이콘을 클릭하세요.
+
+![Typography](/static/images/design/Branding/Typography2.png)
+
+스타일은 3가지 그룹으로 나뉩니다.
+
+![Typography](/static/images/design/Branding/Typography3.png)
+
+1.  **Header**: 제목, 부제목 및 디스플레이 스타일을 포함합니다.
+2.  **Text**: 본문 텍스트 및 캡션에 대한 스타일입니다.
+3.  **Misc**: 순수 코드 및 일반 본문 텍스트에 내장된 코드(인라인 스타일)에 대한 스타일입니다.
+
+Header 및 Text 그룹의 경우 하나의 글꼴을 선택할 수 있지만 다른 굵기를 지정할 수 있습니다. 제목에는 본문 텍스트보다 더 높은 굵기가 자주 사용됩니다.
+
+Misc 그룹의 경우 고정폭 글꼴을 지정할 수 있습니다. 이때 인라인 스타일이 본문 텍스트에 내장될 때 올바르게 표시되고 기본 줄 높이가 이동하지 않는지 확인해야 합니다. 그렇지 않은 경우 Line Height 매개변수의 적절한 값을 선택해야 합니다.
+
+스타일의 경우 글꼴 크기(Font Size)와 줄 높이(Line Height) 매개변수를 약간 수정할 수 있습니다. 다양한 글꼴에서는 문자의 높이와 너비가 눈에 띄게 다를 수 있으며, 경우에 따라 이러한 변경 사항을 보정해야 할 수 있습니다. 특정 텍스트 스타일이 특정 크기의 컴포넌트에서 사용된다는 점을 염두에 두어야 하며, 스타일 매개변수를 크게 변경하면 컴포넌트가 올바르게 표시되지 않을 수 있습니다. 따라서 글꼴 크기(Font Size)와 줄 높이(Line Height)를 변경할 때는 항상 다양한 크기의 컴포넌트 표시를 확인해야 합니다.
+
+### 3. 모서리 반경
+
+이 매개변수는 변수 작업 인터페이스에서 설정됩니다. 값은 테두리 반경(Border Radius) 컬렉션에 있습니다. 이 속성은 기본 및 기술 그룹의 두 변수로 설정됩니다.
+
+![Corner radius](/static/images/design/Branding/CornerRadius.png)
+
+### 기본 세트
+
+이 변수 세트는 코드의 변수와 일치합니다. 이러한 값은 해당 크기의 컨트롤에 할당됩니다.
+
+- --g-border-radius-xs: 3px;
+- --g-border-radius-s: 5px;
+- --g-border-radius-m: 6px;
+- --g-border-radius-l: 8px;
+- --g-border-radius-xl: 10px;
+- --g-border-radius-2xl: 16px.
+
+### 기술 세트
+
+Figma에서만 사용되며, 체크 버튼(Check Button) 컴포넌트 내의 내부 요소 모서리 반경을 계산합니다. 이들은 Inner 접미사가 붙은 변수이며, 값은 기본 세트의 동일한 크기 변수 값에 연결되어야 합니다. Inner 변수의 값을 계산하려면 동일한 크기의 기본 변수 값에서 3을 빼야 합니다.
+
+예를 들어, `--g-border-radius-m: 6px`인 경우 Inner M 반경은 6 - 3 = 3px입니다.
+
+### 4. 기술 색상
+
+이 그룹에는 디자인 시스템에서 지원하는 스크롤바 색상이 포함될 수 있습니다. 일부 브라우저에서 어두운 테마의 스크롤바가 올바르게 표시되지 않는 것을 방지하기 위해 이러한 색상을 설정해야 합니다.
+
+이 그룹의 변수:
+
+- --g-color-scroll-track;
+- --g-color-scroll-handle;
+- --g-color-scroll-handle-hover;
+- --g-color-scroll-corner.
+
+# 추가 테마 설정
+
+### 개인 색상 설정
+
+브랜드 색상에 맞추기 위해 특정 색조를 변경해야 하는 경우 개인 색상 팔레트가 유용합니다. 개인 색상은 변수 작업 인터페이스의 개인 색상(Private Colors) 컬렉션에서 설정됩니다.
+
+![Private color tuning](/static/images/design/Branding/PrivateColorTuning.png)
+
+기본 색상:
+
+- 파란색;
+- 녹색;
+- 빨간색;
+- 노란색;
+- 주황색;
+- 차가운 회색;
+- 보라색.
+
+이 중 하나 또는 전부를 브랜드 색상으로 조정해야 할 수 있습니다. 개발에 전달할 준비가 된 팔레트를 만들려면 [스크립트](https://preview.gravity-ui.com/uikit/?path=/docs/branding-palette-generator--docs)를 사용할 수 있으며, 그 결과는 Figma에도 적용해야 합니다.
+
+페이지 배경(또는 반대 테마의 배경)이 변경된 경우 검정색과 흰색에 대한 새로운 solid 색조도 생성해야 합니다.
+
+비공개 팔레트가 변경되면 의미론적 색상이 자동으로 업데이트됩니다.
+
+### 의미론적 색상 설정
+
+비공개 변수 값이 브랜드 시각 언어의 예상과 일치하지 않는 경우 의미론적 색상의 값을 변경할 수 있습니다. 이는 Color Styles 컬렉션의 변수 작업 인터페이스에서 설정됩니다.
+
+![Semantic color tuning](/static/images/design/Branding/SemanticColorTuning.png)
+
+다음 사항을 고려해야 합니다.
+
+1. 해당 테마에 맞는 비공개 색상을 사용해야 합니다.
+2. 알파 채널이 있는 비공개 색상을 solid 색상으로(또는 그 반대로) 바꾸면 문제가 발생할 수 있습니다.
+3. 의미론적 변수를 변경하면 해당 변수를 사용하는 colorstyles 및 구성 요소에 자동으로 적용됩니다.
+
+# 개발과의 동기화
+
+현재 Figma 라이브러리와 코드 간의 테마 동기화는 수동으로 이루어집니다. 개발에 전달하려면 CSS 변수를 준비해야 합니다([지침 참조](https://preview.gravity-ui.com/uikit/?path=/docs/branding-overview--docs)).

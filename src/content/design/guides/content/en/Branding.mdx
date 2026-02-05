@@ -1,195 +1,198 @@
-# Quick theme creation
+# Quick Theme Creation
 
-Quick branding allows you to switch between themes quickly and see an immediate result that you can use or optimize further. Simply choose a few colors, and all of the controls will be adjusted accordingly. Repeat for all supported themes, and you are all set.
+Quick branding allows you to change several themes and immediately get a result you can start working with or optimize further. To do this, you only need to set a few colors, and everything will be applied to the necessary controls in the right places. Then, you need to repeat this step for all supported themes, and you're done.
 
-### Before you start
+### Before You Start
 
-1. We recommend downloading the latest version of the Figma library
-2. Values are configured in the variable management interface. Open the Color Styles collection and select the Branding group
+1. We recommend downloading the latest version of the Figma library.
+2. Settings are configured in the variables interface. You need to open the Color Styles collection and select the Branding group:
 
    ![Branding](/static/images/design/Branding/Branding.png)
 
-3. The results can be conveniently viewed on Figma's Branding page. It contains components that use brand variables, which will give you an idea of how everything will look in the end.
-4. Remember to use colorstyles in components.
-5. The value of each colorstyle is represented by the corresponding variable
+3. It's convenient to view the results on the Branding page in Figma. This page contains components that use brand variables, which will give you an initial idea of how everything will look in the end.
+4. Color styles must be used in components.
+5. The value of each color style is the corresponding variable.
 
-### 1. Base brand colors
+### 1. Basic Brand Colors
 
 **--g-color-base-background**
 
-Page background color. The most common color for a light theme is white, but you can use any color you like. Dark themes have more options, from neutral gray shades to warm or cool colors.
+The background color of the page. For a light theme, white is most often used, but any other color can also be used. For a dark theme, there is a wider choice of colors: from neutral gray shades to warm or cool colors.
 
 ![background](/static/images/design/Branding/background.png)
 
 **--g-color-base-brand**
 
-Primary brand color. Background for the main button, checkbox, radio, switch, and special tooltip theme
+The primary brand color. Background for the main button, checkbox, radio button, toggle switch, and also the special tooltip theme.
 
 ![Primary brand color](/static/images/design/Branding/PrimaryBrandColor.png)
 
 **--g-color-base-brand-hover**
 
-Hover color for the primary brand color. We are using a darker shade, but a lighter or completely different color is also acceptable.
+Hover color for the primary brand color. We use a darker shade, but a lighter shade or a completely different color is also acceptable.
 
 ![Hover](/static/images/design/Branding/Hover.png)
 
 **--g-color-base-brand-selection**
 
-Underlays for elements with “selected” semantics
+Backgrounds for elements with the "selected" semantic:
 
 ![Selection](/static/images/design/Branding/Selection.png)
 
 **--g-color-base-brand-selection-hover**
 
-Hover color of the selected elements. It is used less frequently in typical tasks and more frequently when preparing all states for a new component or prototyping.
+Hover color for selected elements. Not frequently used in typical tasks, more often used when preparing all states for a new component or in prototypes.
 
 ![Selection Hover](/static/images/design/Branding/SelectionHover.png)
 
 **--g-color-line-brand**
 
-Brand-colored lines Selected state in cards, tabs; spinner color
+Brand color lines. Selected state in cards and tabs, as well as the spinner color.
 
 ![Lines](/static/images/design/Branding/Lines.png)
 
 **--g-color-text-brand**
 
-Brand-colored texts when used without underlays
+Brand color text when used without backgrounds.
 
 ![Text](/static/images/design/Branding/Text.png)
 
+Here's the translated design guide source file:
+
 **--g-color-text-brand-heavy**
 
-Brand-colored texts on top of underlays. Compensate for the loss of contrast caused by the use of an underlay.
+Brand color text on top of backgrounds. Helps compensate for contrast loss when using backgrounds.
 
 ![Text Heavy](/static/images/design/Branding/Heavy.png)
 
 **--g-color-text-brand-contrast**
 
-Once you decide on a color for branding the main controls, choose a contrasting color for them. Contrast must be maintained across all themes.
+After you've chosen a color for branding primary controls, you need to select a contrasting color for it. The contrast must be maintained across all used themes.
 
-If the brightness of the brand color does not change significantly when switching themes, you can try colors with constant brightness: --g-color-text-light-primary and --g-color-text-dark-primary. If the brightness of the brand color changes, try --g-color-text-primary
-or --g-color-text-inverted-primary.
+If the brand color doesn't fundamentally change its brightness when switching themes, you can try colors with constant brightness: `--g-color-text-light-primary` and `--g-color-text-dark-primary`. If the brand color changes brightness, you can try `-g-color-text-primary` or `--g-color-text-inverted-primary`.
 
 ![Contrast](/static/images/design/Branding/Contrast.png)
 
 **--g-color-text-link**
 
-Link color
+Link color.
 
 ![Link color](/static/images/design/Branding/LinkColor.png)
 
 **--g-color-text-link-hover**
 
-Hover link color
+Hover color for links.
 
 ![Hover link color](/static/images/design/Branding/HoverLinkColor.png)
 
 **--g-color-text-link-visited**
 
-Visited link color
+Visited link color.
 
 ![Visited link color](/static/images/design/Branding/VisitedLinkColor.png)
 
 **--g-color-text-link-visited-hover**
 
-Visited link hover color
+Hover color for visited links.
 
 ![Visited link hover color](/static/images/design/Branding/VisitedLinkHoverColor.png)
 
 ### 2. Typography
 
-All text styles are listed in the right column of the library, under the section Local Styles. This section is displayed if there are no objects selected. In this case, the attributes of the selected object, not the library, are displayed.
+All text styles are listed in the Local Styles section in the right column of the library. This section is displayed when no objects are selected (otherwise, the attributes of the selected object are displayed, not the library):
 
 ![Typography](/static/images/design/Branding/Typography1.png)
 
-To access the text style editing interface, click the settings icon to the right of the style name.
+To access the text style editing interface, click the settings icon to the right of the style name:
 
 ![Typography](/static/images/design/Branding/Typography2.png)
 
-Styles are divided into three groups.
+Styles are divided into 3 groups.
 
 ![Typography](/static/images/design/Branding/Typography3.png)
 
-1. **Header.** Contains headings, subheadings, and display styles.
-2. **Text.** Styles for typed text and captions
-3. **Misc.** Styles for displaying code and code within regular typed text (inline-styles).
+1.  **Header** — Contains headings, subheadings, and display styles.
+2.  **Text** – Styles for body text and captions.
+3.  **Misc** – Styles for pure code, as well as for code embedded within regular body text (inline styles).
 
-For the Header and Text groups, you may use one font with varying weights. Headings usually have higher font weights than typesetting fonts.
+For the Header and Text groups, you can choose one font but set different weights. Headings often use a heavier weight relative to the body font.
 
-For the Misc group, you can set a monospace font. Make sure that the inline styles are displayed correctly when embedded in typed text and that the typesetting's baseline is not shifted. Otherwise, it's recommended to choose a suitable value for the Line Height parameter.
+For the Misc group, you can set a monospaced font. Ensure that inline styles are displayed correctly when embedded in body text and that the baseline of the text doesn't shift. If this is not the case, you should adjust the Line Height parameter accordingly.
 
-For styles, minor changes to the Font Size and Line Height parameters are allowed. In different typefaces, the height and width of characters can significantly vary, and in some cases, this variation needs to be compensated for. Remember that certain text styles are used within specific component sizes, and significant changes to style parameters may result in components displaying incorrectly. Therefore, when making any changes to Font Size and Line Height, it is important to check how components are displayed in different sizes.
+Slight adjustments to `Font Size` and `Line Height` parameters are permissible for styles. Different font families can have noticeably different character widths and heights, and in some cases, these changes need to be compensated for. It's important to remember that specific text styles are used with specific component sizes, and significant changes to style parameters might cause components to display incorrectly. Therefore, any changes to `Font Size` and `Line Height` should be followed by a check of component display across various sizes.
 
-### 3. Corner radius
+### 3. Corner Radii
 
-This parameter can be configured in the variable management interface. The values can be found in the Border Radius collection. This attribute is set by two groups of variables: primary and technical.
+This parameter is configured in the variable management interface. The values are located in the `Border Radius` collection. This attribute is defined by variables from two groups: primary and technical.
 
 ![Corner radius](/static/images/design/Branding/CornerRadius.png)
 
-### Primary set
+### Primary Set
 
-This set of variables match the code variables These values are applied to controls of corresponding sizes.
+This set of variables corresponds to the variables in the code. These values are applied to controls of corresponding sizes:
 
-- --g-border-radius-s: 3px
-- --g-border-radius-s: 5px
-- --g-border-radius-l: 6px
-- --g-border-radius-l: 8px
-- --g-border-radius-xl: 10px
-- --g-border-radius-2xl: 16px
+- `--g-border-radius-xs: 3px;`
+- `--g-border-radius-s: 5px;`
+- `--g-border-radius-m: 6px;`
+- `--g-border-radius-l: 8px;`
+- `--g-border-radius-xl: 10px;`
+- `--g-border-radius-2xl: 16px.`
 
-### Technical set
+### Technical Set
 
-Used only in Figma to calculate the corner radius of the internal element in the Check Button component. These are variables labeled as Inner, and their values should be linked to the values of the primary set of variables. To calculate the value of an Inner variable, take the value of the main variable of the same size and subtract 3.
+This set is used exclusively in Figma to calculate the corner radii of the inner element within the `Check Button` component. These are variables with the `Inner` suffix, and their values should be linked to the values of the primary set variables. To calculate the value of an `Inner` variable, take the value of the primary variable of the same size and subtract 3.
 
-For example, if --g-border-radius-m is set to 6px, then the Inner M radius is calculated as 6 - 3 = 3px.
+For example, if `--g-border-radius-m: 6px`, then `Inner M radius` = 6 - 3 = 3px.
 
-### 4. Technical colors
+### 4. Technical Colors
 
-This group contains the colors for scrollbars supported by the design system. To ensure proper display of scrollbars in dark themes across various browsers, it's recommended to configure them accordingly.
+This group includes scrollbar colors supported by the design system. They should be defined to prevent incorrect scrollbar display in dark themes across certain browsers.
 
 Variables in this group:
 
-- --g-color-scroll-track
-- --g-color-scroll-handle
-- --g-color-scroll-handle-hover
-- --g-color-scroll-corner
+- `--g-color-scroll-track;`
+- `--g-color-scroll-handle;`
+- `--g-color-scroll-handle-hover;`
+- `--g-color-scroll-corner.`
 
-# Advanced theme settings
+# Additional Theme Settings
 
-### Private color tuning
+### Customizing Private Colors
 
-If you want to adjust a specific color shade so that it aligns with the brand colors, use a private palette. Private colors are configured in the variable management interface under the Private Colors collection.
+If you need to change a specific color shade to align with brand colors, the private palette will be useful. Private colors are configured in the variable management interface, within the `Private Colors` collection.
 
 ![Private color tuning](/static/images/design/Branding/PrivateColorTuning.png)
 
-Basic chromatic colors:
+Here's the translated design guide source file:
 
-- Blue
-- Green
-- Red
-- Yellow
-- Orange
-- Cold gray
-- Purple
+Base chromatic colors:
 
-Any of them (or all at once) may need to be adjusted to match the brand colors. To prepare a palette ready for handover to development, use a [script](https://preview.gravity-ui.com/uikit/?path=/docs/branding-palette-generator--docs). You'll need to transfer the script's output into Figma.
+- Blue;
+- Green;
+- Red;
+- Yellow;
+- Orange;
+- Cool Gray;
+- Purple.
 
-If the page background (or the background in the contrasting theme) has been modified, generate new solid shades for black and white.
+Any of these (or all at once) may need to be adapted to brand colors. To create a palette ready for handover to development, you can use the [script](https://preview.gravity-ui.com/uikit/?path=/docs/branding-palette-generator--docs), the results of which will then need to be transferred to Figma.
 
-When changes are made to the private palette, the semantic colors are automatically updated as well.
+If the page background has been changed (or the background in the opposite theme), new solid shades for black and white should also be generated.
 
-### Semantic color tuning
+When the private palette is changed, semantic colors will update automatically.
 
-If the values of private variables don't align with the brand's visual language, you can adjust the values of semantic colors. They are configured in the variables interface in the Color Styles collection.
+### Semantic Color Customization
+
+If the values of private variables do not match the expectations of the brand's visual language, you can change the semantic color values. These are configured in the variable editing interface within the Color Styles collection.
 
 ![Semantic color tuning](/static/images/design/Branding/SemanticColorTuning.png)
 
-Please note the following:
+Keep the following in mind:
 
-1. Make sure to use private colors that match the corresponding theme.
-2. Replacing private colors with an alpha channel with solid colors (and vice versa) may cause problems.
-3. Changes to semantic variables will be applied automatically to colorstyles and components that use them.
+1. Private colors should be used for the corresponding theme.
+2. Replacing private colors with an alpha channel with solid colors (and vice versa) can cause issues.
+3. Changes to semantic variables will automatically apply to color styles and components where they are used.
 
-# Synchronization with development
+# Synchronization with Development
 
-At the moment, theme synchronization between the Figma library and code is done manually. Prior to development handoff, CSS variables must be prepared according to the [instructions](https://preview.gravity-ui.com/uikit/?path=/docs/branding-overview--docs).
+Currently, theme synchronization between the Figma library and the code is done manually. For handover to development, you need to prepare CSS variables ([see instructions](https://preview.gravity-ui.com/uikit/?path=/docs/branding-overview--docs)).
