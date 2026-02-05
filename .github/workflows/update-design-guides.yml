@@ -51,7 +51,7 @@ jobs:
           echo "Modified guides: $JSON_OUTPUT"
           echo "modified_guides=$JSON_OUTPUT" >> $GITHUB_OUTPUT
 
-  translations:
+  translate-and-create-pr:
     needs: prepare-inputs
     runs-on: ubuntu-latest
     if: ${{ needs.prepare-inputs.outputs.modified_guides != '[]' && needs.prepare-inputs.outputs.modified_guides != '' }}
@@ -119,21 +119,6 @@ jobs:
       - name: Push changes to branch
         run: |
           git push origin update-design-guides
-
-  create-pr:
-    needs:
-      - prepare-inputs
-      - translations
-    permissions:
-      pull-requests: write
-      contents: write
-    runs-on: ubuntu-latest
-    if: ${{ needs.prepare-inputs.outputs.modified_guides != '[]' && needs.prepare-inputs.outputs.modified_guides != '' }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: update-design-guides
-          fetch-depth: 0
       - name: Create or update PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
