@@ -1,0 +1,129 @@
+**Dialog** wird verwendet, um sekundäre Inhalte anzuzeigen und die Aufmerksamkeit des Benutzers auf eine bestimmte Aktion oder einen bestimmten Workflow zu lenken. Ein Dialog blockiert die Interaktion des Benutzers mit der übergeordneten Seite, bis er geschlossen oder die Zielaktion im Dialog abgeschlossen ist.
+
+### Einstiegspunkt
+
+Der Einstiegspunkt für einen Dialog kann ein Klick auf einen bestimmten Auslöser sein (z. B. eine Schaltfläche in der Benutzeroberfläche) oder bestimmte Aktionen oder Bedingungen, die in der Benutzeroberfläche auftreten (z. B. der Versuch, die Seite zu verlassen, ohne Daten zu speichern, oder das Wechseln des Kontos in einem anderen Tab).
+
+### Größen
+
+Die Größe eines Dialogs wird basierend auf seinem Inhalt ausgewählt.
+
+![Sizes](/static/images/design/Dialog/sizes.png)
+
+**Größe S (480 px)** wird für kleine Warnungen oder Bestätigungen sowie für kleine Formulare verwendet.
+
+**Größe M (720 px)** wird für kleine und mittlere Formulare verwendet.
+
+**Größe L (900 px)** wird für umfangreiche Daten und Workflows innerhalb eines modalen Fensters verwendet.
+
+**Benutzerdefinierte Größe** wird verwendet, wenn keine der drei Optionen (`S`, `M` oder `L`) geeignet ist.
+
+### Inhaltsbereich
+
+Der Inhalt innerhalb eines Dialogs kann beliebig sein. Das Layout wird je nach Bedarf ausgewählt.
+
+Wenn ein Dialog ein Formular enthält, wird empfohlen, einen der beiden Layouttypen zu verwenden:
+
+<div className="row">
+   <div className="col-12 col-md-6">
+      **Vertikaler Typ**
+
+      Besser geeignet für einfache Textfenster und für die Größe `S`.
+
+      ![vertical](/static/images/design/Dialog/vertical.png)
+   </div>
+   <div className="col-12 col-md-6">
+      **Horizontaler Typ**
+
+      Geeignet für komplexere Formulare.
+
+      ![horizontal](/static/images/design/Dialog/horizontal.png)
+   </div>
+</div>
+
+### Schaltflächen
+
+Eine Aktionsschaltfläche wird fast immer benötigt. Wenn der Benutzer die im Dialog erforderlichen Aktionen nicht abgeschlossen hat, bleibt die Schaltfläche im Zustand `Disabled`.
+Im linken Bereich ist Platz für beliebige Steuerelemente vorgesehen. Hier können Sie Hilfsschaltflächen oder Links platzieren, z. B. für Hilfetexte.
+
+![Group 507124116.png](/static/images/design/Dialog/Group_507124116.png)
+
+Manchmal ist es möglich, anstelle einer Aktionsschaltfläche eine Danger-Schaltfläche zu verwenden (z. B. bei einem Dialog zum Löschen einer Entität).
+
+![Group 2087325976.png](/static/images/design/Dialog/Group_2087325976.png)
+
+Eine Aktionsschaltfläche ist nicht erforderlich, wenn keine Zielaktion vorhanden ist und das Dialogfenster rein informativen Charakter hat. In diesem Fall wird die Schaltfläche "Schließen" im Stil `Normal` verwendet.
+
+![Frame 2087326371.png](/static/images/design/Dialog/Frame_2087326371.png)
+
+Eine Secondary-Schaltfläche wird immer als Abbruchschaltfläche verwendet. Sie kann für zusätzliche Aktionen verwendet werden (z. B. "Ohne Änderungen fortfahren").
+
+![Group 2087326024.png](/static/images/design/Dialog/Group_2087326024.png)
+
+Es kann auch überhaupt keine Schaltflächen geben. Dies ist in der Regel der Fall, wenn eine Auswahl im Inhaltsbereich selbst getroffen werden muss und ohne diese die übergeordnete Benutzeroberfläche nicht zugänglich wäre.
+
+![Frame 2087325516.png](/static/images/design/Dialog/Frame_2087325516.png)
+
+### Navigation innerhalb des Dialogs
+
+Wenn das Dialogfenster einen mehrstufigen Prozess vorsieht, wird die Schaltfläche "Zurück" zum Zurückkehren verwendet.
+
+![Group 2087326025.png](/static/images/design/Dialog/Group_2087326025.png)
+
+Wenn das Dialogfenster verschachtelt ist, aber keine linearen Schritte aufweist, können im Inhaltsbereich des Fensters Breadcrumbs verwendet werden.
+
+![breadcrumbs](/static/images/design/Dialog/breadcrumbs.png)
+
+### Positionierung des Dialogfensters auf der Seite
+
+Das Dialogfenster wird vertikal und horizontal in der Mitte des Bildschirms ausgerichtet.
+
+Bei der Skalierung des Viewports bleibt die Positionierung erhalten und die Größe des Dialogfensters wird reduziert, sofern dies den Inhalt nicht beeinträchtigt.
+
+Der minimal zulässige Abstand zum oberen und linken Bildschirmrand beträgt 20 px.
+
+![position](/static/images/design/Dialog/position.png)
+
+Wenn das Fenster nicht in den Viewport passt, bleiben die Abstände oben und links fest, und das Dialogfenster ragt rechts und unten über den Bildschirm hinaus. Dies ist ein unerwünschter Zustand, und es wird empfohlen, das Dialogfenster so zu gestalten, dass es auf jedem Bildschirm in den Viewport passt und die Abstände zu allen Seiten mindestens 20 px vom Bildschirmrand betragen.
+
+### Schließen des Fensters
+
+Neben der Ausführung der Zielaktion kann das modale Fenster auf folgende Weise geschlossen werden:
+
+<div className="row">
+   <div className="col-12 col-md-6">
+      1. Über die Schaltfläche "Abbrechen":
+
+```md
+<div className="row">
+   <div className="col-12 col-md-6">
+      1. По кнопке «Отмена»:
+
+      ![cancel_btn](/static/images/design/Dialog/cancel_btn.png)
+   </div>
+   <div className="col-12 col-md-6">
+      2. По крестику:
+
+      ![x_btn](/static/images/design/Dialog/x_btn.png)
+   </div>
+</div>
+
+Wenn das Fenster nicht blockierend ist, kann es auf folgende Weise geschlossen werden:
+
+- Durch Klicken außerhalb des modalen Fensters.
+- Durch Drücken der Esc-Taste.
+
+Die Schaltfläche „Abbrechen“ und das Kreuz sind vertraute Elemente, da sie in Dialogfeldern universell zum Schließen verwendet werden. Ein Klick außerhalb des modalen Fensters hilft dem Benutzer, es einfacher und schneller zu schließen, da er nicht auf die ersten beiden Elemente zielen muss. Durch Drücken der Esc-Taste kann das Fenster ohne Maus geschlossen werden.
+
+Da die Interaktion nur mit dem Dialogfeld stattfindet, sollte der Inhalt der übergeordneten Seite nicht scrollbar sein.
+
+### Schutz vor Verlust von Benutzerdaten
+
+Aufgrund der einfachen Schließung des modalen Fensters besteht die Gefahr, dass dies versehentlich geschieht. Wenn der Benutzer im modalen Fenster nur Kontrollkästchen ausgewählt hat, ist der Verlust solcher Daten leichter wiederherzustellen, als wenn der Benutzer lange Code geschrieben oder eine 12-stellige Fahrgestellnummer eines Autos neu eingegeben hat. Solche Situationen sollten wir nicht zulassen. Gleichzeitig darf der Benutzer nicht daran gehindert werden, das modale Fenster auf die ihm vertraute Weise zu verlassen.
+
+Um den Fehler des Datenverlusts zu vermeiden, ist es am besten, ein **zusätzliches Bestätigungsfenster zum Löschen von Daten** zu verwenden. In diesem Fall muss der Benutzer die Aktion bestätigen.
+
+![Pop-up S.png](/static/images/design/Dialog/Pop-up_S%202.png)
+
+Ob beim Schließen eines modalen Fensters ein weiteres Bestätigungsfenster hinzugefügt werden soll, sollte nach gesundem Menschenverstand beurteilt werden. Dabei ist es wichtig, ein Gleichgewicht zwischen Sicherheit und möglicher Irritation durch zu häufige Fragen zu wahren. Ziel der Bestätigung ist es, nicht die vom Benutzer eingegebenen Daten zu verlieren, ohne ihn dabei daran zu hindern, das Szenario auszuführen.
+```

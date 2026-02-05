@@ -1,0 +1,131 @@
+Voici la traduction du fichier source du guide de conception en français :
+
+**La boîte de dialogue** est utilisée pour afficher du contenu secondaire, ainsi que pour concentrer l'attention de l'utilisateur sur l'exécution d'une action ou d'un scénario spécifique. La boîte de dialogue bloque l'interaction de l'utilisateur avec la page parente jusqu'à ce qu'elle soit fermée ou que l'action cible soit effectuée dans cette boîte.
+
+### Point d'entrée
+
+Le point d'entrée d'une boîte de dialogue peut être un clic sur un déclencheur spécifique (par exemple, un bouton dans l'interface utilisateur) ou des actions ou conditions spécifiques qui surviennent dans l'interface utilisateur (par exemple, tenter de quitter une page sans sauvegarder les données, ou changer de compte dans un autre onglet).
+
+### Tailles
+
+La taille de la boîte de dialogue est sélectionnée en fonction du contenu.
+
+![Sizes](/static/images/design/Dialog/sizes.png)
+
+**Taille S (480 px)** est utilisée pour les petits avertissements ou confirmations, ainsi que pour les petits formulaires.
+
+**Taille M (720 px)** est utilisée pour les petits et moyens formulaires.
+
+**Taille L (900 px)** est utilisée pour les données massives et les flux à l'intérieur d'une fenêtre modale.
+
+**Taille personnalisée** est utilisée lorsque aucune des trois options (`S`, `M` ou `L`) ne convient.
+
+### Zone de contenu
+
+Le contenu à l'intérieur de la boîte de dialogue peut être arbitraire. La mise en page est sélectionnée en fonction des besoins.
+
+Si la boîte de dialogue contient un formulaire, il est recommandé d'utiliser l'un des deux types d'agencement des éléments :
+
+<div className="row">
+   <div className="col-12 col-md-6">
+      **Type vertical**
+
+      Plus adapté aux fenêtres textuelles simples et à la taille `S`.
+
+      ![vertical](/static/images/design/Dialog/vertical.png)
+   </div>
+   <div className="col-12 col-md-6">
+      **Type horizontal**
+
+      Adapté aux formulaires plus complexes.
+
+      ![horizontal](/static/images/design/Dialog/horizontal.png)
+   </div>
+</div>
+
+### Boutons
+
+Un bouton d'action est nécessaire presque toujours. Si l'utilisateur n'a pas effectué les actions requises dans la boîte de dialogue, le bouton reste en mode `Disabled`.
+Une zone est prévue sur la gauche pour les contrôles arbitraires. Vous pouvez y placer des boutons auxiliaires ou des liens, par exemple, des informations d'aide.
+
+![Group 507124116.png](/static/images/design/Dialog/Group_507124116.png)
+
+Parfois, une `danger` button peut être utilisée à la place d'une `action` button (par exemple, s'il s'agit d'une boîte de dialogue de suppression d'une entité).
+
+![Group 2087325976.png](/static/images/design/Dialog/Group_2087325976.png)
+
+Une `action` button n'est pas nécessaire s'il n'y a pas d'action cible et que la boîte de dialogue est de nature informative. Dans ce cas, utilisez un bouton « Fermer » de style `Normal`.
+
+![Frame 2087326371.png](/static/images/design/Dialog/Frame_2087326371.png)
+
+Une `secondary` button est toujours utilisée comme bouton d'annulation. Elle peut être utilisée pour des actions supplémentaires (par exemple, « Continuer sans modifications »).
+
+![Group 2087326024.png](/static/images/design/Dialog/Group_2087326024.png)
+
+Il peut ne pas y avoir de boutons du tout. En règle générale, c'est le cas lorsqu'il est nécessaire de faire un choix dans la zone de contenu elle-même, et sans cela, l'interface parente sera inaccessible.
+
+![Frame 2087325516.png](/static/images/design/Dialog/Frame_2087325516.png)
+
+### Navigation dans la boîte de dialogue
+
+Si la boîte de dialogue implique un processus en plusieurs étapes, utilisez le bouton « Retour » pour revenir en arrière.
+
+![Group 2087326025.png](/static/images/design/Dialog/Group_2087326025.png)
+
+Si la boîte de dialogue a une imbrication, mais qu'il ne s'agit pas d'étapes linéaires, des fil d'Ariane peuvent être utilisés dans la zone de contenu de la fenêtre.
+
+![breadcrumbs](/static/images/design/Dialog/breadcrumbs.png)
+
+### Positionnement de la boîte de dialogue sur la page
+
+La boîte de dialogue est centrée verticalement et horizontalement sur l'écran.
+
+Lors du redimensionnement de la fenêtre d'affichage, le positionnement est conservé et la taille de la boîte de dialogue diminue, si cela n'interfère pas avec le contenu à l'intérieur.
+
+L'indentation minimale autorisée par rapport aux bords supérieur et gauche de l'écran est de 20 px.
+
+![position](/static/images/design/Dialog/position.png)
+
+Si la fenêtre ne rentre pas dans la fenêtre d'affichage, les indentations supérieure et gauche resteront fixes, et la boîte de dialogue dépassera de l'écran sur les bords droit et inférieur. C'est un état indésirable, et il est recommandé de concevoir la boîte de dialogue de manière à ce qu'elle rentre dans la fenêtre d'affichage sur n'importe quel écran, et que les indentations de tous les côtés soient d'au moins 20 px par rapport au bord de l'écran.
+
+### Fermeture de la fenêtre
+
+En plus de l'exécution de l'action cible, la fenêtre modale peut être fermée des manières suivantes :
+
+<div className="row">
+   <div className="col-12 col-md-6">
+      1. Par le bouton « Annuler » :
+
+```md
+<div className="row">
+   <div className="col-12 col-md-6">
+      1. По кнопке «Отмена»:
+
+      ![cancel_btn](/static/images/design/Dialog/cancel_btn.png)
+   </div>
+   <div className="col-12 col-md-6">
+      2. По крестику:
+
+      ![x_btn](/static/images/design/Dialog/x_btn.png)
+   </div>
+</div>
+
+Si la fenêtre n'est pas bloquante, elle peut être fermée des manières suivantes :
+
+- En cliquant en dehors de la fenêtre modale.
+- En appuyant sur la touche Échap.
+
+Le bouton « Annuler » et la croix sont des éléments familiers, car ils sont universellement utilisés dans les boîtes de dialogue pour la fermeture. Cliquer en dehors de la fenêtre modale aide l'utilisateur à la fermer plus facilement et plus rapidement, car il n'a pas besoin de viser les deux premiers éléments. Appuyer sur la touche Échap permet de fermer la fenêtre sans l'aide de la souris.
+
+Étant donné que l'interaction est prévue uniquement avec la fenêtre modale, le contenu de la page parente ne doit pas défiler.
+
+### Protection contre la perte de données utilisateur
+
+En raison de la facilité de fermeture de la fenêtre modale, il existe un risque de le faire accidentellement. Si l'utilisateur n'a sélectionné que des cases à cocher dans la fenêtre modale, la perte de ces données est plus facile à récupérer que lorsque l'utilisateur a passé beaucoup de temps à écrire du code ou à retaper un numéro VIN de voiture à 12 chiffres. Nous ne devons pas permettre de telles situations. Dans le même temps, il ne faut pas non plus empêcher l'utilisateur de quitter la fenêtre modale de la manière qui lui est habituelle.
+
+Pour éviter la perte de données, il est préférable d'utiliser une **fenêtre de confirmation supplémentaire pour la suppression des données**. Dans ce cas, l'utilisateur devra confirmer l'action.
+
+![Pop-up S.png](/static/images/design/Dialog/Pop-up_S%202.png)
+
+Faut-il ajouter une autre fenêtre de confirmation lors de la fermeture de la fenêtre modale ? Il convient d'évaluer cela en se basant sur le bon sens. Il est important de trouver un équilibre entre la sécurité et l'irritation potentielle due à des questions trop fréquentes. L'objectif de la confirmation est de ne pas perdre les données saisies par l'utilisateur, tout en lui permettant d'exécuter le scénario.
+```

@@ -1,0 +1,128 @@
+**대화 상자**는 보조 콘텐츠를 표시하고 특정 작업이나 시나리오를 수행하도록 사용자에게 집중시키는 데 사용됩니다. 대화 상자는 닫히거나 해당 창에서 대상 작업을 완료할 때까지 사용자가 기본 페이지와 상호 작용하는 것을 차단합니다.
+
+### 진입점
+
+대화 상자에 진입하는 방법은 특정 트리거(예: 인터페이스의 버튼)를 클릭하거나, 인터페이스에서 특정 작업이 수행되거나 특정 조건이 발생했을 때(예: 데이터를 저장하지 않고 페이지를 나가려고 시도하거나 다른 탭에서 계정을 변경하는 경우)일 수 있습니다.
+
+### 크기
+
+대화 상자의 크기는 콘텐츠에 따라 선택됩니다.
+
+![Sizes](/static/images/design/Dialog/sizes.png)
+
+**S 크기 (480px)**는 작은 경고 또는 확인 메시지, 그리고 작은 양식에 사용됩니다.
+
+**M 크기 (720px)**는 작거나 중간 크기의 양식에 사용됩니다.
+
+**L 크기 (900px)**는 방대한 데이터와 모달 창 내의 플로우에 사용됩니다.
+
+**사용자 정의 크기**는 세 가지 옵션(`S`, `M` 또는 `L`) 중 어느 것도 적합하지 않을 때 사용됩니다.
+
+### 콘텐츠 영역
+
+대화 상자 내부의 콘텐츠는 임의적일 수 있습니다. 레이아웃은 요구 사항에 따라 선택됩니다.
+
+대화 상자에 양식이 포함된 경우 다음 두 가지 유형의 요소 배치 중 하나를 사용하는 것이 좋습니다.
+
+<div className="row">
+   <div className="col-12 col-md-6">
+      **세로형** 
+      
+      간단한 텍스트 창과 `S` 크기에 더 적합합니다.
+      
+      ![vertical](/static/images/design/Dialog/vertical.png)
+   </div>
+   <div className="col-12 col-md-6">
+      **가로형** 
+      
+      더 복잡한 양식에 적합합니다.
+
+      ![horizontal](/static/images/design/Dialog/horizontal.png)
+   </div>
+</div>
+
+### 버튼
+
+거의 항상 작업 버튼이 필요합니다. 사용자가 대화 상자에서 필요한 작업을 완료하지 않으면 버튼은 `Disabled` 상태로 유지됩니다. 왼쪽 영역은 임의의 컨트롤을 위한 공간입니다. 여기에는 보조 버튼이나 링크(예: 도움말 정보)를 배치할 수 있습니다.
+
+![Group 507124116.png](/static/images/design/Dialog/Group_507124116.png)
+
+때로는 action 버튼 대신 danger 버튼을 사용할 수도 있습니다 (예: 엔티티 삭제 대화 상자의 경우).
+
+![Group 2087325976.png](/static/images/design/Dialog/Group_2087325976.png)
+
+목표 작업이 없고 대화 상자가 정보 제공 목적일 경우 action 버튼이 필요하지 않습니다. 이 경우 `Normal` 스타일의 "닫기" 버튼을 사용합니다.
+
+![Frame 2087326371.png](/static/images/design/Dialog/Frame_2087326371.png)
+
+Secondary 버튼은 항상 취소 버튼으로 사용됩니다. 추가 작업에 사용할 수도 있습니다 (예: "변경 없이 계속").
+
+![Group 2087326024.png](/static/images/design/Dialog/Group_2087326024.png)
+
+버튼이 전혀 없을 수도 있습니다. 일반적으로 이는 콘텐츠 영역 자체에서 선택해야 하며, 그렇지 않으면 상위 인터페이스에 액세스할 수 없는 경우입니다.
+
+![Frame 2087325516.png](/static/images/design/Dialog/Frame_2087325516.png)
+
+### 대화 상자 내 탐색
+
+대화 상자에 여러 단계가 포함된 경우 "뒤로" 버튼을 사용하여 이전 단계로 돌아갑니다.
+
+![Group 2087326025.png](/static/images/design/Dialog/Group_2087326025.png)
+
+대화 상자에 중첩이 있지만 선형 단계가 아닌 경우, 콘텐츠 영역에 브레드크럼을 사용할 수 있습니다.
+
+![breadcrumbs](/static/images/design/Dialog/breadcrumbs.png)
+
+### 화면 내 대화 상자 위치
+
+대화 상자는 화면 중앙에 세로 및 가로로 정렬됩니다.
+
+뷰포트 크기가 조정될 때 포지셔닝은 유지되며, 대화 상자 크기는 내부 콘텐츠를 방해하지 않는 경우 줄어듭니다.
+
+화면 상단 및 왼쪽 가장자리에서 최소 허용 여백은 20px입니다.
+
+![position](/static/images/design/Dialog/position.png)
+
+창이 뷰포트에 맞지 않으면 상단 및 왼쪽 여백은 고정되고, 대화 상자는 오른쪽 및 하단에서 화면 밖으로 나갑니다. 이는 바람직하지 않은 상태이며, 모든 화면에서 뷰포트에 맞고 화면 가장자리에서 모든 방향으로 최소 20px의 여백을 유지하도록 대화 상자를 설계하는 것이 좋습니다.
+
+### 창 닫기
+
+목표 작업을 수행하는 것 외에도 모달 창은 다음 방법으로 닫을 수 있습니다.
+
+<div className="row">
+   <div className="col-12 col-md-6">
+      1. "취소" 버튼:
+
+```mdx
+<div className="row">
+   <div className="col-12 col-md-6">
+      1. По кнопке «Отмена»:
+
+      ![cancel_btn](/static/images/design/Dialog/cancel_btn.png)
+   </div>
+   <div className="col-12 col-md-6">
+      2. По крестику:
+
+      ![x_btn](/static/images/design/Dialog/x_btn.png)
+   </div>
+</div>
+
+If the dialog is non-blocking, it can be closed in the following ways:
+
+- By clicking outside the modal window.
+- By pressing the Esc key.
+
+The "Cancel" button and the close icon are familiar elements, as they are widely used in dialogs for closing. Clicking outside the modal window helps the user close it more easily and quickly, as they don't need to aim for the first two elements. Pressing the Esc key allows closing the window without using the mouse.
+
+Since interaction is only intended with the dialog window, the content of the parent page should not scroll.
+
+### Protection against user data loss
+
+Due to the ease of closing a modal window, there's a possibility of doing so accidentally. If the user was only selecting checkboxes in the modal window, losing such data is easier to recover from than when the user has been typing code for a long time or re-entering a 12-digit car VIN. We must not allow such situations. At the same time, we should not prevent the user from closing the modal window in their usual way.
+
+To avoid data loss errors, it's best to use an **additional confirmation dialog for data deletion**. In this case, the user will need to confirm the action.
+
+![Pop-up S.png](/static/images/design/Dialog/Pop-up_S%202.png)
+
+Whether to add another confirmation dialog when closing a modal window should be assessed based on common sense. It's important to strike a balance between security and potential annoyance from too frequent prompts. The goal of confirmation is to prevent the loss of user-entered data without hindering their workflow.
+```

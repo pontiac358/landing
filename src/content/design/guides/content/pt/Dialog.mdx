@@ -1,0 +1,131 @@
+**Diálogo** é usado para exibir conteúdo secundário e para focar a atenção do usuário na execução de uma ação ou cenário específico. O diálogo bloqueia a interação do usuário com a página pai até que ele seja fechado ou a ação de destino seja concluída nele.
+
+### Ponto de Entrada
+
+O ponto de entrada para um diálogo pode ser um clique em um gatilho específico (por exemplo, um botão na interface) ou ações específicas ou condições que surgem na interface (por exemplo, tentar sair da página sem salvar dados, ou mudar de conta em outra aba).
+
+### Tamanhos
+
+O tamanho do diálogo é selecionado dependendo do conteúdo.
+
+![Sizes](/static/images/design/Dialog/sizes.png)
+
+**Tamanho S (480 px)** é usado para pequenos avisos ou confirmações, bem como para formulários pequenos.
+
+**Tamanho M (720 px)** é usado para formulários pequenos e médios.
+
+**Tamanho L (900 px)** é usado para dados massivos e fluxos dentro de uma janela modal.
+
+**Tamanho personalizado** é usado quando nenhuma das três opções (`S`, `M` ou `L`) é adequada.
+
+### Área de Conteúdo
+
+O conteúdo dentro do diálogo pode ser arbitrário. O layout é selecionado dependendo das necessidades.
+
+Se o diálogo contiver um formulário, recomenda-se usar um dos dois tipos de layout de elementos:
+
+<div className="row">
+   <div className="col-12 col-md-6">
+      **Tipo Vertical**
+
+      Mais adequado para janelas de texto simples e para o tamanho `S`.
+
+      ![vertical](/static/images/design/Dialog/vertical.png)
+   </div>
+   <div className="col-12 col-md-6">
+      **Tipo Horizontal**
+
+      Adequado para formulários mais complexos.
+
+      ![horizontal](/static/images/design/Dialog/horizontal.png)
+   </div>
+</div>
+
+### Botões
+
+Um botão de ação é necessário quase sempre. Se o usuário não realizou as ações exigidas no diálogo, o botão permanece no estado `Disabled`.
+Na parte esquerda, há uma área para controles arbitrários. Aqui você pode colocar botões auxiliares ou links, por exemplo, informações de ajuda.
+
+![Group 507124116.png](/static/images/design/Dialog/Group_507124116.png)
+
+Aqui está a tradução do arquivo fonte do guia de design para português, mantendo a naturalidade e os elementos técnicos:
+
+Às vezes, em vez de um botão de ação, um botão de perigo pode ser usado (por exemplo, se for um diálogo de exclusão de uma entidade).
+
+![Group 2087325976.png](/static/images/design/Dialog/Group_2087325976.png)
+
+Um botão de ação não é necessário se não houver uma ação alvo e a caixa de diálogo for apenas informativa. Nesse caso, use um botão "Fechar" no estilo `Normal`.
+
+![Frame 2087326371.png](/static/images/design/Dialog/Frame_2087326371.png)
+
+Um botão secundário é sempre usado como botão de cancelamento. Pode ser usado para ações adicionais (por exemplo, "Continuar sem alterações").
+
+![Group 2087326024.png](/static/images/design/Dialog/Group_2087326024.png)
+
+Pode não haver botões. Geralmente, isso acontece quando é necessário fazer uma escolha na própria área de conteúdo, e sem isso a interface pai ficará inacessível.
+
+![Frame 2087325516.png](/static/images/design/Dialog/Frame_2087325516.png)
+
+### Navegação dentro do diálogo
+
+Se a caixa de diálogo prevê um processo de várias etapas, use o botão "Voltar" para retornar.
+
+![Group 2087326025.png](/static/images/design/Dialog/Group_2087326025.png)
+
+Se a caixa de diálogo tiver aninhamento, mas não forem etapas lineares, breadcrumbs podem ser usados na área de conteúdo da janela.
+
+![breadcrumbs](/static/images/design/Dialog/breadcrumbs.png)
+
+### Posicionamento da caixa de diálogo na página
+
+A caixa de diálogo é centralizada na tela vertical e horizontalmente.
+
+Ao redimensionar o viewport, o posicionamento é mantido e o tamanho da caixa de diálogo é reduzido, se isso não interferir no conteúdo interno.
+
+A margem mínima permitida das bordas superior e esquerda da tela é de 20 px.
+
+![position](/static/images/design/Dialog/position.png)
+
+Se a janela não couber no viewport, as margens superior e esquerda permanecerão fixas, e a caixa de diálogo se estenderá para fora da tela pelas bordas direita e inferior. Este é um estado indesejável, e recomenda-se projetar a caixa de diálogo de forma que ela caiba no viewport em qualquer tela, com margens de pelo menos 20 px de todas as bordas em relação à borda da tela.
+
+### Fechando a janela
+
+Além de executar a ação alvo, a janela modal pode ser fechada das seguintes maneiras:
+
+<div className="row">
+   <div className="col-12 col-md-6">
+      1. Pelo botão "Cancelar":
+
+```mdx
+<div className="row">
+   <div className="col-12 col-md-6">
+      1. По кнопке «Отмена»:
+
+      ![cancel_btn](/static/images/design/Dialog/cancel_btn.png)
+   </div>
+   <div className="col-12 col-md-6">
+      2. По крестику:
+
+      ![x_btn](/static/images/design/Dialog/x_btn.png)
+   </div>
+</div>
+
+Se a janela não for bloqueante, ela pode ser fechada das seguintes maneiras:
+
+- Clicando fora da janela modal.
+- Pressionando a tecla Esc.
+
+O botão "Cancelar" e o ícone de fechar (X) são elementos familiares, pois são amplamente utilizados em caixas de diálogo para fechamento. Clicar fora da janela modal ajuda o usuário a fechá-la de forma mais fácil e rápida, pois não é necessário mirar nos dois primeiros elementos. Pressionar a tecla Esc permite fechar a janela sem o uso do mouse.
+
+Como a interação é esperada apenas com a janela de diálogo, o conteúdo da página pai não deve rolar.
+
+### Proteção contra perda de dados do usuário
+
+Devido à facilidade de fechar a janela modal, existe a possibilidade de fazê-lo acidentalmente. Se o usuário selecionou apenas caixas de seleção na janela modal, a perda desses dados é mais fácil de recuperar do que quando o usuário passou muito tempo escrevendo código ou reescrevendo um VIN de carro de 12 dígitos. Não devemos permitir tais situações. Ao mesmo tempo, não devemos impedir o usuário de sair da janela modal da maneira que lhe é familiar.
+
+Para evitar o erro de perda de dados, é melhor usar uma **janela adicional de confirmação de exclusão de dados**. Neste caso, o usuário precisará confirmar a ação.
+
+![Pop-up S.png](/static/images/design/Dialog/Pop-up_S%202.png)
+
+Se é necessário adicionar outra janela de confirmação ao fechar a janela modal, isso deve ser avaliado com base no bom senso. Ao mesmo tempo, é importante manter um equilíbrio entre segurança e o possível aborrecimento de perguntas muito frequentes. O objetivo da confirmação é não perder os dados inseridos pelo usuário, sem impedi-lo de executar o cenário.
+```

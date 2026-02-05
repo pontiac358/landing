@@ -1,42 +1,41 @@
-A **dialog box** is used to display additional content as well as to draw the user's attention to a specific action or scenario. The dialog box blocks the user from interacting with the parent page until it is either closed or the action specified in this window is executed.
+**Dialog** is used to display secondary content and to focus the user's attention on performing a specific action or scenario. A dialog blocks user interaction with the parent page until it is closed or the target action within it is completed.
 
-### Entry point
+### Entry Point
 
-The entry point to the dialog box can be a click on a specific trigger (e.g., a button in the interface) or certain actions or conditions in the interface (e.g., an attempt to leave a page without saving data, or changing an account in another tab).
+The entry point to a dialog can be a click on a specific trigger (e.g., a button in the interface) or certain actions or conditions that arise in the interface (e.g., attempting to leave the page without saving data, or changing accounts in another tab).
 
 ### Sizes
 
-The size of the dialog box is determined by its content.
+The size of the dialog is chosen based on its content.
 
 ![Sizes](/static/images/design/Dialog/sizes.png)
 
+**Size S (480 px)** is used for small warnings or confirmations, as well as small forms.
 
-**Size S - 480 px**: Used for small notifications/confirmations and forms.
+**Size M (720 px)** is used for small and medium-sized forms.
 
-**Size M – 720 px**: Used for small and medium forms
+**Size L (900 px)** is used for large amounts of data and complex flows within the modal window.
 
-**Size L – 900 px**: Used for large amounts of data and flow within a modal window.
+**Custom size** is used when none of the three options (`S`, `M`, or `L`) are suitable.
 
-**Custom size**: Used when none of the three options (S, M, or L) are suitable.
+### Content Area
 
-### Content area
+The content within a dialog can be arbitrary. The layout is chosen based on needs.
 
-The dialog window can contain any type of content. The layout is chosen depending on the requirements of the user.
-
-If the dialog box contains a form, one of two element layouts is recommended:
+If the dialog contains a form, it is recommended to use one of two types of element arrangement:
 
 <div className="row">
    <div className="col-12 col-md-6">
-      **Vertical.** 
-      
-      Best suited for simple text boxes and size S
-      
+      **Vertical Type**
+
+      More suitable for simple text-based dialogs and for size `S`.
+
       ![vertical](/static/images/design/Dialog/vertical.png)
    </div>
    <div className="col-12 col-md-6">
-      **Horizontal.** 
-      
-      Suitable for more complex forms
+      **Horizontal Type**
+
+      Suitable for more complex forms.
 
       ![horizontal](/static/images/design/Dialog/horizontal.png)
    </div>
@@ -44,81 +43,83 @@ If the dialog box contains a form, one of two element layouts is recommended:
 
 ### Buttons
 
-Action button is required in most cases. If the user does not complete the actions specified in the dialog box, the button is Disabled.
-On the left side, there's a section for custom controls, where you can place secondary buttons and links. For example, references.
+An action button is almost always needed. If the user has not completed the required actions in the dialog, the button remains in the `Disabled` state.
+The left side provides an area for arbitrary controls. Here you can place auxiliary buttons or links, such as help information.
 
 ![Group 507124116.png](/static/images/design/Dialog/Group_507124116.png)
 
-In some cases, a Danger button can be used instead of an Action button (e.g., in a dialog box for deleting an entity).
+Sometimes, a `danger` button can be used instead of an `action` button (for example, in a deletion confirmation dialog).
 
 ![Group 2087325976.png](/static/images/design/Dialog/Group_2087325976.png)
 
-Action button is not needed if there is no target action, and the dialog box is for informational purposes only. In this case, you can use the Normal style Close button.
+An `action` button is not needed if there's no primary action and the dialog is purely informational. In such cases, use a "Close" button with the `Normal` style.
 
 ![Frame 2087326371.png](/static/images/design/Dialog/Frame_2087326371.png)
 
-Secondary button is always used as a cancel button. Can be used to perform additional actions (e.g., continue without changes).
+A `secondary` button is always used as a cancel button. It can also be used for secondary actions (e.g., "Continue without changes").
 
 ![Group 2087326024.png](/static/images/design/Dialog/Group_2087326024.png)
 
-There may be no buttons at all. Typically, a selection must be made within the content area itself; otherwise, the parent interface won’t be available.
+Buttons might not be present at all. This is typically the case when a choice needs to be made within the content area itself, and without it, the parent interface would be inaccessible.
 
 ![Frame 2087325516.png](/static/images/design/Dialog/Frame_2087325516.png)
 
-### In-dialog Navigation
+### Navigation within the Dialog
 
-If the dialog box includes multiple steps, use the back button to return to the previous step.
+If the dialog involves a multi-step process, use a "Back" button for navigation.
 
 ![Group 2087326025.png](/static/images/design/Dialog/Group_2087326025.png)
 
-If the dialog box is nested but the steps are not linear, you can use breadcrumbs in the content area of the window.
+If the dialog has nested content but not in a linear step-by-step fashion, breadcrumbs can be used within the content area.
 
 ![breadcrumbs](/static/images/design/Dialog/breadcrumbs.png)
 
-### Positioning the dialog box on the page
+### Dialog Positioning on the Page
 
-The dialog box is aligned with the center of the screen both vertically and horizontally.
+The dialog is centered both vertically and horizontally on the screen.
 
-While scaling the viewport, its positioning remains unchanged, and the size of the dialog window can be reduced as long as it does not affect the content.
+When the viewport scales, the positioning is maintained, and the dialog size decreases, provided it doesn't obstruct the content within.
 
-The minimum allowed spacing from the top and left screen edges is 20px.
+The minimum allowed padding from the top and left edges of the screen is 20 px.
 
 ![position](/static/images/design/Dialog/position.png)
 
-In cases where the window cannot fit within the viewport, the top and left spacing remains unchanged, while the right and bottom edges of the dialog window extend beyond the screen's edges. However, this is not recommended. That's why the dialog box should be designed so that it fits within the viewport and that the spacing on all sides is at least 20px from the screen's edge.
+If the dialog doesn't fit within the viewport, the top and left paddings will remain fixed, and the dialog will extend beyond the screen edges on the right and bottom. This is an undesirable state. It's recommended to design dialogs so they fit within the viewport on any screen, with at least 20 px padding from all edges.
 
-### Closing a window
+### Closing the Dialog
 
-In addition to the target action, the modal window can be closed in the following ways:**:**
+In addition to performing the primary action, the modal dialog can be closed in the following ways:
 
 <div className="row">
    <div className="col-12 col-md-6">
-      1. Cancel button
+      1. By clicking the "Cancel" button:
 
-      ![cancel_btn](/static/images/design/Dialog/cancel_btn.png)
+```md
+   ![cancel_btn](/static/images/design/Dialog/cancel_btn.png)
    </div>
    <div className="col-12 col-md-6">
-      2. 'X' button
+      2. Via the close icon:
 
       ![x_btn](/static/images/design/Dialog/x_btn.png)
    </div>
 </div>
 
-If the window is not modal, it can be closed using one of the following methods:
+If the dialog is non-blocking, it can be closed in the following ways:
 
-- By clicking outside the modal window
-- By pressing the Esc button
+- By clicking outside the modal window.
+- By pressing the Esc key.
 
-The ‘cancel’ and ‘X’ buttons are familiar elements, as they are widely used in dialog boxes. Clicking outside the modal window makes it easier for the user to close it, as they don't have to aim their mouse cursor at a specific element. Pressing the Esc key allows to close the window without a mouse.
+The "Cancel" button and the close icon are familiar elements, as they are universally used in dialog windows for closing. Clicking outside the modal window helps the user close it more easily and quickly, as they don't need to aim for the first two elements. Pressing the Esc key allows closing the window without using the mouse.
 
-Since only the dialog box is expected to be interacted with, the parent page's content should not scroll.
+Since interaction is intended only with the dialog window, the content of the parent page should not scroll.
 
-### Preventing User Data Loss
+### Protection Against User Data Loss
 
-Since it is easy to close a modal window, there is always a chance to do it by accident. If the user selected only check boxes in the modal window, it is easier to recover lost data than if the user spent considerable time writing code or retyping the 12-digit VIN code of the vehicle. So it’s better to avoid such situations. However, we should not prevent the user from closing the modal window in the usual way.
+Due to the ease of closing a modal window, there's a risk of doing so accidentally. If the user was only selecting checkboxes in the modal window, losing such data is easier to recover from than when the user has been typing code for a long time or re-entering a 12-digit car VIN. We must prevent such situations. At the same time, we should not prevent the user from closing the modal window in their usual way.
 
-**To avoid the risk of data loss, we recommend using** an additional confirmation window for data deletion. In this case, the action must be confirmed by the user.
+To avoid data loss errors, it's best to use an **additional confirmation window for data deletion**. In this case, the user will need to confirm the action.
 
 ![Pop-up S.png](/static/images/design/Dialog/Pop-up_S%202.png)
 
-When closing the modal window, use common sense to determine whether another confirmation window is required. It is important to strike a balance between safety and asking too many questions that may annoy the user.  The purpose of confirmation is to prevent losing the user's input while still allowing them to execute the script.
+Whether to add another confirmation window when closing a modal window should be assessed based on common sense. It's important to strike a balance between security and potential annoyance from too frequent prompts. The goal of confirmation is to prevent the loss of user-entered data without hindering their workflow.
+```
