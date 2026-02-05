@@ -1,0 +1,29 @@
+Voici la traduction du fichier source du guide de conception en français :
+
+Le module est l'unité dimensionnelle de base de l'espace dans le système de conception. La grille est construite sur la base du module spatial, et les tailles des composants et des espacements sont calculées et sélectionnées. L'utilisation du module permet d'unifier les principes de définition des espacements et des tailles au sein du système de conception, ainsi que d'assurer la cohérence visuelle des maquettes Figma avec le rendu final en production.
+
+# Module
+
+Dans notre système de conception, nous utilisons un module de 4x4 px pour former et mesurer l'espace. Tous les espacements des conteneurs et des composants sont calculés sur la base de cette taille d'espace. Pour les cas exceptionnels, nous utilisons un micromodule de 2x2 px.
+
+![Group 216614948.png](/static/images/design/Module/Group_216614948.png)
+
+# Système d'espacement
+
+Nous utilisons un nombre limité d'espacements tokenisés qui aident à créer des maquettes claires et cohérentes. Utilisez les tokens Figma prédéfinis lors de la création d'interfaces et de la construction de composants dans le système de conception.
+
+![Frame 216614957.png](/static/images/design/Module/Frame_216614957.png)
+
+# Types d'espacement
+
+![Frame 2087326456.png](/static/images/design/Module/Frame_2087326456.png)
+
+**Espacement interne et externe**
+
+Espacement interne et externe, symétrique ou asymétrique, par rapport aux 4 bords d'un conteneur jusqu'au contenu.
+
+![Frame 2087326462.png](/static/images/design/Module/Frame_2087326462.png)
+
+**Pile horizontale et verticale**
+
+Dans une pile horizontale et verticale, les espacements définissent les relations verticales et horizontales entre les éléments à l'intérieur d'un conteneur.

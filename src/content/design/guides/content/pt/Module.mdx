@@ -1,0 +1,29 @@
+Aqui está a tradução do arquivo fonte do guia de design para português, mantendo a naturalidade e os elementos técnicos:
+
+O módulo é a unidade de medida espacial básica no sistema de design. A grade é construída com base no módulo espacial, e os tamanhos de componentes e espaçamentos são calculados e selecionados com base nele. O uso do módulo permite unificar os princípios de definição de espaçamentos e tamanhos dentro do sistema de design, além de alcançar consistência visual entre os layouts do Figma e a implementação final em produção.
+
+# Módulo
+
+Em nosso sistema de design, usamos um módulo de 4x4 px para formar e medir o espaço. Todos os espaçamentos de contêineres e componentes são calculados com base neste tamanho espacial. Para casos excepcionais, usamos um micromódulo de 2x2 px.
+
+![Group 216614948.png](/static/images/design/Module/Group_216614948.png)
+
+# Sistema de Espaçamento
+
+Utilizamos um número limitado de espaçamentos tokenizados que ajudam a criar layouts limpos e consistentes. Use os tokens pré-configurados do Figma ao criar interfaces e construir componentes no sistema de design.
+
+![Frame 216614957.png](/static/images/design/Module/Frame_216614957.png)
+
+# Tipos de Espaçamento
+
+![Frame 2087326456.png](/static/images/design/Module/Frame_2087326456.png)
+
+**Espaçamento Interno e Externo**
+
+Espaçamento interno e externo, simétrico ou assimétrico, a partir de todas as 4 bordas de um contêiner até o conteúdo.
+
+![Frame 2087326462.png](/static/images/design/Module/Frame_2087326462.png)
+
+**Stack Horizontal e Vertical**
+
+Em um stack horizontal e vertical, os espaçamentos definem as relações verticais e horizontais entre os elementos dentro de um contêiner.
