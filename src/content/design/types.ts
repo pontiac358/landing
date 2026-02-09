@@ -1,4 +1,14 @@
-export const ARTICLE_SUPPORTED_LOCALES = ['en', 'ru', 'es', 'zh'] as const;
+export const ARTICLE_SUPPORTED_LOCALES = [
+    'en',
+    'ru',
+    'es',
+    'zh',
+    'de',
+    'fr',
+    'ja',
+    'ko',
+    'pt',
+] as const;
 export type ArticleSupportedLocale = (typeof ARTICLE_SUPPORTED_LOCALES)[number];
 
 export type Article = {

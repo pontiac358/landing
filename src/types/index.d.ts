@@ -17,3 +17,14 @@ declare module '*.yml' {
     const value: object;
     export default value;
 }
+
+interface WebpackRequireContext {
+    keys(): string[];
+    <T = unknown>(id: string): T;
+    resolve(id: string): string;
+    id: string;
+}
+
+interface NodeRequire {
+    context(directory: string, useSubdirectories?: boolean, regExp?: RegExp): WebpackRequireContext;
+}
