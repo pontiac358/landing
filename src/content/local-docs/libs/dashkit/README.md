@@ -25,12 +25,12 @@ Plugins are required to create custom widgets.
 
 ```ts
 type ItemManipulationCallback = (eventData: {
-    layout: Layout[];
-    oldItem: Layout;
-    newItem: Layout;
-    placeholder: Layout;
-    e: MouseEvent;
-    element: HTMLElement;
+  layout: Layout[];
+  oldItem: Layout;
+  newItem: Layout;
+  placeholder: Layout;
+  e: MouseEvent;
+  element: HTMLElement;
 }) => void;
 
 interface DashKitProps {
@@ -366,6 +366,80 @@ interface ItemsStateAndParamsBase {
 type ItemsStateAndParams = StateAndParamsMeta & ItemsStateAndParamsBase;
 ```
 
+### Experimental DashKit events
+
+> Experimental: this API can change in minor releases.
+
+`DashKit` exposes an experimental instance event API. Use a component ref and subscribe with `dashkitRef.current?.on(eventName, handler)`. The method returns an unsubscribe callback.
+
+The first supported event is `change`. It is emitted when the layout changes, before `onChange` is called. The handler can read the full next and previous layouts, read layout patches, or call `preventDefault()` to stop the default `onChange` call.
+
+```tsx
+import React from 'react';
+import {DashKit} from '@gravity-ui/dashkit';
+import type {DashKitChangeEvent} from '@gravity-ui/dashkit';
+
+function Dashboard() {
+  const dashkitRef = React.useRef<DashKit>(null);
+
+  React.useEffect(() => {
+    const unsubscribe = dashkitRef.current?.on('change', (event: DashKitChangeEvent) => {
+      console.log(event.patches);
+
+      if (event.patches.length > 0) {
+        event.preventDefault();
+      }
+    });
+
+    return () => unsubscribe?.();
+  }, []);
+
+  return <DashKit ref={dashkitRef} config={config} editMode={true} onChange={onChange} />;
+}
+```
+
+```ts
+type DashKitLayoutPatch = Pick<ConfigLayout, 'i'> &
+  Partial<Pick<ConfigLayout, 'x' | 'y' | 'w' | 'h' | 'parent'>>;
+
+type DashKitChangeEvent = {
+  patches: DashKitLayoutPatch[];
+  layout: ConfigLayout[];
+  previousLayout: ConfigLayout[];
+  preventDefault: () => void;
+  readonly defaultPrevented: boolean;
+};
+```
+
+#### Event-driven layout updates
+
+If you use `preventDefault()` in the `change` event handler, you can now handle layout updates without re-initializing the config prop. DashKit maintains an internal baseline and computes patches incrementally:
+
+```tsx
+function Dashboard() {
+  const [config, setConfig] = useState(initialConfig);
+  const dashkitRef = useRef<DashKit>(null);
+
+  useEffect(() => {
+    const unsubscribe = dashkitRef.current?.on('change', (event) => {
+      event.preventDefault(); // Don't call onChange
+
+      // Send only the incremental patches to your backend
+      sendPatches(event.patches);
+
+      // No need to call setConfig({ ...config, layout: event.layout })
+      // DashKit maintains the visual state internally
+    });
+
+    return unsubscribe;
+  }, []);
+
+  return <DashKit ref={dashkitRef} config={config} editMode onChange={() => {}} />;
+}
+```
+
+**Important:** If you later update `config.layout` from props (e.g., from server sync), DashKit will reset its internal baseline to match the new prop. This ensures compatibility with both event-driven and controlled workflows.
+
 ### Menu
 
 You can specify custom DashKit widget overlay menu in edit mode
@@ -406,7 +480,10 @@ interface DashKitDnDWrapperProps {
   dragImageSrc?: string;
   onDragStart?: (dragProps: ItemDragProps) => void;
   onDragEnd?: () => void;
-  onDropDragOver?: (draggedItem: DraggedOverItem, sharedItem: DraggedOverItem | null) => void | boolean;
+  onDropDragOver?: (
+    draggedItem: DraggedOverItem,
+    sharedItem: DraggedOverItem | null,
+  ) => void | boolean;
 }
 ```
 
@@ -416,24 +493,24 @@ interface DashKitDnDWrapperProps {
 
 ```ts
 type ItemDragProps = {
-    type: string; // Plugin type
-    layout?: { // Optional. Layout item size for preview and init
-        w?: number;
-        h?: number;
-    };
-    extra?: any; // Custom user context
+  type: string; // Plugin type
+  layout?: {
+    // Optional. Layout item size for preview and init
+    w?: number;
+    h?: number;
+  };
+  extra?: any; // Custom user context
 };
 ```
 
 ```ts
 type ItemDropProps = {
-    commit: () => void; // Callback should be called after all config operations are made
-    dragProps: ItemDragProps; // Item drag props
-    itemLayout: ConfigLayout; // Calculated item layout dimensions
-    newLayout: ConfigLayout[]; // New layout after element is dropped
+  commit: () => void; // Callback should be called after all config operations are made
+  dragProps: ItemDragProps; // Item drag props
+  itemLayout: ConfigLayout; // Calculated item layout dimensions
+  newLayout: ConfigLayout[]; // New layout after element is dropped
 };
 ```
-
 
 #### Example:
 
@@ -527,7 +604,6 @@ const CustomThemeWrapper = (props: {
 By default, storybook runs on `http://localhost:7120/`.
 New changes from a project aren't always picked up when storybook is running, so it's better to rebuild a project manually and restart storybook.
 
-
 ### Example of an nginx config for development on a dev machine
 
 ```bash
@@ -553,5 +629,36 @@ server {
         proxy_redirect off;
     }
 }
-
 ```
+
+## License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for details.
+
+## For AI agents
+
+A dashboard grid composer that arranges resizable, draggable widgets in a responsive grid via a plugin system — reach for it when you build a user-editable dashboard (add/move/resize/delete widgets) instead of placing individual charts or panels by hand.
+
+### When to use
+
+- Rendering a configurable dashboard where widgets are positioned, resized, and rearranged on a grid (built on `react-grid-layout`).
+- User-editable layouts: adding/removing widgets from an action panel, drag-and-drop, edit mode with overlay controls.
+- Plugin-based widgets where each widget type (title, text, chart, custom) is registered once and driven by a `config`.
+
+### When not to use
+
+- For a single, fixed chart or panel, use [`@gravity-ui/charts`](https://gravity-ui.com/charts) or [`@gravity-ui/chartkit`](https://github.com/gravity-ui/chartkit) directly — the grid/plugin machinery is overhead for one widget.
+- For a general-purpose responsive grid that is not a widget dashboard, use `react-grid-layout` directly.
+- For embedding ChartKit-backed chart widgets inside a DashKit dashboard, DashKit is the shell; it still relies on [`@gravity-ui/chartkit`](https://github.com/gravity-ui/chartkit) to render the actual charts.
+
+### Common pitfalls
+
+- **Hallucinated component `<Dashboard>`** — the export is `<DashKit>` (the drag-and-drop shell is `<DashKitDnDWrapper>` wrapping `<DashKit>` + `<ActionPanel>`).
+- **Mutating `config` instead of using helpers** — use the static `DashKit.setItem({...})` / `DashKit.removeItem({...})` helpers to add/change/remove items so layout and ids stay consistent.
+- **Forgetting `DashKit.setSettings` / `DashKit.registerPlugins`** — the component must be configured (language, grid settings, plugin registration) before it is rendered, or widgets show nothing.
+- **Confusing the two param props** — `defaultGlobalParams` (dashboard-level defaults) vs `globalParams` (URL-overridable globals); both flow into the params generation queue consumed by ChartKit.
+- **Calling `onChange` manually with the `change` event** — when you `event.preventDefault()` in the experimental `change` handler, DashKit keeps the visual state internally; re-setting `config.layout` from props resets that baseline.
+
+## Documentation for AI agents
+
+Agent-readable documentation for the installed version is located in `node_modules/@gravity-ui/dashkit/build/docs/INDEX.md`.
